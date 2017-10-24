@@ -194,6 +194,126 @@ To achieve that go to <a href="https://www.google.com/webmasters/tools/home" tar
 Then go to the `crawl` folder, in `Sitemaps` section ![webtool1](google_star/webtool_1.png)<br>
 Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_star/webtool_2.png)<br>
 
+## Google Star Concrete Example
 
+```shell
+# check ruby tab
+```
 
-<!-- ## Google Star Concrete Example -->
+```erb
+<!-- show.html.erb -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": @glasses.name,
+    "image": @glasses.img,
+    "description": @glasses.description,
+    "brand": "Glasses Inc.",
+    "aggregateRating": @aggregate_rating_content
+  }
+</script>
+<!-- ... -->
+
+<!-- index.html.erb -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "SomeProducts",
+    "name": "Glasses Inc branded glasses",
+    "image": Glasses.global_image,
+    "description": @desc,
+    "brand": "Glasses Inc.",
+    "aggregateRating": @aggregate_rating_index_content
+  }
+</script>
+<!-- ... -->
+```
+
+```ruby
+class GlassesController
+# ...
+
+  DIDUENJOY_API_KEY = '28b22313-bb59-4f78-8bf2-911e7d7aba4b'
+  ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-rating'
+  SURVEY_ID = 'c78543bd-d59b-43fe-9924-3c59dfad901e'
+
+  def get_diduenjoy_aggregate(filters)
+    uri = URI.parse(ENDPOINT_URL)
+    request = Net::HTTP::Post.new(uri)
+    request.basic_auth(DIDUENJOY_API_KEY, '') # empty string is important
+    request.set_form_data(params)
+
+    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(request)
+    end
+
+    response.body if response.is_a?(Net::HTTPSuccess)
+  end
+```
+
+In this example, we will see how to put aggregate ratings for my shop.
+
+Let's have some conditions :
+
+* my company is `glasse_inc`
+* I sell glasses
+* I have different glasses, they differ on color and on shape
+* All my glasses have a uniq ID and a uniq Name (such as `spidernam glasses`)
+* I send one survey (survey_id = `c78543bd-d59b-43fe-9924-3c59dfad901e`) to all my buyers with 3 segment : `internal_id`, `color`, `shape`
+* I have a `get_diduenjoy_aggregate` function in GlassesController which query diduenjoy api
+
+I want to put aggregate function on all my bages so when a user search on google:
+
+* `glasse_inc glasses` he will see the avergage note of all my glasses
+* `blue glasses` he will see the avergage note of all my blue glasses
+* `spidernam glasses` he will find the avergage note of this one
+
+```ruby
+  # params[:filters] with like :
+  # - { colors => ['blue'] }
+  # - { shapes => ['square'], colors: ['red', 'green'] }
+  def index
+    filters = params[:filters]
+    @glasses = apply_filters(Glasses.all, filters)
+    due_fiter = {
+      "filter": {
+        "surveys": [SURVEY_ID],
+        "segments" : {
+          "color": filters['colors'],
+          "shape": filters['shapes']
+        }
+      }
+    }
+    @aggregate_rating_index_content = get_diduenjoy_aggregate(due_fiter)
+    @desc = "Glasses of many shapes and colors" # you can custom it with your filters
+
+    render :index
+  end
+
+  def show
+    id = params[:id]
+    @glasses = Glasses.find(id)
+    due_filter = {
+      "filter": {
+        "surveys": [SURVEY_ID],
+        "segments": {
+          "internal_id": @glasses.id
+        }
+      }
+    }
+    @aggregate_rating_show_content = get_diduenjoy_aggregate(due_filter)
+
+    render :show
+  end
+```
+
+```shell
+# check erb and ruby tab
+```
+
+First of all, define how to use your `filters` param to extract it appropriate filters to query Diduenjoy API.
+Here if we are on an index page filtered (or not) by `shape` and `color`, we use them to query related feedbacks average.
+But if we are on a single product page, we use the product id to get it.
+We get this result into `@aggregate_rating_content` var in instance to use it into our `html.erb` file
+We supose by the way that they are partial views (so `body` and `html` tags are always encapsulate `show` and `index` views)
