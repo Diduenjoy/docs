@@ -6,9 +6,9 @@ Diduenjoy uses API keys to allow access to the API.
 
 To get your own :
 
-1. go to your [diduenjoy dashboard](https://dashboard.diduenjoy.com/settings/api). ![api_key_section](authentication/api_key_section.png)
-2. If you have no Api key in your list or you want a new one, click on the `+ Generate annew API key` button.
-3. Now you juste get it by clicking on `Copy to clipard` button. ![api_key_section_2](authentication/api_key_section_2.png)
+1. go to your <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">diduenjoy dashboard</a>. ![api_key_section](authentication/api_key_section.png)
+2. If you have no Api key in your list or you want a new one, click on the `+ Generate a new API key` button.
+3. Now just get it by clicking on `Copy to clipboard` button. ![api_key_section_2](authentication/api_key_section_2.png)
 
 ## Auth with API key
 
