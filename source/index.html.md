@@ -5,6 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
   - erb
   - shell
+  - php 
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -31,6 +32,8 @@ includes:
   - api/get_survey
   - api/get_surveys
   - api/post_dispatch
+  - easy_methods/index
+  - easy_methods/post_easy_dispatches
 
 search: true
 ---

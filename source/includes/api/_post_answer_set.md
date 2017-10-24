@@ -36,7 +36,7 @@ attribute          | description
 __comment__<br>_string_ | responder comment
 __completed__<br>_boolean_ | Set to true to mark the answer_set as completed and trigger the associated scenarii and third party integrations
 __would_recommend__<br>_integer_ | responder recommendation note
-__segments__<br>_hash { string: string\|array[string] }_ | custom data associated with the answer set
+__segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer set
 
 ### relationships
 
