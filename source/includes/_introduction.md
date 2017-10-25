@@ -1,15 +1,9 @@
 # Introduction
 
-Welcome to the Diduenjoy API! You can use our API to access Diduenjoy API endpoints, which can get information on many diduenjoy entites such as feedbacks, surveys etc ...
+Welcome to the Diduenjoy API official documentation!
 
-We have language bindings in Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The Diduenjoy API is organized around REST and JSON API. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (though you should remember that you should never expose your secret API key in any public website's client-side code). JSON will be returned in all responses from the API, including errors.
 
-This example API documentation page was created by [Diduenjoy](https://github.com/diduenjoy). Feel free to submit us some improvment such as new suported languages or corrections.
+You can view code examples and snippets in different programming language in the right frame and switch between them with the top right tabs.
 
-## What is ![diduenjoy](https://www.diduenjoy.com/en/) ?
-
-Antoine Lecompte from Cheerz :<br>
-'' Diduenjoy is the SaaS tool we were missing to perform real-time monitoring of our service quality and trigger even more efficient actions. It’s simple and fun. We love it and our clients love it!''
-
-Diduenjoy is an online SaaS to create customizable surveys ans scenarios to collect feedbacks and gather, sort and use data with a large amount of customizable auto triggered action to evaluate and improve satifaction. Moreover you can plug it with a lot of others SaaS, webmarketplace, and other apis such as salesforce, intercom, prestashop ...
-
+This API documentation was created by [Diduenjoy](https://github.com/diduenjoy). Feel free to submit us some improvements such as new suported languages or corrections.

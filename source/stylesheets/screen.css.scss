@@ -451,7 +451,6 @@ html, body {
     background-color: rgba(0,0,0,0.05);
     padding: 3px;
     border-radius: 3px;
-    @extend %break-words;
     @extend %code-font;
   }
 
@@ -515,14 +514,12 @@ html, body {
     color: #fff;
 
     margin: 0;
-    width: $examples-width;
-
-    float:right;
-    clear:right;
-
+    margin-right: $examples-width;
+    padding: 0 $main-padding;
     box-sizing: border-box;
+    display: block;
 
-    @extend %right-col;
+    @extend %left-col;
 
     &>p { margin: 0; }
 
@@ -531,6 +528,21 @@ html, body {
       text-decoration: none;
       border-bottom: dashed 1px #ccc;
     }
+  }
+
+  .lang-specific {
+    color: #fff;
+    float:right;
+    clear:right;
+
+    box-sizing: border-box;
+
+    @extend %right-col;
+    width: $examples-width;
+    margin: 0;
+    // code {
+    //   @extend %break-words;
+    // }
   }
 
   pre {
