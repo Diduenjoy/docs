@@ -1,25 +1,29 @@
 # Authentication
 
-## Register/Get an api key
+## Get an API key
 
-Diduenjoy uses API keys to allow access to the API.
+You authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!
 
-To get your own :
+You can find and generate your API keys in the <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">Settings>API page</a> in your diduenjoy dashboard.
 
-1. go to your <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">diduenjoy dashboard</a>. ![api_key_section](authentication/api_key_section.png)
-2. If you have no Api key in your list or you want a new one, click on the `+ Generate a new API key` button.
-3. Now just get it by clicking on `Copy to clipboard` button. ![api_key_section_2](authentication/api_key_section_2.png)
+![api_key_section_2](authentication/api_key_section_2.png)
+
+If you dont have any generated Api key you can create a new one with the `+ Generate a new API key` button.
+
+![api_key_section](authentication/api_key_section.png)
 
 ## Auth with API key
 
-> To authorize, use this code:
+Authentication to the API occurs via HTTP Basic Auth. Provide your API key as the basic auth username. You do not need to provide a password.
 
-```ruby
+<blockquote class="lang-specific"><p>Example request</p></blockquote>
+
+```ruby--Rails
 require 'net/http'
 require 'net/https'
 require 'uri'
 
-uri = URI('https://api.diduenjoy.com/api/whatever')
+uri = URI('https://api.diduenjoy.com/api/v3/companies')
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https',
@@ -27,24 +31,19 @@ Net::HTTP.start(uri.host, uri.port,
 
   request = Net::HTTP::Get.new uri.request_uri
   # keep empty second params
-  request.basic_auth '28b22313-bb59-4f78-8bf2-911e7d7aba4b', ''
+  request.basic_auth 'API_KEY', ''
 
   response = http.request request # Net::HTTPResponse object
 
 end
 ```
 
-```shell
-curl 'https://api.diduenjoy.com/api/whatever' \
- -u '28b22313-bb59-4f78-8bf2-911e7d7aba4b:'
+```shell--cURL
+curl 'https://api.diduenjoy.com/api/v3/companies' \
+ -u 'API_KEY:'
 ```
 
-> Make sure to replace `28b22313-bb59-4f78-8bf2-911e7d7aba4b` with your API key.
+<aside class="notice lang-specific">You must replace <code>API_KEY</code> with your personal API key.</aside>
 
-
-Diduenjoy expects for the API key to be included in all API requests to the server in a header that looks like the following:
-`Authorization: 28b22313-bb59-4f78-8bf2-911e7d7aba4b`
-
-<aside class="notice">
-You must replace <code>28b22313-bb59-4f78-8bf2-911e7d7aba4b</code> with your personal API key.
-</aside>
+Diduenjoy expects for all API requests to have the Base64 encoded API key in the `Authorization` header
+`Authorization: Basic BASE64_API_KEY`

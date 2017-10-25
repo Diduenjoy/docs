@@ -1,26 +1,43 @@
-# Google star rating
+# Google Star Ratings
 
-During a google search, you can see some star ratings appear beside results on what you are looking for.
-It's done through a system of tags and markups which google will crawl though your site automaticly or on your demand.
-With diduenjoy, you are able to collect some reviews for products or group of products and this guide shows you how to link these reviews and the google star rating system.
+In the *Google search engine*, some star ratings can appear beside results.
 
-## First look
+![client_docs-google_rating-example](google_star/client_docs-google_rating-example.png)
 
-```ruby
-# check erb tab
-```
+To get a similar result you have to gather reviews and add a html snippet to your website.
 
-```shell
-# check erb tab
-```
+<aside class="success">
+  This guide explains how to link your <i>Diduenjoy</i> gathered reviews and the *Google Star Ratings*.
+</aside>
 
-```erb
+## Getting started
+
+### 4 Actors
+
+- *The merchant* selling items (products, services, etc...)
+- *The customers*
+- *Google*
+- *Diduenjoy*
+
+### The workflow
+
+1. Some *customers* buy items from *the merchant*
+1. *The merchant* notifies *Diduenjoy* about the transactions
+1. *Diduenjoy* sends surveys to *the customers*
+1. *The Customers* answer to the *Diduenjoy* surveys
+1. *The merchant* fetch the data gathered by *Diduenjoy* and updates his items or categories webpages metadata
+1. *Google* crawls *the merchant* website and update the search results stars according the webpages metadata
+
+
+### The metadata snippet
+
+```html--
 <html>
   <head>
-    <title>Page of my product aswesomeProduct</title>
+    <title>Page of my product aswesome Product</title>
   </head>
   <body>
-    <!-- ...  -->
+    <!-- ... -->
     <script type="application/ld+json">
       {
         "@context": "http://schema.org/",
@@ -37,29 +54,26 @@ With diduenjoy, you are able to collect some reviews for products or group of pr
         }
       }
     </script>
+    <!-- ... -->
   </body>
 </html>
 ```
 
-Here is an example of data you need to place in a product html page in order to see related note on google search result for this product (check erb tab).
+Here is an example of data you need to place in a product html page in order to see related note on google search result for this product.
 
 You should keep in mind that if you put more than one script per page, the behaviour is unpredictable. Indeed, if your page with many products (such as all your blues shoes) apears in a google search, the rating must contains all your blue shoes ratings, or eventualy nothing if you don't want this behaviour.
 
 The important data we need to replace here is `aggregateRating`.<br>
-Luckly diduenjoy provides an endpoint to gives you dynamicly the related rating of your product page collected through your feedbacks !<br>
+Luckly diduenjoy provides an endpoint to gives you dynamicaly the related rating of your product page collected through your feedbacks!<br>
 Of course you need to replace other fileds like `name`, `image`, `description`, `brand` and eventualy `@type`.<br>
-Check it out [this example](#google-star-concrete-example) to apply this to your own pages !
+Check it out [this example](#google-star-concrete-example) to apply this to your own pages!
 
 ## Script structure
 * The script you will put information in should be insert into your product's page `body` html tag
 * This script is of `application/ld+json` type
 * It contains a json block. It's a collection of key/values :
 
-```ruby
-# check erb tab
-```
-
-```erb
+```erb--Rails
 <html>
   <body>
     <!-- ...  -->
@@ -83,18 +97,15 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 </html>
 ```
 
-```shell
-# check erb tab
-```
 |key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |value|
 ----|-|-|
-`"@context"`| **Constant String, required**<br><br>Let its value to `http://schema.org/`
-`"@type"`| **String, required**<br><br> Should be from (here)[http://schema.org/docs/full.html].You will mainly use `Product` and `SomeProducts` (group of products)
-`"name"`| **String, required**<br><br>The name of your product
-`"image"` | **String, recommended**<br><br>The url of your product image
-`"description"`| **String, recommended**<br><br>The description of your product
-`"brand"`| **String, recommended**<br><br>Your Brand name
-`"aggregateRating"`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-rating-endpoint)
+`@context`| **Constant String, required**<br><br>Let its value to `http://schema.org/`
+`@type`| **String, required**<br><br> Should be from (here)[http://schema.org/docs/full.html].You will mainly use `Product` and `SomeProducts` (group of products)
+`name`| **String, required**<br><br>The name of your product
+`image` | **String, recommended**<br><br>The url of your product image
+`description`| **String, recommended**<br><br>The description of your product
+`brand`| **String, recommended**<br><br>Your Brand name
+`aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-rating-endpoint)
 
 <aside class="notice">
   JSON is a format where keys and values are always between double quotes (even a number should be a string)
@@ -126,7 +137,7 @@ The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/agg
 
 ### All in
 
-```ruby
+```ruby--Rails
 require 'net/http'
 
 DIDUENJOY_API_KEY = '28b22313-bb59-4f78-8bf2-911e7d7aba4b'
@@ -176,7 +187,7 @@ Now if we want to retrieve ratings of the feedbacks send through 2 surveys filte
 
 ## Test it
 
-Once you have dynamicly (or not) generated these scripts and retrieved related datas, you should test your scripts content to check if its content is valid.
+Once you have dynamicaly (or not) generated these scripts and retrieved related datas, you should test your scripts content to check if its content is valid.
 You can perform this easily : <br>
 - go to <a href="https://search.google.com/structured-data/testing-tool/u/0/" target='_blank'>this google page</a>.<br>
 - choose `code block`![google_star_test](google_star/test.png)<br>
@@ -185,12 +196,12 @@ You can perform this easily : <br>
 
 It should't shows any error and you should see an aggregate rating corresponding to the average of your filtered feedbacks.
 
-## Notify Google something changed !
+## Notify Google something changed!
 
 Once in production, you should notice Google that something changed on your website and it should crawl your data to update google search results related to your product(s) pages.
 update your sitemaps and :
 
-To achieve that go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">google webtool</a><br>
+To achieve that go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
 Then go to the `crawl` folder, in `Sitemaps` section ![webtool1](google_star/webtool_1.png)<br>
 Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_star/webtool_2.png)<br>
 

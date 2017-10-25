@@ -54,4 +54,9 @@ set :port, 4500
 
 helpers do
   require './lib/toc_data.rb'
+  def language_tab(language_tag, &block)
+    content_tag(:div, { class: "lang-specific #{language_tag}"}, &block)
+  end
 end
+
+# require './lib/language_tab.rb'
