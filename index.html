@@ -1,0 +1,1649 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;cURL&quot;,&quot;Rails&quot;,&quot;php&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="cURL">cURL</a>
+              <a href="#" data-language-name="Rails">Rails</a>
+              <a href="#" data-language-name="php">php</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-an-api-key" class="toc-h2 toc-link" data-title="Authentication">Get an API key</a>
+                  </li>
+                  <li>
+                    <a href="#auth-with-api-key" class="toc-h2 toc-link" data-title="Authentication">Auth with API key</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#google-star-ratings" class="toc-h1 toc-link" data-title="Google Star Ratings">Google Star Ratings</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-started" class="toc-h2 toc-link" data-title="Google Star Ratings">Getting started</a>
+                  </li>
+                  <li>
+                    <a href="#script-structure" class="toc-h2 toc-link" data-title="Google Star Ratings">Script structure</a>
+                  </li>
+                  <li>
+                    <a href="#diduenjoy-aggregate-rating-endpoint" class="toc-h2 toc-link" data-title="Google Star Ratings">Diduenjoy aggregate rating endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#test-it" class="toc-h2 toc-link" data-title="Google Star Ratings">Test it</a>
+                  </li>
+                  <li>
+                    <a href="#notify-google-something-changed" class="toc-h2 toc-link" data-title="Google Star Ratings">Notify Google something changed!</a>
+                  </li>
+                  <li>
+                    <a href="#google-star-concrete-example" class="toc-h2 toc-link" data-title="Google Star Ratings">Google Star Concrete Example</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-v1-reference" class="toc-h1 toc-link" data-title="API V1 Reference">API V1 Reference</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-code-answer_sets-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/answer_sets/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-answer_sets-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/answer_sets</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-answer_sets-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/answer_sets</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-choices-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/choices/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-clients-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/clients/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-clients-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/clients</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-clients-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/clients</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-companies-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/companies</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-companies-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/companies/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-languages-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/languages/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-languages-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/languages</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-questions-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/questions/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-survey_languages-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/survey_languages/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-surveys-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/surveys/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-surveys-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/surveys</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-dispatches-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/dispatches</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#easy-api-v1-reference" class="toc-h1 toc-link" data-title="Easy API V1 Reference">Easy API V1 Reference</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-code-easy_dispatches-code" class="toc-h2 toc-link" data-title="Easy API V1 Reference">POST <code>/easy_dispatches</code></a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Diduenjoy API official documentation!</p>
+
+<p>The Diduenjoy API is organized around REST and JSON API. Our API is designed to have predictable, resource-oriented URLs and to use HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP authentication and HTTP verbs, which can be understood by off-the-shelf HTTP clients, and we support cross-origin resource sharing to allow you to interact securely with our API from a client-side web application (though you should remember that you should never expose your secret API key in any public website&#39;s client-side code). JSON will be returned in all responses from the API, including errors.</p>
+
+<p>You can view code examples and snippets in different programming language in the right frame and switch between them with the top right tabs.</p>
+
+<p>This API documentation was created by <a href="https://github.com/diduenjoy">Diduenjoy</a>. Feel free to submit us some improvements such as new suported languages or corrections.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='get-an-api-key'>Get an API key</h2>
+<p>You authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!</p>
+
+<p>You can find and generate your API keys in the <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">Settings&gt;API page</a> in your diduenjoy dashboard.</p>
+
+<p><img src="images/authentication/api_key_section_2.png" alt="api_key_section_2" /></p>
+
+<p>If you dont have any generated Api key you can create a new one with the <code>+ Generate a new API key</code> button.</p>
+
+<p><img src="images/authentication/api_key_section.png" alt="api_key_section" /></p>
+<h2 id='auth-with-api-key'>Auth with API key</h2>
+<p>Authentication to the API occurs via HTTP Basic Auth. Provide your API key as the basic auth username. You do not need to provide a password.</p>
+
+<blockquote class="lang-specific"><p>Example request</p></blockquote>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'net/https'</span>
+<span class="nb">require</span> <span class="s1">'uri'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.diduenjoy.com/api/v3/companies'</span><span class="p">)</span>
+
+<span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span>
+  <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">,</span>
+  <span class="ss">:verify_mode</span> <span class="o">=&gt;</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">SSL</span><span class="o">::</span><span class="no">VERIFY_NONE</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+
+  <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span> <span class="n">uri</span><span class="p">.</span><span class="nf">request_uri</span>
+  <span class="c1"># keep empty second params</span>
+  <span class="n">request</span><span class="p">.</span><span class="nf">basic_auth</span> <span class="s1">'API_KEY'</span><span class="p">,</span> <span class="s1">''</span>
+
+  <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span> <span class="n">request</span> <span class="c1"># Net::HTTPResponse object</span>
+
+<span class="k">end</span>
+</code></pre><pre class="highlight shell lang-specific cURL"><code>curl <span class="s1">'https://api.diduenjoy.com/api/v3/companies'</span> <span class="se">\</span>
+ -u <span class="s1">'API_KEY:'</span>
+</code></pre>
+<aside class="notice lang-specific">You must replace <code>API_KEY</code> with your personal API key.</aside>
+
+<p>Diduenjoy expects for all API requests to have the Base64 encoded API key in the <code>Authorization</code> header
+<code>Authorization: Basic BASE64_API_KEY</code></p>
+<h1 id='google-star-ratings'>Google Star Ratings</h1>
+<p>In the <em>Google search engine</em>, some star ratings can appear beside results.</p>
+
+<p><img src="images/google_star/client_docs-google_rating-example.png" alt="client_docs-google_rating-example" /></p>
+
+<p>To get a similar result you have to gather reviews and add a html snippet to your website.</p>
+
+<aside class="success">
+  This guide explains how to link your <i>Diduenjoy</i> gathered reviews and the *Google Star Ratings*.
+</aside>
+<h2 id='getting-started'>Getting started</h2><h3 id='4-actors'>4 Actors</h3>
+<ul>
+<li><em>The merchant</em> selling items (products, services, etc...)</li>
+<li><em>The customers</em></li>
+<li><em>Google</em></li>
+<li><em>Diduenjoy</em></li>
+</ul>
+<h3 id='the-workflow'>The workflow</h3>
+<ol>
+<li>Some <em>customers</em> buy items from <em>the merchant</em></li>
+<li><em>The merchant</em> notifies <em>Diduenjoy</em> about the transactions</li>
+<li><em>Diduenjoy</em> sends surveys to <em>the customers</em></li>
+<li><em>The Customers</em> answer to the <em>Diduenjoy</em> surveys</li>
+<li><em>The merchant</em> fetch the data gathered by <em>Diduenjoy</em> and updates his items or categories webpages metadata</li>
+<li><em>Google</em> crawls <em>the merchant</em> website and update the search results stars according the webpages metadata</li>
+</ol>
+<h3 id='the-metadata-snippet'>The metadata snippet</h3><pre class="highlight html lang-specific "><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Page of my product aswesome Product<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/ld+json"</span><span class="nt">&gt;</span>
+      <span class="p">{</span>
+        <span class="s2">"@context"</span><span class="p">:</span> <span class="s2">"http://schema.org/"</span><span class="p">,</span>
+        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"Product"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"aswesomeProduct"</span><span class="p">,</span>
+        <span class="s2">"image"</span><span class="p">:</span> <span class="s2">"http://www.adress.of.aswesomeProduct.image.jpeg"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"My aswesomeProduct desc which appears too in google search"</span><span class="p">,</span>
+        <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"AwseomeCompany"</span><span class="p">,</span>
+        <span class="s2">"aggregateRating"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"AggregateRating"</span><span class="p">,</span>
+          <span class="s2">"ratingValue"</span><span class="p">:</span> <span class="s2">"8.1"</span><span class="p">,</span>
+          <span class="s2">"bestRating"</span> <span class="p">:</span> <span class="s2">"10"</span><span class="p">,</span>
+          <span class="s2">"reviewCount"</span><span class="p">:</span> <span class="s2">"42"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+    <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+<p>Here is an example of data you need to place in a product html page in order to see related note on google search result for this product.</p>
+
+<p>You should keep in mind that if you put more than one script per page, the behaviour is unpredictable. Indeed, if your page with many products (such as all your blues shoes) apears in a google search, the rating must contains all your blue shoes ratings, or eventualy nothing if you don&#39;t want this behaviour.</p>
+
+<p>The important data we need to replace here is <code>aggregateRating</code>.<br>
+Luckly diduenjoy provides an endpoint to gives you dynamicaly the related rating of your product page collected through your feedbacks!<br>
+Of course you need to replace other fileds like <code>name</code>, <code>image</code>, <code>description</code>, <code>brand</code> and eventualy <code>@type</code>.<br>
+Check it out <a href="#google-star-concrete-example">this example</a> to apply this to your own pages!</p>
+<h2 id='script-structure'>Script structure</h2>
+<ul>
+<li>The script you will put information in should be insert into your product&#39;s page <code>body</code> html tag</li>
+<li>This script is of <code>application/ld+json</code> type</li>
+<li>It contains a json block. It&#39;s a collection of key/values :</li>
+</ul>
+<pre class="highlight erb lang-specific Rails"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- ...  --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/ld+json"</span><span class="nt">&gt;</span>
+      <span class="p">{</span>
+        <span class="s2">"@context"</span><span class="p">:</span> <span class="s2">"http://schema.org/"</span><span class="p">,</span>
+        <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"Product"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Raposce scissors 16 cm"</span><span class="p">,</span>
+        <span class="s2">"image"</span><span class="p">:</span> <span class="s2">"https://mysite.images_api/products/raposce_ciseaux_16.jpeg"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Precision-Sharpened Blades for Smooth Cutting Action with 16 cm blades."</span><span class="p">,</span>
+        <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"Raposce"</span><span class="p">,</span>
+        <span class="s2">"aggregateRating"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"AggregateRating"</span><span class="p">,</span>
+          <span class="s2">"ratingValue"</span><span class="p">:</span> <span class="s2">"8.1"</span><span class="p">,</span>
+          <span class="s2">"bestRating"</span> <span class="p">:</span> <span class="s2">"10"</span><span class="p">,</span>
+          <span class="s2">"reviewCount"</span><span class="p">:</span> <span class="s2">"42"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+<th>value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>@context</code></td>
+<td><strong>Constant String, required</strong><br><br>Let its value to <code>http://schema.org/</code></td>
+</tr>
+<tr>
+<td><code>@type</code></td>
+<td><strong>String, required</strong><br><br> Should be from (here)[http://schema.org/docs/full.html].You will mainly use <code>Product</code> and <code>SomeProducts</code> (group of products)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><strong>String, required</strong><br><br>The name of your product</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td><strong>String, recommended</strong><br><br>The url of your product image</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td><strong>String, recommended</strong><br><br>The description of your product</td>
+</tr>
+<tr>
+<td><code>brand</code></td>
+<td><strong>String, recommended</strong><br><br>Your Brand name</td>
+</tr>
+<tr>
+<td><code>aggregateRating</code></td>
+<td><strong>JsonObject, required</strong><br><br> The data which gives your product rating to Google. Provided by <a href="#diduenjoy-aggregate-rating-endpoint">this diduenjoy enpoint</a></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  JSON is a format where keys and values are always between double quotes (even a number should be a string)
+</aside>
+<h2 id='diduenjoy-aggregate-rating-endpoint'>Diduenjoy aggregate rating endpoint</h2>
+<p>This provided enpoint is used to retrieve the JsonObject to insert into your script in front of the <code>&quot;aggregateRating&quot;</code> key.
+It takes one optionaly (but recommanded) parameter named <code>Filter</code>. If you gives none, the enpoint will gives you the ratings gathers through ALL your feedbacks (and not on one product exepct if you sell only one product).</p>
+<h3 id='filter'>Filter</h3>
+<p><code>Filter</code> param may have 2 keys, which means you can retrieve the rating of your product(s) with 2 filters that are <code>surveys</code> and <code>segments</code>
+<aside class="notice">If you want a rating for one product, your filters must be as restrictive as possible. Conversely, if you want an aggregate note for an index of products (such as all your blues shoes), filter should logicaly contains less filters than the previous example.
+</aside></p>
+<h4 id='surveys'>Surveys</h4>
+<p>The surveys filter is an array of the surveys you use to collect feedbacks on this particular product(s)</p>
+<h4 id='segments'>Segments</h4>
+<p>The segments filter is an object of keys/array.
+* The key should be the name of the segment you want to filter by such as <code>Color</code>, <code>ProductName</code> or <code>ProductId</code>
+* The array should contains a list of values to filter by such as <code>[&#39;red&#39;, &#39;green&#39;]</code>, <code>[&#39;Camambert Fermier 1 an&#39;]</code>, or <code>[&#39;123456&#39;]</code></p>
+<h3 id='url'>Url</h3>
+<p>The url of this enpoint is the following : <code>https://api.diduenjoy.com/api/v3/aggregate-rating</code></p>
+<h3 id='all-in'>All in</h3><pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+
+<span class="no">DIDUENJOY_API_KEY</span> <span class="o">=</span> <span class="s1">'28b22313-bb59-4f78-8bf2-911e7d7aba4b'</span>
+<span class="no">ENDPOINT_URL</span> <span class="o">=</span> <span class="s1">'https://api.diduenjoy.com/api/v3/aggregate-rating'</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"surveys"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s2">"ef053beb-8dbb-4cc1-88dd-4ea4fbfc236e"</span><span class="p">,</span>
+      <span class="s2">"515d627e-1dd4-41ca-ba12-41b2db5268a5"</span>
+    <span class="p">],</span>
+    <span class="s2">"segments"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"ProductName"</span> <span class="p">:</span> <span class="p">[</span><span class="s2">"Sonline 10pcs 20mm"</span><span class="p">],</span>
+      <span class="s2">"color"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"silver"</span><span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ENDPOINT_URL</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">basic_auth</span><span class="p">(</span><span class="no">DIDUENJOY_API_KEY</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="c1"># empty string is important</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">set_form_data</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+  <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="vi">@aggregate_rating</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Net</span><span class="o">::</span><span class="no">HTTPSuccess</span><span class="p">)</span>
+</code></pre>
+<p>Now if we want to retrieve ratings of the feedbacks send through 2 surveys filtered by 2 segments with values with those given ones :
+<ul>
+  <li>surveys :<code>ef053beb-8dbb-4cc1-88dd-4ea4fbfc236e</code> and<code>515d627e-1dd4-41ca-ba12-41b2db5268a5</code></li>
+  <li>
+    segments :
+    <ul>
+      <li><code>ProductName</code> :<code>Sonline 10pcs 20mm</code></li>
+      <li><code>color</code> :<code>silver</code></li>
+    </ul>
+  </li>
+</ul>
+<aside class="notice">
+  <ul>
+    <li>You need to be authenticated to retrieve data from this endpoint</li>
+    <li>Do not forget to use Arrays as <code>surveys</code> and <code>named_segments</code> values</li>
+  </ul>
+</aside></p>
+<h2 id='test-it'>Test it</h2>
+<p>Once you have dynamicaly (or not) generated these scripts and retrieved related datas, you should test your scripts content to check if its content is valid.
+You can perform this easily : <br>
+- go to <a href="https://search.google.com/structured-data/testing-tool/u/0/" target='_blank'>this google page</a>.<br>
+- choose <code>code block</code><img src="images/google_star/test.png" alt="google_star_test" /><br>
+- paste all your html product(s) page and click on <code>test</code><br>
+- you should see something like that : <img src="images/google_star/test_1.png" alt="google_star_test_1" /><br></p>
+
+<p>It should&#39;t shows any error and you should see an aggregate rating corresponding to the average of your filtered feedbacks.</p>
+<h2 id='notify-google-something-changed'>Notify Google something changed!</h2>
+<p>Once in production, you should notice Google that something changed on your website and it should crawl your data to update google search results related to your product(s) pages.
+update your sitemaps and :</p>
+
+<p>To achieve that go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
+Then go to the <code>crawl</code> folder, in <code>Sitemaps</code> section <img src="images/google_star/webtool_1.png" alt="webtool1" /><br>
+Finaly, click on <code>add/test</code> sitemaps and click on submit. <img src="images/google_star/webtool_2.png" alt="webtool2" /><br></p>
+<h2 id='google-star-concrete-example'>Google Star Concrete Example</h2>
+<blockquote class="lang-specific Rails"><p>controllers/glasses_controller.rb</p></blockquote>
+<pre class="highlight ruby lang-specific Rails"><code><span class="k">class</span> <span class="nc">GlassesController</span>
+<span class="c1"># ...</span>
+
+  <span class="no">ENDPOINT_URL</span> <span class="o">=</span> <span class="s1">'https://api.diduenjoy.com/api/v3/aggregate-rating'</span>
+
+  <span class="k">def</span> <span class="nf">get_diduenjoy_aggregate</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
+    <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ENDPOINT_URL</span><span class="p">)</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
+    <span class="n">request</span><span class="p">.</span><span class="nf">basic_auth</span><span class="p">(</span><span class="no">DIDUENJOY_API_KEY</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="c1"># empty string is important</span>
+    <span class="n">request</span><span class="p">.</span><span class="nf">set_form_data</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">hostname</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">http</span><span class="o">|</span>
+      <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Net</span><span class="o">::</span><span class="no">HTTPSuccess</span><span class="p">)</span>
+  <span class="k">end</span>
+</code></pre>
+<blockquote class="lang-specific Rails"><p>glasses/show.html.erb</p></blockquote>
+<pre class="highlight erb lang-specific Rails"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/ld+json"</span><span class="nt">&gt;</span>
+  <span class="p">{</span>
+    <span class="s2">"@context"</span><span class="p">:</span> <span class="s2">"http://schema.org/"</span><span class="p">,</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"Product"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">@</span><span class="nd">glasses</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+    <span class="s2">"image"</span><span class="p">:</span> <span class="p">@</span><span class="nd">glasses</span><span class="p">.</span><span class="nx">img</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="p">:</span> <span class="p">@</span><span class="nd">glasses</span><span class="p">.</span><span class="nx">description</span><span class="p">,</span>
+    <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"Glasses Inc."</span><span class="p">,</span>
+    <span class="s2">"aggregateRating"</span><span class="p">:</span> <span class="p">@</span><span class="nd">aggregate_rating_content</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre>
+<blockquote class="lang-specific Rails"><p>glasses/index.html.erb</p></blockquote>
+<pre class="highlight erb lang-specific Rails"><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"application/ld+json"</span><span class="nt">&gt;</span>
+  <span class="p">{</span>
+    <span class="s2">"@context"</span><span class="p">:</span> <span class="s2">"http://schema.org/"</span><span class="p">,</span>
+    <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"SomeProducts"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Glasses Inc branded glasses"</span><span class="p">,</span>
+    <span class="s2">"image"</span><span class="p">:</span> <span class="nx">Glasses</span><span class="p">.</span><span class="nx">global_image</span><span class="p">,</span>
+    <span class="s2">"description"</span><span class="p">:</span> <span class="p">@</span><span class="nd">desc</span><span class="p">,</span>
+    <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"Glasses Inc."</span><span class="p">,</span>
+    <span class="s2">"aggregateRating"</span><span class="p">:</span> <span class="p">@</span><span class="nd">aggregate_rating_index_content</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre><pre class="highlight shell lang-specific cURL"><code><span class="c"># check ruby tab</span>
+</code></pre><pre class="highlight php lang-specific php"><code>// check ruby tab
+</code></pre>
+<p>In this example, we will see how to put aggregate ratings for my shop.</p>
+
+<p>Let&#39;s have some conditions :</p>
+
+<ul>
+<li>my company is <code>glasse_inc</code></li>
+<li>I sell glasses</li>
+<li>I have different glasses, they differ on color and on shape</li>
+<li>All my glasses have a uniq ID and a uniq Name (such as <code>spidernam glasses</code>)</li>
+<li>I send one survey (survey_id = <code>c78543bd-d59b-43fe-9924-3c59dfad901e</code>) to all my buyers with 3 segment : <code>internal_id</code>, <code>color</code>, <code>shape</code></li>
+<li>I have a <code>get_diduenjoy_aggregate</code> function in GlassesController which query diduenjoy api</li>
+</ul>
+
+<p>I want to put aggregate function on all my bages so when a user search on google:</p>
+
+<ul>
+<li><code>glasse_inc glasses</code> he will see the avergage note of all my glasses</li>
+<li><code>blue glasses</code> he will see the avergage note of all my blue glasses</li>
+<li><code>spidernam glasses</code> he will find the avergage note of this one</li>
+</ul>
+<pre class="highlight ruby lang-specific Rails"><code>  <span class="c1"># params[:filters] with like :</span>
+  <span class="c1"># - { colors =&gt; ['blue'] }</span>
+  <span class="c1"># - { shapes =&gt; ['square'], colors: ['red', 'green'] }</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:filters</span><span class="p">]</span>
+    <span class="vi">@glasses</span> <span class="o">=</span> <span class="n">apply_filters</span><span class="p">(</span><span class="no">Glasses</span><span class="p">.</span><span class="nf">all</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
+    <span class="n">due_fiter</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"surveys"</span><span class="p">:</span> <span class="p">[</span><span class="no">SURVEY_ID</span><span class="p">],</span>
+        <span class="s2">"segments"</span> <span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"color"</span><span class="p">:</span> <span class="n">filters</span><span class="p">[</span><span class="s1">'colors'</span><span class="p">],</span>
+          <span class="s2">"shape"</span><span class="p">:</span> <span class="n">filters</span><span class="p">[</span><span class="s1">'shapes'</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="vi">@aggregate_rating_index_content</span> <span class="o">=</span> <span class="n">get_diduenjoy_aggregate</span><span class="p">(</span><span class="n">due_fiter</span><span class="p">)</span>
+    <span class="vi">@desc</span> <span class="o">=</span> <span class="s2">"Glasses of many shapes and colors"</span> <span class="c1"># you can custom it with your filters</span>
+
+    <span class="n">render</span> <span class="ss">:index</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span>
+    <span class="vi">@glasses</span> <span class="o">=</span> <span class="no">Glasses</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+    <span class="n">due_filter</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s2">"filter"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"surveys"</span><span class="p">:</span> <span class="p">[</span><span class="no">SURVEY_ID</span><span class="p">],</span>
+        <span class="s2">"segments"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"internal_id"</span><span class="p">:</span> <span class="vi">@glasses</span><span class="p">.</span><span class="nf">id</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="vi">@aggregate_rating_show_content</span> <span class="o">=</span> <span class="n">get_diduenjoy_aggregate</span><span class="p">(</span><span class="n">due_filter</span><span class="p">)</span>
+
+    <span class="n">render</span> <span class="ss">:show</span>
+  <span class="k">end</span>
+</code></pre><pre class="highlight shell lang-specific cURL"><code><span class="c"># check ruby tab</span>
+</code></pre><pre class="highlight php lang-specific php"><code>// check ruby tab
+</code></pre>
+<p>First of all, define how to use your <code>filters</code> param to extract it appropriate filters to query Diduenjoy API.
+Here if we are on an index page filtered (or not) by <code>shape</code> and <code>color</code>, we use them to query related feedbacks average.
+But if we are on a single product page, we use the product id to get it.
+We get this result into <code>@aggregate_rating_content</code> var in instance to use it into our <code>html.erb</code> file
+We supose by the way that they are partial views (so <code>body</code> and <code>html</code> tags are always encapsulate <code>show</code> and <code>index</code> views)</p>
+<h1 id='api-v1-reference'>API V1 Reference</h1><h2 id='get-code-answer_sets-id-code'>GET <code>/answer_sets/:id</code></h2>
+<p>Get a single answer_set</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">answer_set_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-ANSWER_SET-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/answer_sets/</span><span class="si">#{</span><span class="n">answer_set_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>answer_set creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>answer_set last modification date</td>
+</tr>
+<tr>
+<td><strong>comment</strong><br><em>string</em></td>
+<td>responder comment</td>
+</tr>
+<tr>
+<td><strong>completed</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the responder completed all your survey pages else &quot;false&quot;</td>
+</tr>
+<tr>
+<td><strong>would_recommend</strong><br><em>integer</em></td>
+<td>responder recommendation note</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br>_hash { string: string\</td>
+<td>array[string] }_</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>client</strong></td>
+<td>answer_set responder</td>
+</tr>
+<tr>
+<td><strong>survey_language</strong></td>
+<td>answer_set survey_language</td>
+</tr>
+<tr>
+<td><strong>choices</strong></td>
+<td>responder choices</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-answer_sets-code'>GET <code>/answer_sets</code></h2>
+<p>List all your answer_sets</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/answer_sets'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>answer_set creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>answer_set last modification date</td>
+</tr>
+<tr>
+<td><strong>comment</strong><br><em>string</em></td>
+<td>responder comment</td>
+</tr>
+<tr>
+<td><strong>completed</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the responder completed all your survey pages else &quot;false&quot;</td>
+</tr>
+<tr>
+<td><strong>would_recommend</strong><br><em>integer</em></td>
+<td>responder recommendation note</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>client</strong></td>
+<td>answer_set responder</td>
+</tr>
+<tr>
+<td><strong>survey_language</strong></td>
+<td>answer_set survey_language</td>
+</tr>
+<tr>
+<td><strong>choices</strong></td>
+<td>responder choices</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-answer_sets-code'>POST <code>/answer_sets</code></h2>
+<p>Create an answer_set</p>
+
+<blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"would_recommend"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Perfect !"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">"42"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"client"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clients"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CLIENT-UUID"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"survey_language"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survey_languages"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SURVEY-LANGUAGE-UUID"</span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>comment</strong><br><em>string</em></td>
+<td>responder comment</td>
+</tr>
+<tr>
+<td><strong>completed</strong><br><em>boolean</em></td>
+<td>Set to true to mark the answer_set as completed and trigger the associated scenarii and third party integrations</td>
+</tr>
+<tr>
+<td><strong>would_recommend</strong><br><em>integer</em></td>
+<td>responder recommendation note</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>custom data associated with the answer set</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>client</strong><br>required</td>
+<td>answer_set responder</td>
+</tr>
+<tr>
+<td><strong>survey_language</strong><br>required</td>
+<td>answer_set survey_language</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-choices-id-code'>GET <code>/choices/:id</code></h2>
+<p>Get a single choice</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">choice_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-CHOICE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/choices/</span><span class="si">#{</span><span class="n">choice_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>note</strong><br><em>integer</em></td>
+<td>choice note</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>answer_set</strong></td>
+<td>choice answer_set</td>
+</tr>
+<tr>
+<td><strong>question</strong></td>
+<td>choice question</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-clients-id-code'>GET <code>/clients/:id</code></h2>
+<p>Get a single responder</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">client_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-CLIENT-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/client/</span><span class="si">#{</span><span class="n">client_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>client creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>client last modification date</td>
+</tr>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>client email</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>answer_sets</strong></td>
+<td>client answer_sets</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-clients-code'>GET <code>/clients</code></h2>
+<p>List all your clients</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/clients'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>client creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>client last modification date</td>
+</tr>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>client name</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>answer_sets</strong></td>
+<td>client answer_sets</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-clients-code'>POST <code>/clients</code></h2>
+<p>Create a responder profile</p>
+
+<blockquote class="lang-specific"><p>POST /api/v1/clients</p></blockquote>
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clients"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example@example.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string (required)</em></td>
+<td>client email</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-companies-code'>GET <code>/companies</code></h2>
+<p>Get all your companies</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/companies'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>company creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>company last modification date</td>
+</tr>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>company name</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>surveys</strong></td>
+<td>company surveys</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-companies-id-code'>GET <code>/companies/:id</code></h2>
+<p>Get a single company</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">company_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-COMPANY-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/company/</span><span class="si">#{</span><span class="n">company_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>company creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>company last modification date</td>
+</tr>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>company name</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>surveys</strong></td>
+<td>company surveys</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-languages-id-code'>GET <code>/languages/:id</code></h2>
+<p>Get a language available for survey responders</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">language_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-LANGUAGE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/languages/</span><span class="si">#{</span><span class="n">language_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>language name</td>
+</tr>
+<tr>
+<td><strong>comment</strong><br><em>string</em></td>
+<td>language <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 code</a></td>
+</tr>
+<tr>
+<td><strong>is_available_company_side</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if is available as Diduenjoy dashboard language else &quot;false&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-languages-code'>GET <code>/languages</code></h2>
+<p>List all languages available for survey responders</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/languages'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>language name</td>
+</tr>
+<tr>
+<td><strong>comment</strong><br><em>string</em></td>
+<td>language <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 code</a></td>
+</tr>
+<tr>
+<td><strong>is_available_company_side</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if is available as Diduenjoy dashboard language else &quot;false&quot;</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-questions-id-code'>GET <code>/questions/:id</code></h2>
+<p>Get a single question</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">question_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-QUESTION-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/questions/</span><span class="si">#{</span><span class="n">question_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>position</strong><br><em>integer</em></td>
+<td>question position</td>
+</tr>
+<tr>
+<td><strong>text</strong><br><em>string</em></td>
+<td>question text</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>survey_language</strong></td>
+<td>question survey_language</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-survey_languages-id-code'>GET <code>/survey_languages/:id</code></h2>
+<p>Get a single survey_language</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">survey_language_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-SURVEY_LANGUAGE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/survey_languages/</span><span class="si">#{</span><span class="n">survey_language_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>would_recommend_prefix</strong><br><em>string</em></td>
+<td>recommendation question prefix (ex: Would you recommend)</td>
+</tr>
+<tr>
+<td><strong>would_recommend_text</strong><br><em>string</em></td>
+<td>recommendation question text</td>
+</tr>
+<tr>
+<td><strong>open_question</strong><br><em>string</em></td>
+<td>text written above the comment textarea</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>survey</strong></td>
+<td>survey</td>
+</tr>
+<tr>
+<td><strong>language</strong></td>
+<td>language</td>
+</tr>
+<tr>
+<td><strong>questions</strong></td>
+<td>localized questions</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-surveys-id-code'>GET <code>/surveys/:id</code></h2>
+<p>Get a single survey</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">survey_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-SURVEY-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/surveys/</span><span class="si">#{</span><span class="n">survey_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#   data: {</span>
+<span class="c1">#     type: "surveys",</span>
+<span class="c1">#     id: "YOUR-SURVEY-ID",</span>
+<span class="c1">#     attributes: {</span>
+<span class="c1">#       created_at: "2016-01-12 17:14:53 UTC",</span>
+<span class="c1">#       updated_at: "2016-01-12 17:14:59 UTC",</span>
+<span class="c1">#       name: "Satisfaction Survey 1",</span>
+<span class="c1">#       hash: "dd2d2ddd2d"</span>
+<span class="c1">#     },</span>
+<span class="c1">#     relationships: {</span>
+<span class="c1">#       company: {</span>
+<span class="c1">#         data: {</span>
+<span class="c1">#         type: "companies",</span>
+<span class="c1">#         id: "YOUR-COMPANY-ID",</span>
+<span class="c1">#         links: {</span>
+<span class="c1">#           self: "http://localhost:3000/api/v1/companies/YOUR-COMPANY-ID"</span>
+<span class="c1">#         }</span>
+<span class="c1">#       }</span>
+<span class="c1">#     },</span>
+<span class="c1">#     survey_languages: {</span>
+<span class="c1">#       data: [</span>
+<span class="c1">#         {</span>
+<span class="c1">#           type: "survey_languages",</span>
+<span class="c1">#           id: "FIRST-SURVEY_LANGUAGE-ID",</span>
+<span class="c1">#           links: {</span>
+<span class="c1">#             self: "http://localhost:3000/api/v1/survey_languages/FIRST-SURVEY_LANGUAGE-ID"</span>
+<span class="c1">#           }</span>
+<span class="c1">#         },</span>
+<span class="c1">#         {</span>
+<span class="c1">#           type: "survey_languages",</span>
+<span class="c1">#           id: "SECOND-SURVEY_LANGUAGE-ID",</span>
+<span class="c1">#           links: {</span>
+<span class="c1">#             self: "http://localhost:3000/api/v1/survey_languages/SECOND-SURVEY_LANGUAGE-ID"</span>
+<span class="c1">#           }</span>
+<span class="c1">#         }</span>
+<span class="c1">#       ]</span>
+<span class="c1">#     }</span>
+<span class="c1">#   },</span>
+<span class="c1">#     links: {</span>
+<span class="c1">#       self: "http://localhost:3000/api/v1/surveys/YOUR-SURVEY-ID"</span>
+<span class="c1">#     }</span>
+<span class="c1">#   }</span>
+<span class="c1"># }</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>survey creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>survey last modification date</td>
+</tr>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>survey name</td>
+</tr>
+<tr>
+<td><strong>hash</strong><br><em>string</em></td>
+<td>survey public hash, used with companies custom mailing systems</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>company</strong></td>
+<td>company owning the survey</td>
+</tr>
+<tr>
+<td><strong>survey_languages</strong></td>
+<td>survey localized texts (at least 1)</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-surveys-code'>GET <code>/surveys</code></h2>
+<p>List all your surveys</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/surveys'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>survey creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>survey last modification date</td>
+</tr>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>survey name</td>
+</tr>
+<tr>
+<td><strong>hash</strong><br><em>string</em></td>
+<td>survey public hash, used with companies custom mailing systems</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>company</strong></td>
+<td>company owning the survey</td>
+</tr>
+<tr>
+<td><strong>survey_languages</strong></td>
+<td>survey localized texts (at least 1)</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-dispatches-code'>POST <code>/dispatches</code></h2>
+<p>Send a survey to a specified email address</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :post</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/dispatches'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span><span class="p">,</span>
+  <span class="ss">headers: </span><span class="p">{</span>
+    <span class="ss">content_type: </span><span class="s1">'application/vnd.api+json'</span>
+  <span class="p">},</span>
+  <span class="ss">payload: </span><span class="p">{</span>
+    <span class="ss">data: </span><span class="p">{</span>
+      <span class="ss">type: </span><span class="s1">'dispatches'</span><span class="p">,</span>
+      <span class="ss">attributes: </span><span class="p">{</span>
+        <span class="ss">to_email: </span><span class="s1">'client@example.com'</span><span class="p">,</span>
+        <span class="ss">from_email: </span><span class="s1">'awesome-company@example.com'</span><span class="p">,</span>
+        <span class="ss">from_name: </span><span class="s1">'Awesome Company'</span><span class="p">,</span>
+        <span class="ss">subject: </span><span class="s1">'{segment:gender} {segment:name} Information about your order - {company_name}'</span><span class="p">,</span>
+        <span class="ss">text: </span><span class="s2">"Hi {segment:gender} {segment:name},</span><span class="se">\n</span><span class="s2">Your opinion matters!</span><span class="se">\n</span><span class="s2">Please take this survey: {survey_url}. It will only take 10 seconds, or less. We swear!</span><span class="se">\n</span><span class="s2">The questions are short and sweet and will help us improve your experience!</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">html: </span><span class="s1">'&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hi {segment:gender} {segment:name},&lt;br&gt;&lt;br&gt;Your opinion matters!&lt;br&gt;&lt;br&gt;Please take &lt;a href="{survey_url}"&gt;this survey&lt;/a&gt;. It will only take 10 seconds, or less. We swear!&lt;br&gt;The questions are short and sweet and will help us improve your experience!&lt;br&gt;&lt;br&gt;Thank you!&lt;br&gt;&lt;/body&gt;&lt;/html&gt;'</span><span class="p">,</span>
+        <span class="ss">segments: </span><span class="p">{</span>
+          <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
+          <span class="ss">name: </span><span class="s1">'DJ'</span><span class="p">,</span>
+          <span class="ss">interests: </span><span class="p">[</span><span class="s1">'music'</span><span class="p">,</span> <span class="s1">'dance'</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="ss">relationships: </span><span class="p">{</span>
+        <span class="ss">survey_language: </span><span class="p">{</span>
+          <span class="ss">data: </span><span class="p">{</span>
+            <span class="ss">type: </span><span class="s1">'survey_languages'</span><span class="p">,</span>
+            <span class="ss">id: </span><span class="s1">'YOUR-SURVEY_LANGUAGE-ID-HERE'</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#     data: {</span>
+<span class="c1">#       type: "dispatches",</span>
+<span class="c1">#       id: "THIS-DISPATCH-ID",</span>
+<span class="c1">#       attributes: {</span>
+<span class="c1">#         created_at: "2016-01-15 04:40:47 UTC",</span>
+<span class="c1">#         updated_at: "2016-01-15 04:40:47 UTC",</span>
+<span class="c1">#         to_email: "client@example.com",</span>
+<span class="c1">#         from_email: "awesome-company@example.com",</span>
+<span class="c1">#         from_name: "Awesome Company",</span>
+<span class="c1">#         html: "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hi {segment:gender} {segment:name},&lt;br&gt;&lt;br&gt;Your opinion matters!&lt;br&gt;&lt;br&gt;Please take &lt;a href="{survey_url}#"&gt;this survey&lt;/a&gt;. It will only take 10 seconds, or less. We swear!&lt;br&gt;The questions are short and sweet and will help us improve your #experience!&lt;br&gt;&lt;br&gt;Thank you!&lt;br&gt;&lt;/body&gt;&lt;/html&gt;",</span>
+<span class="c1">#         text: "Hi {segment:gender} {segment:name}, Your opinion matters! Please take this survey: {survey_url}. It will only take 10 seconds, or #less. We swear! The questions are short and sweet and will help us improve your experience! ",</span>
+<span class="c1">#         segments: {</span>
+<span class="c1">#         gender: [</span>
+<span class="c1">#             "Mister"</span>
+<span class="c1">#           ],</span>
+<span class="c1">#           name: [</span>
+<span class="c1">#             "DJ"</span>
+<span class="c1">#           ],</span>
+<span class="c1">#           interests: [</span>
+<span class="c1">#             "music",</span>
+<span class="c1">#             "dance"</span>
+<span class="c1">#           ]</span>
+<span class="c1">#         },</span>
+<span class="c1">#         subject: "{segment:gender} {segment:name} Information about your order - {company_name}"</span>
+<span class="c1">#       },</span>
+<span class="c1">#       relationships: {</span>
+<span class="c1">#         survey_language: {</span>
+<span class="c1">#           data: {</span>
+<span class="c1">#             type: "survey_languages",</span>
+<span class="c1">#             id: "YOUR-SURVEY_LANGUAGE-ID",</span>
+<span class="c1">#             links: {</span>
+<span class="c1">#               self: "http://localhost:3000/api/v1/survey_languages/YOUR-SURVEY_LANGUAGE-ID"</span>
+<span class="c1">#             }</span>
+<span class="c1">#           }</span>
+<span class="c1">#         }</span>
+<span class="c1">#       },</span>
+<span class="c1">#       links: {</span>
+<span class="c1">#         self: "http://localhost:3000/api/v1/dispatches/THIS-DISPATCH-ID"</span>
+<span class="c1">#       }</span>
+<span class="c1">#     }</span>
+<span class="c1">#   }</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>to_email</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>email address to which send the survey</td>
+</tr>
+<tr>
+<td><strong>from_email</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email sender address</td>
+</tr>
+<tr>
+<td><strong>from_name</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email sender name</td>
+</tr>
+<tr>
+<td><strong>subject</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email subject</td>
+</tr>
+<tr>
+<td><strong>text</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email text content</td>
+</tr>
+<tr>
+<td><strong>html</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email html content</td>
+</tr>
+<tr>
+<td><strong>scheduled_at</strong><br><em>string (datetime ISO 8601)</em></td>
+<td></td>
+<td>datetime when the survey should be sent</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br>_hash { string: string\</td>
+<td>array[string] }_</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>survey_language</strong></td>
+<td><em>required</em></td>
+<td>survey to send</td>
+</tr>
+</tbody></table>
+<h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
+<p>Our easy API provide very simple methods to use Diduenjoy API</p>
+<h2 id='post-code-easy_dispatches-code'>POST <code>/easy_dispatches</code></h2>
+<p>Send a survey to a specified email address</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :post</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/easy_dispatches'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span><span class="p">,</span>
+  <span class="ss">headers: </span><span class="p">{</span>
+    <span class="ss">content_type: </span><span class="s1">'application/json'</span>
+  <span class="p">},</span>
+  <span class="ss">payload: </span><span class="p">{</span>
+    <span class="ss">email: </span><span class="s1">'client@example.com'</span><span class="p">,</span>
+    <span class="ss">survey_id: </span><span class="s1">'YOUR-SURVEY-ID-HERE'</span><span class="p">,</span>
+    <span class="ss">segments: </span><span class="p">{</span>
+      <span class="ss">language: </span><span class="s1">'EN'</span><span class="p">,</span>
+      <span class="ss">scheduled_at: </span><span class="s1">'2022-04-18 15:07:00'</span><span class="p">,</span>
+      <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
+      <span class="ss">name: </span><span class="s1">'Rick Sanchez'</span><span class="p">,</span>
+      <span class="ss">interests: </span><span class="p">[</span><span class="s1">'Science'</span><span class="p">,</span> <span class="s1">'Morty'</span><span class="p">],</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#     "id": "DISPATCH-ID",</span>
+<span class="c1">#     "email": "client@example.com",</span>
+<span class="c1">#     "survey_id": "YOUR-SURVEY-ID-HERE",</span>
+<span class="c1">#     "segments": {</span>
+<span class="c1">#       "language": "EN",</span>
+<span class="c1">#       "scheduled_at": "2022-04-18 15:07:00",</span>
+<span class="c1">#       "gender": "Mister",</span>
+<span class="c1">#       "name": "Rick Sanchez",</span>
+<span class="c1">#       "interests": ["Science", "Morty"]</span>
+<span class="c1">#     }</span>
+<span class="c1">#   }</span>
+</code></pre><pre class="highlight php lang-specific php"><code>$api_key = 'YOUR-API-KEY-HERE';
+$survey_id = 'YOUR-SURVEY-ID-HERE';
+$email = 'client@example.com';
+$date = '2022-04-18 15:07:00';
+
+$payload = array(
+  'email' =&gt; $email,
+  'survey_id' =&gt; $survey_id,
+  'segments' =&gt; array(
+    'language' =&gt; 'EN',
+    'scheduled_at' =&gt; $date,
+    'gender' =&gt; 'Mister',
+    'name' =&gt; 'Rick Sanchez',
+    'interests' =&gt; array('Science', 'Morty')
+  )
+);
+
+$ch = curl_init('https://api.diduenjoy.com/api/v1/easy_dispatches');
+
+curl_setopt_array($ch, array(
+    CURLOPT_POST =&gt; TRUE,
+    CURLOPT_HTTPHEADER =&gt; array(
+        'Content-Type: application/json'
+    ),
+    CURLOPT_USERPWD =&gt; "$api_key:",
+    CURLOPT_HTTPAUTH =&gt; CURLAUTH_BASIC,
+    CURLOPT_POSTFIELDS =&gt; json_encode($payload)
+));
+
+// Send the request
+$response = curl_exec($ch);
+
+// =&gt; {
+//     "id": "DISPATCH-ID",
+//     "email": "client@example.com",
+//     "survey_id": "YOUR-SURVEY-ID-HERE",
+//     "segments": {
+//       "language": "EN",
+//       "scheduled_at": "2022-04-18 15:07:00",
+//       "gender": "Mister",
+//       "name": "Rick Sanchez",
+//       "interests": ["Science", "Morty"]
+//     }
+//   }
+</code></pre>
+<aside class="notice lang-specific"><b>segments</b>
+  <ul>
+    <li><code>language</code> and <code>scheduled_at</code> are special segments.</li>
+    <li><code>gender</code>, <code>name</code> and <code>interests</code> are user defined.</li>
+</aside>
+<h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>email address to which send the survey</td>
+</tr>
+<tr>
+<td><strong>survey_id</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>id of the survey</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash { string: (string OR array[string]) }</em></td>
+<td></td>
+<td>custom data associated with the survey</td>
+</tr>
+</tbody></table>
+<h3 id='segments'>Segments</h3>
+<p>All segments are dynamically created, you can name them as you want.</p>
+
+<p>There is 2 exceptions:</p>
+
+<ul>
+<li><code>language</code> : if available, force the survey language, should be a ISO 639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)</li>
+<li><code>scheduled_at</code> : schedule the dispatch, should be formated as ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601)</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="cURL">cURL</a>
+                <a href="#" data-language-name="Rails">Rails</a>
+                <a href="#" data-language-name="php">php</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
