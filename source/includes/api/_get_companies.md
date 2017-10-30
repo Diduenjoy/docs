@@ -2,7 +2,7 @@
 
 Get all your companies
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :get,

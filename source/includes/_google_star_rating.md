@@ -207,47 +207,12 @@ Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_sta
 
 ## Google Star Concrete Example
 
-```shell
-# check ruby tab
-```
-
-```erb
-<!-- show.html.erb -->
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "Product",
-    "name": @glasses.name,
-    "image": @glasses.img,
-    "description": @glasses.description,
-    "brand": "Glasses Inc.",
-    "aggregateRating": @aggregate_rating_content
-  }
-</script>
-<!-- ... -->
-
-<!-- index.html.erb -->
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org/",
-    "@type": "SomeProducts",
-    "name": "Glasses Inc branded glasses",
-    "image": Glasses.global_image,
-    "description": @desc,
-    "brand": "Glasses Inc.",
-    "aggregateRating": @aggregate_rating_index_content
-  }
-</script>
-<!-- ... -->
-```
-
-```ruby
+<blockquote class="lang-specific Rails"><p>controllers/glasses_controller.rb</p></blockquote>
+```ruby--Rails
 class GlassesController
 # ...
 
-  DIDUENJOY_API_KEY = '28b22313-bb59-4f78-8bf2-911e7d7aba4b'
   ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-rating'
-  SURVEY_ID = 'c78543bd-d59b-43fe-9924-3c59dfad901e'
 
   def get_diduenjoy_aggregate(filters)
     uri = URI.parse(ENDPOINT_URL)
@@ -261,6 +226,45 @@ class GlassesController
 
     response.body if response.is_a?(Net::HTTPSuccess)
   end
+```
+
+
+<blockquote class="lang-specific Rails"><p>glasses/show.html.erb</p></blockquote>
+```erb--Rails
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": @glasses.name,
+    "image": @glasses.img,
+    "description": @glasses.description,
+    "brand": "Glasses Inc.",
+    "aggregateRating": @aggregate_rating_content
+  }
+</script>
+```
+
+<blockquote class="lang-specific Rails"><p>glasses/index.html.erb</p></blockquote>
+```erb--Rails
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org/",
+    "@type": "SomeProducts",
+    "name": "Glasses Inc branded glasses",
+    "image": Glasses.global_image,
+    "description": @desc,
+    "brand": "Glasses Inc.",
+    "aggregateRating": @aggregate_rating_index_content
+  }
+</script>
+```
+
+```shell--cURL
+# check ruby tab
+```
+
+```php--php
+// check ruby tab
 ```
 
 In this example, we will see how to put aggregate ratings for my shop.
@@ -280,7 +284,8 @@ I want to put aggregate function on all my bages so when a user search on google
 * `blue glasses` he will see the avergage note of all my blue glasses
 * `spidernam glasses` he will find the avergage note of this one
 
-```ruby
+
+```ruby--Rails
   # params[:filters] with like :
   # - { colors => ['blue'] }
   # - { shapes => ['square'], colors: ['red', 'green'] }
@@ -319,8 +324,12 @@ I want to put aggregate function on all my bages so when a user search on google
   end
 ```
 
-```shell
-# check erb and ruby tab
+```shell--cURL
+# check ruby tab
+```
+
+```php--php
+// check ruby tab
 ```
 
 First of all, define how to use your `filters` param to extract it appropriate filters to query Diduenjoy API.

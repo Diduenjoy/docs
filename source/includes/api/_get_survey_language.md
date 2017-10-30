@@ -2,7 +2,7 @@
 
 Get a single survey_language
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 survey_language_id = 'PUT-YOUR-SURVEY_LANGUAGE-ID-HERE'

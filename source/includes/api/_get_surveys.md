@@ -2,7 +2,7 @@
 
 List all your surveys
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :get,

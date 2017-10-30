@@ -1,3 +1,3 @@
-# Easy Methods
+# Easy API V1 Reference
 
-Easy methods provide very simple methods to use Diduenjoy API
+Our easy API provide very simple methods to use Diduenjoy API

@@ -2,7 +2,7 @@
 
 Get a single question
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 question_id = 'PUT-YOUR-QUESTION-ID-HERE'

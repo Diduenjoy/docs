@@ -3,7 +3,7 @@
 Get a single answer_set
 
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 answer_set_id = 'PUT-YOUR-ANSWER_SET-ID-HERE'

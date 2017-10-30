@@ -2,10 +2,7 @@
 
 Send a survey to a specified email address
 
-
->`language` and `scheduled_at` are special segments. `gender`, `name` and `interests` are user defined.
-
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :post,
@@ -40,9 +37,7 @@ RestClient::Request.execute method: :post,
 #   }
 ```
 
-### php
-
-```php
+```php--php
 $api_key = 'YOUR-API-KEY-HERE';
 $survey_id = 'YOUR-SURVEY-ID-HERE';
 $email = 'client@example.com';
@@ -89,6 +84,12 @@ $response = curl_exec($ch);
 //   }
 ```
 
+<aside class="notice lang-specific"><b>segments</b>
+  <ul>
+    <li><code>language</code> and <code>scheduled_at</code> are special segments.</li>
+    <li><code>gender</code>, <code>name</code> and <code>interests</code> are user defined.</li>
+</aside>
+
 
 ### attributes
 
@@ -96,7 +97,7 @@ attribute          |     | description
 ------------- | --- | -------------
 __email__<br>_string_  | _required_ | email address to which send the survey
 __survey_id__<br>_string_  | _required_ | id of the survey
-__segments__<br>_hash { string: string\|array[string] }_ | | custom data associated with the survey
+__segments__<br>_hash { string: (string OR array[string]) }_ | | custom data associated with the survey
 
 ### Segments
 

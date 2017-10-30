@@ -2,7 +2,7 @@
 
 Get a single responder
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 client_id = 'PUT-YOUR-CLIENT-ID-HERE'

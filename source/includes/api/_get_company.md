@@ -2,7 +2,7 @@
 
 Get a single company
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 company_id = 'PUT-YOUR-COMPANY-ID-HERE'

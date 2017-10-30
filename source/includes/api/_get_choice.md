@@ -2,7 +2,7 @@
 
 Get a single choice
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 choice_id = 'PUT-YOUR-CHOICE-ID-HERE'

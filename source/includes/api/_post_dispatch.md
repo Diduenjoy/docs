@@ -2,7 +2,7 @@
 
 Send a survey to a specified email address
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :post,

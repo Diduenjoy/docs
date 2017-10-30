@@ -2,7 +2,7 @@
 
 Get a language available for survey responders
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 language_id = 'PUT-YOUR-LANGUAGE-ID-HERE'

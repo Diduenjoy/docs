@@ -2,7 +2,7 @@
 
 Get a single survey
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 survey_id = 'PUT-YOUR-SURVEY-ID-HERE'

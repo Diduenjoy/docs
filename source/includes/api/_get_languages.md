@@ -2,7 +2,7 @@
 
 List all languages available for survey responders
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :get,

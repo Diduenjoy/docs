@@ -2,9 +2,8 @@
 
 Create an answer_set
 
-> POST /api/v1/answer_sets
-
-```json
+<blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
+```json--
 {
   "data": {
     "type": "answer_sets",
