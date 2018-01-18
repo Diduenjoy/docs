@@ -98,6 +98,9 @@ attribute          |     | description
 __email__<br>_string_  | _required_ | email address to which send the survey
 __survey_id__<br>_string_  | _required_ | id of the survey
 __segments__<br>_hash { string: (string OR array[string]) }_ | | custom data associated with the survey
+__dispatch_subject__<br>_string_ | | survey email subject
+__dispatch_text__<br>_string_  | | survey email text content
+__dispatch_html__<br>_string_  | | survey email html content
 
 ### Segments
 
