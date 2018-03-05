@@ -8,7 +8,7 @@ require 'rest-client'
 company_id = 'PUT-YOUR-COMPANY-ID-HERE'
 
 RestClient::Request.execute method: :get,
-  url: "https://api.diduenjoy.com/api/v1/company/#{company_id}",
+  url: "https://api.diduenjoy.com/api/v1/companies/#{company_id}",
   user: 'PUT-YOUR-API-KEY-HERE'
 ```
 
