@@ -141,7 +141,7 @@ The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/agg
 require 'net/http'
 
 DIDUENJOY_API_KEY = '28b22313-bb59-4f78-8bf2-911e7d7aba4b'
-ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-rating'
+ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-ratings'
 params = {
   "filter": {
     "surveys": [
