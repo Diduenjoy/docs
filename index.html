@@ -493,7 +493,7 @@ Check it out <a href="#google-star-concrete-example">this example</a> to apply t
 </tr>
 <tr>
 <td><code>aggregateRating</code></td>
-<td><strong>JsonObject, required</strong><br><br> The data which gives your product rating to Google. Provided by <a href="#diduenjoy-aggregate-rating-endpoint">this diduenjoy enpoint</a></td>
+<td><strong>JsonObject, required</strong><br><br> The data which gives your product rating to Google. Provided by <a href="#diduenjoy-aggregate-ratings-endpoint">this diduenjoy enpoint</a></td>
 </tr>
 </tbody></table>
 
@@ -514,7 +514,7 @@ It takes one optionaly (but recommanded) parameter named <code>Filter</code>. If
 * The key should be the name of the segment you want to filter by such as <code>Color</code>, <code>ProductName</code> or <code>ProductId</code>
 * The array should contains a list of values to filter by such as <code>[&#39;red&#39;, &#39;green&#39;]</code>, <code>[&#39;Camambert Fermier 1 an&#39;]</code>, or <code>[&#39;123456&#39;]</code></p>
 <h3 id='url'>Url</h3>
-<p>The url of this enpoint is the following : <code>https://api.diduenjoy.com/api/v3/aggregate-rating</code></p>
+<p>The url of this enpoint is the following : <code>https://api.diduenjoy.com/api/v3/aggregate-ratings</code></p>
 <h3 id='all-in'>All in</h3><pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 
 <span class="no">DIDUENJOY_API_KEY</span> <span class="o">=</span> <span class="s1">'28b22313-bb59-4f78-8bf2-911e7d7aba4b'</span>
@@ -581,7 +581,7 @@ Finaly, click on <code>add/test</code> sitemaps and click on submit. <img src="i
 <pre class="highlight ruby lang-specific Rails"><code><span class="k">class</span> <span class="nc">GlassesController</span>
 <span class="c1"># ...</span>
 
-  <span class="no">ENDPOINT_URL</span> <span class="o">=</span> <span class="s1">'https://api.diduenjoy.com/api/v3/aggregate-rating'</span>
+  <span class="no">ENDPOINT_URL</span> <span class="o">=</span> <span class="s1">'https://api.diduenjoy.com/api/v3/aggregate-ratings'</span>
 
   <span class="k">def</span> <span class="nf">get_diduenjoy_aggregate</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
     <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="no">ENDPOINT_URL</span><span class="p">)</span>
