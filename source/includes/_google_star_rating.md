@@ -133,7 +133,7 @@ The segments filter is an object of keys/array.
 
 ### Url
 
-The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/aggregate-rating`
+The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/aggregate-ratings`
 
 ### All in
 
