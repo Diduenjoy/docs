@@ -105,7 +105,7 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 `image` | **String, recommended**<br><br>The url of your product image
 `description`| **String, recommended**<br><br>The description of your product
 `brand`| **String, recommended**<br><br>Your Brand name
-`aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-rating-endpoint)
+`aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-ratings-endpoint)
 
 <aside class="notice">
   JSON is a format where keys and values are always between double quotes (even a number should be a string)
@@ -212,7 +212,7 @@ Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_sta
 class GlassesController
 # ...
 
-  ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-rating'
+  ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-ratings'
 
   def get_diduenjoy_aggregate(filters)
     uri = URI.parse(ENDPOINT_URL)
