@@ -1,8 +1,8 @@
 # Errors
 
-<aside class="notice">This error section is stored in a separate file and `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them at the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+<aside class="notice">This error section is stored in a separate file `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them at the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-The Kitten API uses the following error codes:
+The Kittn API uses the following error codes:
 
 
 Error Code | Meaning

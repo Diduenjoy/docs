@@ -2,7 +2,7 @@
 
 ## Get an API key
 
-You shall authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!
+You ***SHALL*** authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!
 
 You can find and generate your API keys in the <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">Settings>API page</a> in your diduenjoy dashboard.
 
@@ -43,7 +43,7 @@ curl 'https://api.diduenjoy.com/api/v3/companies' \
  -u 'API_KEY:'
 ```
 
-<aside class="notice lang-specific">You shall replace <code>API_KEY</code> with your personal API key.</aside>
+<aside class="notice lang-specific">You <b>SHALL</b> replace <code>API_KEY</code> with your personal API key.</aside>
 
 Diduenjoy expects all API requests to have the Base64 encoded API key in the `Authorization` header
 `Authorization: Basic BASE64_API_KEY`

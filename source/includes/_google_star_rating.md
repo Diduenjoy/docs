@@ -4,7 +4,7 @@ In the *Google search engine*, star ratings can appear bellow the results.
 
 ![client_docs-google_rating-example](google_star/client_docs-google_rating-example.png)
 
-To get a similar result, you shall have to gather reviews and add an html snippet to your website.
+To get a similar result, you **SHALL** have to gather reviews and add an html snippet to your website.
 
 <aside class="success">
   This guide explains how to link your <i>Diduenjoy</i> gathered reviews to the *Google Star Ratings*.
@@ -63,13 +63,13 @@ Here is an example of data you need to place in a product html page in order to 
 
 You should keep in mind that if you put more than one script per page, the behaviour might become unpredictable. Indeed, if your page has many products (ex: multiple blue shoes)the google search will appears such as, all ratings will be displayed together. However, you can decide if either or not you want this particular behaviour.
 
-The most important data that shall be replaced here is `aggregateRating`.<br>
+The most important data that **MUST** be replaced here is `aggregateRating`.<br>
 Luckily, diduenjoy provides an endpoint to give you dynamicaly the related rating of your product page collected through your feedbacks!<br>
 Of course you need to replace other fields like `name`, `image`, `description`, `brand` and eventually `@type`.<br>
 Check it out [this example](#google-star-concrete-example) to apply this to your own pages!
 
 ## Script structure
-* The script where you shall add the information needs to be inserted within your product's page `body` html tag
+* The script where you **SHALL** add the information needs to be inserted within your product's page `body` html tag
 * This script is of `application/ld+json` type
 * It contains a json block. It's a collection of key/values :
 
@@ -100,7 +100,7 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 |key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |value|
 ----|-|-|
 `@context`| **Constant String, required**<br><br>Let its value to `http://schema.org/`
-`@type`| **String, required**<br><br> Shall be here [http://schema.org/docs/full.html].You shall mainly use `Product` and `SomeProducts` (group of products)
+`@type`| **String, required**<br><br> **SHALL** be here [http://schema.org/docs/full.html].You **SHALL** mainly use `Product` and `SomeProducts` (group of products)
 `name`| **String, required**<br><br>The name of your product
 `image` | **String, recommended**<br><br>The url of your product's image
 `description`| **String, recommended**<br><br>The description of your product
@@ -119,7 +119,7 @@ It takes one optional (but recommanded) parameter named `Filter`. If none is giv
 ### Filter
 
 `Filter` param may have 2 keys, which means you can retrieve the rating of your product(s) with 2 filters that are `surveys` and `segments`
-<aside class="notice">If you want the rating for one product, your filters shall be as restrictive as possible. Inversely, if you want an aggregate note for an index of products (such as all your blue shoes), filter should logically contains less filters than the previous example.
+<aside class="notice">If you want the rating for one product, your filters <b>SHALL</b> be as restrictive as possible. Inversely, if you want an aggregate note for an index of products (such as all your blue shoes), filter should logically contains less filters than the previous example.
 </aside>
 
 
@@ -194,11 +194,11 @@ You can perform this easily : <br>
 - paste all your html product(s) page and click on `test`<br>
 - you should see something like that : ![google_star_test_1](google_star/test_1.png)<br>
 
-It shall not show any error and you shall see an aggregate rating corresponding to the average of your filtered feedbacks.
+It **SHALL** not show any error and you **SHALL** see an aggregate rating corresponding to the average of your filtered feedbacks.
 
 ## Notify Google something changed!
 
-Once in production, you shall notify Google that something changed on your website and it shall crawl your data to update the google search results related to your product(s) pages and update your sitemaps.
+Once in production, you **SHALL** notify Google that something changed on your website and it **MAY** crawl your data to update the google search results related to your product(s) pages and update your sitemaps.
 
 To achieve the follwoing, go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
 Then go to the `crawl` folder, in `Sitemaps` section ![webtool1](google_star/webtool_1.png)<br>
@@ -266,7 +266,7 @@ class GlassesController
 // check ruby tab
 ```
 
-In this example, we shall see how to put aggregate ratings for a shop.
+This example provides how to add aggregate ratings to a shop.
 
 Let's have some conditions :
 
@@ -279,9 +279,9 @@ Let's have some conditions :
 
 I want to put an aggregate function on all my bages so when a user search on google:
 
-* `glasse_inc glasses` he shall see the avergage note for all my glasses
-* `blue glasses` he shall see the avergage note for all my blue glasses
-* `spiderman glasses` he shall find the avergage note for this particular type of glasses
+* `glasse_inc glasses` he **MAY** see the avergage note for all my glasses
+* `blue glasses` he **MAY** see the average note for all my blue glasses
+* `spiderman glasses` he **MAY** find the avergage note for this particular type of glasses
 
 
 ```ruby--Rails
@@ -331,8 +331,8 @@ I want to put an aggregate function on all my bages so when a user search on goo
 // check ruby tab
 ```
 
-First of all, you shall define how to use your `filters` param to extract the appropriate filters to query Diduenjoy API.
-In this present case, if we are on an index page filtered (or not) by `shape` and `color`, you shall use them to query related feedbacks average.
-Therefore, if you are on a single product page, you shall use the product id to get it.
-You shall get the result into an `@aggregate_rating_content` var instead of using it into our `html.erb` file.
-Additionally, you shall assume that they are partial views (so `body` and `html` tags always encapsulate `show` and `index` views).
+First of all, you **SHALL** define how to use your `filters` param to extract the appropriate filters to query Diduenjoy API.
+In this present case, if we are on an index page filtered (or not) by `shape` and `color`, you **MAY** use them to query related feedbacks average.
+Therefore, if you are on a single product page, you **MUST** use the product id to get it.
+You **SHALL** get the result into an `@aggregate_rating_content` var instead of using it into our `html.erb` file.
+Additionally, you **SHOULD** assume that they are partial views (so `body` and `html` tags always encapsulate `show` and `index` views).

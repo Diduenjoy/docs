@@ -13,6 +13,7 @@ toc_footers:
 includes:
   - introduction
   - authentication
+  - convention
   - google_star_rating
   - api/index
   - api/get_answer_set
