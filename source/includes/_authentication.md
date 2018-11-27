@@ -2,7 +2,7 @@
 
 ## Get an API key
 
-You ***SHALL*** authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!
+You **SHALL** authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!
 
 You can find and generate your API keys in the <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">Settings>API page</a> in your diduenjoy dashboard.
 
