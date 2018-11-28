@@ -194,13 +194,13 @@ You can perform this easily : <br>
 - paste all your html product(s) page and click on `test`<br>
 - you should see something like that : ![google_star_test_1](google_star/test_1.png)<br>
 
-It **SHALL** not show any error and you **SHALL** see an aggregate rating corresponding to the average of your filtered feedbacks.
+It will return an aggregate rating corresponding to the average of your filtered feedbacks.
 
 ## Notify Google something changed!
 
-Once in production, you **SHALL** notify Google that something changed on your website and it **MAY** crawl your data to update the google search results related to your product(s) pages and update your sitemaps.
+Once in production, you **SHALL** notify Google that something changed on your website and it will crawl your data to update the google search results related to your product(s) pages and update your sitemaps.
 
-To achieve the follwoing, go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
+To achieve the following, go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
 Then go to the `crawl` folder, in `Sitemaps` section ![webtool1](google_star/webtool_1.png)<br>
 Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_star/webtool_2.png)<br>
 
@@ -268,20 +268,19 @@ class GlassesController
 
 This example provides how to add aggregate ratings to a shop.
 
-Let's have some conditions :
+Here is an example :
 
-* My company is `glasse_inc`
-* I sell glasses
-* My inventory contains different type of glasses, all with different colors and shape
-* All my glasses have a unique Name & ID (such as `spiderman glasses`)
-* I send one survey (survey_id = `c78543bd-d59b-43fe-9924-3c59dfad901e`) to all my buyers with 3 segment : `internal_id`, `color`, `shape`
-* I have a `get_diduenjoy_aggregate` function in GlassesController which query diduenjoy api
+* The company `glasse_inc`, sells glasses
+* Its inventory contains different type of glasses, with different colors and shapes
+* Every glasses have a unique Name & ID (such as `spiderman glasses`)
+* The company sends one survey (survey_id = `c78543bd-d59b-43fe-9924-3c59dfad901e`) to all its buyers with 3 segments : `internal_id`, `color`, `shape`
+* The company's website calls the `get_diduenjoy_aggregate` function in the product page
 
-I want to put an aggregate function on all my bages so when a user search on google:
+In order to have the ratings displayed, the company **SHALL** add the aggregate function to all its pages so when a user searches on Google, the following occurs:
 
-* `glasse_inc glasses` he **MAY** see the avergage note for all my glasses
-* `blue glasses` he **MAY** see the average note for all my blue glasses
-* `spiderman glasses` he **MAY** find the avergage note for this particular type of glasses
+* `glasse_inc glasses` the average rating for all my glasses is displayed
+* `blue glasses` the average rating for all my blue glasses is displayed
+* `spiderman glasses` the average rating for this particular type of glasses is displayed
 
 
 ```ruby--Rails
