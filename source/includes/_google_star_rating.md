@@ -105,7 +105,7 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 `image` | **String, recommended**<br><br>The url of your product's image
 `description`| **String, recommended**<br><br>The description of your product
 `brand`| **String, recommended**<br><br>Your Brand name
-`aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-rating-endpoint)
+`aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-ratings-endpoint)
 
 <aside class="notice">
   JSON is a format where keys and values are always encapsulated within double quotes (even a number should be a string)
@@ -133,7 +133,7 @@ The segments filter is an object of keys/array.
 
 ### Url
 
-The url of this enpoint is the following : 'https://api.diduenjoy.com/api/v3/aggregate-ratings'
+The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/aggregate-ratings`
 
 ### All in
 
