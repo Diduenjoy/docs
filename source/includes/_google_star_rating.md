@@ -114,7 +114,7 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 ## Diduenjoy aggregate rating endpoint
 
 This provided endpoint is used to retrieve the JsonObject and needs  to be inserted into your script in front of the `"aggregateRating"` key.
-It takes one optional (but recommanded) parameter named `Filter`. If none is given, the enpoint will give you the ratings gathered through ALL your feedbacks (and not on one specific product except if you only sell this particular product).
+It takes one optional (but recommended) parameter named `Filter`. If none is given, the enpoint will give you the ratings gathered through ALL your feedbacks (and not on one specific product except if you only sell this particular product).
 
 ### Filter
 
