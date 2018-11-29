@@ -235,9 +235,6 @@
               </ul>
           </li>
           <li>
-            <a href="#conventions" class="toc-h1 toc-link" data-title="Conventions">Conventions</a>
-          </li>
-          <li>
             <a href="#google-star-ratings" class="toc-h1 toc-link" data-title="Google Star Ratings">Google Star Ratings</a>
               <ul class="toc-list-h2">
                   <li>
@@ -308,6 +305,9 @@
                   <li>
                     <a href="#get-code-surveys-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/surveys</code></a>
                   </li>
+                  <li>
+                    <a href="#post-code-dispatches-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/dispatches</code></a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -336,7 +336,7 @@
 
 <p>This API documentation was created by <a href="https://github.com/diduenjoy">Diduenjoy</a>. Feel free to submit us some improvements such as new suported languages or corrections.</p>
 <h1 id='authentication'>Authentication</h1><h2 id='get-an-api-key'>Get an API key</h2>
-<p>You <strong>SHALL</strong> authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!</p>
+<p>You authenticate to the Diduenjoy API by providing your secret API key in the request. Your API keys carry many privileges, so be sure to keep them secret!</p>
 
 <p>You can find and generate your API keys in the <a href="https://dashboard.diduenjoy.com/settings/api" target="_blank">Settings&gt;API page</a> in your diduenjoy dashboard.</p>
 
@@ -369,21 +369,19 @@
 </code></pre><pre class="highlight shell lang-specific cURL"><code>curl <span class="s1">'https://api.diduenjoy.com/api/v3/companies'</span> <span class="se">\</span>
  -u <span class="s1">'API_KEY:'</span>
 </code></pre>
-<aside class="notice lang-specific">You <b>SHALL</b> replace <code>API_KEY</code> with your personal API key.</aside>
+<aside class="notice lang-specific">You must replace <code>API_KEY</code> with your personal API key.</aside>
 
-<p>Diduenjoy expects all API requests to have the Base64 encoded API key in the <code>Authorization</code> header
+<p>Diduenjoy expects for all API requests to have the Base64 encoded API key in the <code>Authorization</code> header
 <code>Authorization: Basic BASE64_API_KEY</code></p>
-<h1 id='conventions'>Conventions</h1>
-<p>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in RFC 2119 <a href ="https://tools.ietf.org/html/rfc2119">[RFC2119]</a>.</p>
 <h1 id='google-star-ratings'>Google Star Ratings</h1>
-<p>In the <em>Google search engine</em>, star ratings can appear bellow the results.</p>
+<p>In the <em>Google search engine</em>, some star ratings can appear beside results.</p>
 
 <p><img src="images/google_star/client_docs-google_rating-example.png" alt="client_docs-google_rating-example" /></p>
 
-<p>To get a similar result, you <strong>SHALL</strong> have to gather reviews and add an html snippet to your website.</p>
+<p>To get a similar result you have to gather reviews and add a html snippet to your website.</p>
 
 <aside class="success">
-  This guide explains how to link your <i>Diduenjoy</i> gathered reviews to the *Google Star Ratings*.
+  This guide explains how to link your <i>Diduenjoy</i> gathered reviews and the *Google Star Ratings*.
 </aside>
 <h2 id='getting-started'>Getting started</h2><h3 id='4-actors'>4 Actors</h3>
 <ul>
@@ -394,16 +392,16 @@
 </ul>
 <h3 id='the-workflow'>The workflow</h3>
 <ol>
-<li><em>Customers</em> buy items from <em>the merchant</em></li>
-<li><em>The merchant</em> notifies <em>Diduenjoy</em> about the transaction</li>
+<li>Some <em>customers</em> buy items from <em>the merchant</em></li>
+<li><em>The merchant</em> notifies <em>Diduenjoy</em> about the transactions</li>
 <li><em>Diduenjoy</em> sends surveys to <em>the customers</em></li>
-<li><em>Customers</em> answer to the <em>Diduenjoy</em> surveys</li>
+<li><em>The Customers</em> answer to the <em>Diduenjoy</em> surveys</li>
 <li><em>The merchant</em> fetch the data gathered by <em>Diduenjoy</em> and updates his items or categories webpages metadata</li>
-<li><em>Google</em> crawls <em>the merchant</em> website and update the search results stars according to the webpages metadata</li>
+<li><em>Google</em> crawls <em>the merchant</em> website and update the search results stars according the webpages metadata</li>
 </ol>
 <h3 id='the-metadata-snippet'>The metadata snippet</h3><pre class="highlight html lang-specific "><code><span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>Page of my awesome Product<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Page of my product aswesome Product<span class="nt">&lt;/title&gt;</span>
   <span class="nt">&lt;/head&gt;</span>
   <span class="nt">&lt;body&gt;</span>
     <span class="c">&lt;!-- ... --&gt;</span>
@@ -411,10 +409,10 @@
       <span class="p">{</span>
         <span class="s2">"@context"</span><span class="p">:</span> <span class="s2">"http://schema.org/"</span><span class="p">,</span>
         <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"Product"</span><span class="p">,</span>
-        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"awesomeProduct"</span><span class="p">,</span>
-        <span class="s2">"image"</span><span class="p">:</span> <span class="s2">"http://www.adress.of.awesomeProduct.image.jpeg"</span><span class="p">,</span>
-        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"My awesomeProduct desc which appears in the google search"</span><span class="p">,</span>
-        <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"AwesomeCompany"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"aswesomeProduct"</span><span class="p">,</span>
+        <span class="s2">"image"</span><span class="p">:</span> <span class="s2">"http://www.adress.of.aswesomeProduct.image.jpeg"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"My aswesomeProduct desc which appears too in google search"</span><span class="p">,</span>
+        <span class="s2">"brand"</span><span class="p">:</span> <span class="s2">"AwseomeCompany"</span><span class="p">,</span>
         <span class="s2">"aggregateRating"</span><span class="p">:</span> <span class="p">{</span>
           <span class="s2">"@type"</span><span class="p">:</span> <span class="s2">"AggregateRating"</span><span class="p">,</span>
           <span class="s2">"ratingValue"</span><span class="p">:</span> <span class="s2">"8.1"</span><span class="p">,</span>
@@ -429,15 +427,15 @@
 </code></pre>
 <p>Here is an example of data you need to place in a product html page in order to see related note on google search result for this product.</p>
 
-<p>You should keep in mind that if you put more than one script per page, the behaviour might become unpredictable. Indeed, if your page has many products (ex: multiple blue shoes)the google search will appears such as, all ratings will be displayed together. However, you can decide if either or not you want this particular behaviour.</p>
+<p>You should keep in mind that if you put more than one script per page, the behaviour is unpredictable. Indeed, if your page with many products (such as all your blues shoes) apears in a google search, the rating must contains all your blue shoes ratings, or eventualy nothing if you don&#39;t want this behaviour.</p>
 
-<p>The most important data that <strong>MUST</strong> be replaced here is <code>aggregateRating</code>.<br>
-Luckily, diduenjoy provides an endpoint to give you dynamicaly the related rating of your product page collected through your feedbacks!<br>
-Of course you need to replace other fields like <code>name</code>, <code>image</code>, <code>description</code>, <code>brand</code> and eventually <code>@type</code>.<br>
+<p>The important data we need to replace here is <code>aggregateRating</code>.<br>
+Luckly diduenjoy provides an endpoint to gives you dynamicaly the related rating of your product page collected through your feedbacks!<br>
+Of course you need to replace other fileds like <code>name</code>, <code>image</code>, <code>description</code>, <code>brand</code> and eventualy <code>@type</code>.<br>
 Check it out <a href="#google-star-concrete-example">this example</a> to apply this to your own pages!</p>
 <h2 id='script-structure'>Script structure</h2>
 <ul>
-<li>The script where you <strong>SHALL</strong> add the information needs to be inserted within your product&#39;s page <code>body</code> html tag</li>
+<li>The script you will put information in should be insert into your product&#39;s page <code>body</code> html tag</li>
 <li>This script is of <code>application/ld+json</code> type</li>
 <li>It contains a json block. It&#39;s a collection of key/values :</li>
 </ul>
@@ -475,7 +473,7 @@ Check it out <a href="#google-star-concrete-example">this example</a> to apply t
 </tr>
 <tr>
 <td><code>@type</code></td>
-<td><strong>String, required</strong><br><br> <strong>SHALL</strong> be here [http://schema.org/docs/full.html].You <strong>SHALL</strong> mainly use <code>Product</code> and <code>SomeProducts</code> (group of products)</td>
+<td><strong>String, required</strong><br><br> Should be from (here)[http://schema.org/docs/full.html].You will mainly use <code>Product</code> and <code>SomeProducts</code> (group of products)</td>
 </tr>
 <tr>
 <td><code>name</code></td>
@@ -483,7 +481,7 @@ Check it out <a href="#google-star-concrete-example">this example</a> to apply t
 </tr>
 <tr>
 <td><code>image</code></td>
-<td><strong>String, recommended</strong><br><br>The url of your product&#39;s image</td>
+<td><strong>String, recommended</strong><br><br>The url of your product image</td>
 </tr>
 <tr>
 <td><code>description</code></td>
@@ -500,20 +498,20 @@ Check it out <a href="#google-star-concrete-example">this example</a> to apply t
 </tbody></table>
 
 <aside class="notice">
-  JSON is a format where keys and values are always encapsulated within double quotes (even a number should be a string)
+  JSON is a format where keys and values are always between double quotes (even a number should be a string)
 </aside>
 <h2 id='diduenjoy-aggregate-rating-endpoint'>Diduenjoy aggregate rating endpoint</h2>
-<p>This provided endpoint is used to retrieve the JsonObject and needs  to be inserted into your script in front of the <code>&quot;aggregateRating&quot;</code> key.
-It takes one optional (but recommended) parameter named <code>Filter</code>. If none is given, the enpoint will give you the ratings gathered through ALL your feedbacks (and not on one specific product except if you only sell this particular product).</p>
+<p>This provided enpoint is used to retrieve the JsonObject to insert into your script in front of the <code>&quot;aggregateRating&quot;</code> key.
+It takes one optionaly (but recommanded) parameter named <code>Filter</code>. If you gives none, the enpoint will gives you the ratings gathers through ALL your feedbacks (and not on one product exepct if you sell only one product).</p>
 <h3 id='filter'>Filter</h3>
 <p><code>Filter</code> param may have 2 keys, which means you can retrieve the rating of your product(s) with 2 filters that are <code>surveys</code> and <code>segments</code>
-<aside class="notice">If you want the rating for one product, your filters <b>SHALL</b> be as restrictive as possible. Inversely, if you want an aggregate note for an index of products (such as all your blue shoes), filter should logically contains less filters than the previous example.
+<aside class="notice">If you want a rating for one product, your filters must be as restrictive as possible. Conversely, if you want an aggregate note for an index of products (such as all your blues shoes), filter should logicaly contains less filters than the previous example.
 </aside></p>
 <h4 id='surveys'>Surveys</h4>
-<p>The surveys filter is an array of the surveys you use to collect feedbacks on this particular product(s).</p>
+<p>The surveys filter is an array of the surveys you use to collect feedbacks on this particular product(s)</p>
 <h4 id='segments'>Segments</h4>
 <p>The segments filter is an object of keys/array.
-* The key should be the name of the segment you want to filter by: for instance <code>Color</code>, <code>ProductName</code> or <code>ProductId</code>
+* The key should be the name of the segment you want to filter by such as <code>Color</code>, <code>ProductName</code> or <code>ProductId</code>
 * The array should contains a list of values to filter by such as <code>[&#39;red&#39;, &#39;green&#39;]</code>, <code>[&#39;Camambert Fermier 1 an&#39;]</code>, or <code>[&#39;123456&#39;]</code></p>
 <h3 id='url'>Url</h3>
 <p>The url of this enpoint is the following : <code>https://api.diduenjoy.com/api/v3/aggregate-ratings</code></p>
@@ -545,7 +543,7 @@ It takes one optional (but recommended) parameter named <code>Filter</code>. If 
 
 <span class="vi">@aggregate_rating</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">body</span> <span class="k">if</span> <span class="n">response</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Net</span><span class="o">::</span><span class="no">HTTPSuccess</span><span class="p">)</span>
 </code></pre>
-<p>Now, if you want to retrieve ratings for feedbacks sent through 2 surveys filtered by 2 segments with values such as the ones given:
+<p>Now if we want to retrieve ratings of the feedbacks send through 2 surveys filtered by 2 segments with values with those given ones :
 <ul>
   <li>surveys :<code>ef053beb-8dbb-4cc1-88dd-4ea4fbfc236e</code> and<code>515d627e-1dd4-41ca-ba12-41b2db5268a5</code></li>
   <li>
@@ -558,7 +556,7 @@ It takes one optional (but recommended) parameter named <code>Filter</code>. If 
 </ul>
 <aside class="notice">
   <ul>
-    <li>Remember, you need to be authenticated to retrieve data from this endpoint</li>
+    <li>You need to be authenticated to retrieve data from this endpoint</li>
     <li>Do not forget to use Arrays as <code>surveys</code> and <code>named_segments</code> values</li>
   </ul>
 </aside></p>
@@ -570,11 +568,12 @@ You can perform this easily : <br>
 - paste all your html product(s) page and click on <code>test</code><br>
 - you should see something like that : <img src="images/google_star/test_1.png" alt="google_star_test_1" /><br></p>
 
-<p>It will return an aggregate rating corresponding to the average of your filtered feedbacks.</p>
+<p>It should&#39;t shows any error and you should see an aggregate rating corresponding to the average of your filtered feedbacks.</p>
 <h2 id='notify-google-something-changed'>Notify Google something changed!</h2>
-<p>Once in production, you <strong>SHALL</strong> notify Google that something changed on your website and it will crawl your data to update the google search results related to your product(s) pages and update your sitemaps.</p>
+<p>Once in production, you should notice Google that something changed on your website and it should crawl your data to update google search results related to your product(s) pages.
+update your sitemaps and :</p>
 
-<p>To achieve the following, go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
+<p>To achieve that go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
 Then go to the <code>crawl</code> folder, in <code>Sitemaps</code> section <img src="images/google_star/webtool_1.png" alt="webtool1" /><br>
 Finaly, click on <code>add/test</code> sitemaps and click on submit. <img src="images/google_star/webtool_2.png" alt="webtool2" /><br></p>
 <h2 id='google-star-concrete-example'>Google Star Concrete Example</h2>
@@ -625,24 +624,25 @@ Finaly, click on <code>add/test</code> sitemaps and click on submit. <img src="i
 </code></pre><pre class="highlight shell lang-specific cURL"><code><span class="c"># check ruby tab</span>
 </code></pre><pre class="highlight php lang-specific php"><code>// check ruby tab
 </code></pre>
-<p>This example provides how to add aggregate ratings to a shop.</p>
+<p>In this example, we will see how to put aggregate ratings for my shop.</p>
 
-<p>Here is an example :</p>
+<p>Let&#39;s have some conditions :</p>
 
 <ul>
-<li>The company <code>glasse_inc</code>, sells glasses</li>
-<li>Its inventory contains different type of glasses, with different colors and shapes</li>
-<li>Every glasses have a unique Name &amp; ID (such as <code>spiderman glasses</code>)</li>
-<li>The company sends one survey (survey_id = <code>c78543bd-d59b-43fe-9924-3c59dfad901e</code>) to all its buyers with 3 segments : <code>internal_id</code>, <code>color</code>, <code>shape</code></li>
-<li>The company&#39;s website calls the <code>get_diduenjoy_aggregate</code> function in the product page</li>
+<li>my company is <code>glasse_inc</code></li>
+<li>I sell glasses</li>
+<li>I have different glasses, they differ on color and on shape</li>
+<li>All my glasses have a uniq ID and a uniq Name (such as <code>spidernam glasses</code>)</li>
+<li>I send one survey (survey_id = <code>c78543bd-d59b-43fe-9924-3c59dfad901e</code>) to all my buyers with 3 segment : <code>internal_id</code>, <code>color</code>, <code>shape</code></li>
+<li>I have a <code>get_diduenjoy_aggregate</code> function in GlassesController which query diduenjoy api</li>
 </ul>
 
-<p>In order to have the ratings displayed, the company <strong>SHALL</strong> add the aggregate function to all its pages so when a user searches on Google, the following occurs:</p>
+<p>I want to put aggregate function on all my bages so when a user search on google:</p>
 
 <ul>
-<li><code>glasse_inc glasses</code> the average rating for all my glasses is displayed</li>
-<li><code>blue glasses</code> the average rating for all my blue glasses is displayed</li>
-<li><code>spiderman glasses</code> the average rating for this particular type of glasses is displayed</li>
+<li><code>glasse_inc glasses</code> he will see the avergage note of all my glasses</li>
+<li><code>blue glasses</code> he will see the avergage note of all my blue glasses</li>
+<li><code>spidernam glasses</code> he will find the avergage note of this one</li>
 </ul>
 <pre class="highlight ruby lang-specific Rails"><code>  <span class="c1"># params[:filters] with like :</span>
   <span class="c1"># - { colors =&gt; ['blue'] }</span>
@@ -683,11 +683,11 @@ Finaly, click on <code>add/test</code> sitemaps and click on submit. <img src="i
 </code></pre><pre class="highlight shell lang-specific cURL"><code><span class="c"># check ruby tab</span>
 </code></pre><pre class="highlight php lang-specific php"><code>// check ruby tab
 </code></pre>
-<p>First of all, you <strong>SHALL</strong> define how to use your <code>filters</code> param to extract the appropriate filters to query Diduenjoy API.
-In this present case, if we are on an index page filtered (or not) by <code>shape</code> and <code>color</code>, you <strong>MAY</strong> use them to query related feedbacks average.
-Therefore, if you are on a single product page, you <strong>MUST</strong> use the product id to get it.
-You <strong>SHALL</strong> get the result into an <code>@aggregate_rating_content</code> var instead of using it into our <code>html.erb</code> file.
-Additionally, you <strong>SHOULD</strong> assume that they are partial views (so <code>body</code> and <code>html</code> tags always encapsulate <code>show</code> and <code>index</code> views).</p>
+<p>First of all, define how to use your <code>filters</code> param to extract it appropriate filters to query Diduenjoy API.
+Here if we are on an index page filtered (or not) by <code>shape</code> and <code>color</code>, we use them to query related feedbacks average.
+But if we are on a single product page, we use the product id to get it.
+We get this result into <code>@aggregate_rating_content</code> var in instance to use it into our <code>html.erb</code> file
+We supose by the way that they are partial views (so <code>body</code> and <code>html</code> tags are always encapsulate <code>show</code> and <code>index</code> views)</p>
 <h1 id='api-v1-reference'>API V1 Reference</h1><h2 id='get-code-answer_sets-id-code'>GET <code>/answer_sets/:id</code></h2>
 <p>Get a single answer_set</p>
 <pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
@@ -1372,6 +1372,148 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>survey_languages</strong></td>
 <td>survey localized texts (at least 1)</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-dispatches-code'>POST <code>/dispatches</code></h2>
+<p>Send a survey to a specified email address</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :post</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/dispatches'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span><span class="p">,</span>
+  <span class="ss">headers: </span><span class="p">{</span>
+    <span class="ss">content_type: </span><span class="s1">'application/vnd.api+json'</span>
+  <span class="p">},</span>
+  <span class="ss">payload: </span><span class="p">{</span>
+    <span class="ss">data: </span><span class="p">{</span>
+      <span class="ss">type: </span><span class="s1">'dispatches'</span><span class="p">,</span>
+      <span class="ss">attributes: </span><span class="p">{</span>
+        <span class="ss">to_email: </span><span class="s1">'client@example.com'</span><span class="p">,</span>
+        <span class="ss">from_email: </span><span class="s1">'awesome-company@example.com'</span><span class="p">,</span>
+        <span class="ss">from_name: </span><span class="s1">'Awesome Company'</span><span class="p">,</span>
+        <span class="ss">subject: </span><span class="s1">'{segment:gender} {segment:name} Information about your order - {company_name}'</span><span class="p">,</span>
+        <span class="ss">text: </span><span class="s2">"Hi {segment:gender} {segment:name},</span><span class="se">\n</span><span class="s2">Your opinion matters!</span><span class="se">\n</span><span class="s2">Please take this survey: {survey_url}. It will only take 10 seconds, or less. We swear!</span><span class="se">\n</span><span class="s2">The questions are short and sweet and will help us improve your experience!</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
+        <span class="ss">html: </span><span class="s1">'&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hi {segment:gender} {segment:name},&lt;br&gt;&lt;br&gt;Your opinion matters!&lt;br&gt;&lt;br&gt;Please take &lt;a href="{survey_url}"&gt;this survey&lt;/a&gt;. It will only take 10 seconds, or less. We swear!&lt;br&gt;The questions are short and sweet and will help us improve your experience!&lt;br&gt;&lt;br&gt;Thank you!&lt;br&gt;&lt;/body&gt;&lt;/html&gt;'</span><span class="p">,</span>
+        <span class="ss">segments: </span><span class="p">{</span>
+          <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
+          <span class="ss">name: </span><span class="s1">'DJ'</span><span class="p">,</span>
+          <span class="ss">interests: </span><span class="p">[</span><span class="s1">'music'</span><span class="p">,</span> <span class="s1">'dance'</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="ss">relationships: </span><span class="p">{</span>
+        <span class="ss">survey_language: </span><span class="p">{</span>
+          <span class="ss">data: </span><span class="p">{</span>
+            <span class="ss">type: </span><span class="s1">'survey_languages'</span><span class="p">,</span>
+            <span class="ss">id: </span><span class="s1">'YOUR-SURVEY_LANGUAGE-ID-HERE'</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#     data: {</span>
+<span class="c1">#       type: "dispatches",</span>
+<span class="c1">#       id: "THIS-DISPATCH-ID",</span>
+<span class="c1">#       attributes: {</span>
+<span class="c1">#         created_at: "2016-01-15 04:40:47 UTC",</span>
+<span class="c1">#         updated_at: "2016-01-15 04:40:47 UTC",</span>
+<span class="c1">#         to_email: "client@example.com",</span>
+<span class="c1">#         from_email: "awesome-company@example.com",</span>
+<span class="c1">#         from_name: "Awesome Company",</span>
+<span class="c1">#         html: "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;Hi {segment:gender} {segment:name},&lt;br&gt;&lt;br&gt;Your opinion matters!&lt;br&gt;&lt;br&gt;Please take &lt;a href="{survey_url}#"&gt;this survey&lt;/a&gt;. It will only take 10 seconds, or less. We swear!&lt;br&gt;The questions are short and sweet and will help us improve your #experience!&lt;br&gt;&lt;br&gt;Thank you!&lt;br&gt;&lt;/body&gt;&lt;/html&gt;",</span>
+<span class="c1">#         text: "Hi {segment:gender} {segment:name}, Your opinion matters! Please take this survey: {survey_url}. It will only take 10 seconds, or #less. We swear! The questions are short and sweet and will help us improve your experience! ",</span>
+<span class="c1">#         segments: {</span>
+<span class="c1">#         gender: [</span>
+<span class="c1">#             "Mister"</span>
+<span class="c1">#           ],</span>
+<span class="c1">#           name: [</span>
+<span class="c1">#             "DJ"</span>
+<span class="c1">#           ],</span>
+<span class="c1">#           interests: [</span>
+<span class="c1">#             "music",</span>
+<span class="c1">#             "dance"</span>
+<span class="c1">#           ]</span>
+<span class="c1">#         },</span>
+<span class="c1">#         subject: "{segment:gender} {segment:name} Information about your order - {company_name}"</span>
+<span class="c1">#       },</span>
+<span class="c1">#       relationships: {</span>
+<span class="c1">#         survey_language: {</span>
+<span class="c1">#           data: {</span>
+<span class="c1">#             type: "survey_languages",</span>
+<span class="c1">#             id: "YOUR-SURVEY_LANGUAGE-ID",</span>
+<span class="c1">#             links: {</span>
+<span class="c1">#               self: "http://localhost:3000/api/v1/survey_languages/YOUR-SURVEY_LANGUAGE-ID"</span>
+<span class="c1">#             }</span>
+<span class="c1">#           }</span>
+<span class="c1">#         }</span>
+<span class="c1">#       },</span>
+<span class="c1">#       links: {</span>
+<span class="c1">#         self: "http://localhost:3000/api/v1/dispatches/THIS-DISPATCH-ID"</span>
+<span class="c1">#       }</span>
+<span class="c1">#     }</span>
+<span class="c1">#   }</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>to_email</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>email address to which send the survey</td>
+</tr>
+<tr>
+<td><strong>from_email</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email sender address</td>
+</tr>
+<tr>
+<td><strong>from_name</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email sender name</td>
+</tr>
+<tr>
+<td><strong>subject</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email subject</td>
+</tr>
+<tr>
+<td><strong>text</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email text content</td>
+</tr>
+<tr>
+<td><strong>html</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>survey email html content</td>
+</tr>
+<tr>
+<td><strong>scheduled_at</strong><br><em>string (datetime ISO 8601)</em></td>
+<td></td>
+<td>datetime when the survey should be sent</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br>_hash { string: string\</td>
+<td>array[string] }_</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>survey_language</strong></td>
+<td><em>required</em></td>
+<td>survey to send</td>
 </tr>
 </tbody></table>
 <h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
