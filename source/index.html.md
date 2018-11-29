@@ -31,7 +31,6 @@ includes:
   - api/get_survey_language
   - api/get_survey
   - api/get_surveys
-  - api/post_dispatch
   - easy_methods/index
   - easy_methods/post_easy_dispatches
 
