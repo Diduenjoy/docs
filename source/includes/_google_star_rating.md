@@ -1,13 +1,13 @@
 # Google Star Ratings
 
-In the *Google search engine*, some star ratings can appear beside results.
+In the *Google search engine*, star ratings can appear bellow the results.
 
 ![client_docs-google_rating-example](google_star/client_docs-google_rating-example.png)
 
-To get a similar result you have to gather reviews and add a html snippet to your website.
+To get a similar result, you **SHALL** have to gather reviews and add an html snippet to your website.
 
 <aside class="success">
-  This guide explains how to link your <i>Diduenjoy</i> gathered reviews and the *Google Star Ratings*.
+  This guide explains how to link your <i>Diduenjoy</i> gathered reviews to the *Google Star Ratings*.
 </aside>
 
 ## Getting started
@@ -21,12 +21,12 @@ To get a similar result you have to gather reviews and add a html snippet to you
 
 ### The workflow
 
-1. Some *customers* buy items from *the merchant*
-1. *The merchant* notifies *Diduenjoy* about the transactions
+1. *Customers* buy items from *the merchant*
+1. *The merchant* notifies *Diduenjoy* about the transaction
 1. *Diduenjoy* sends surveys to *the customers*
-1. *The Customers* answer to the *Diduenjoy* surveys
+1. *Customers* answer to the *Diduenjoy* surveys
 1. *The merchant* fetch the data gathered by *Diduenjoy* and updates his items or categories webpages metadata
-1. *Google* crawls *the merchant* website and update the search results stars according the webpages metadata
+1. *Google* crawls *the merchant* website and update the search results stars according to the webpages metadata
 
 
 ### The metadata snippet
@@ -34,7 +34,7 @@ To get a similar result you have to gather reviews and add a html snippet to you
 ```html--
 <html>
   <head>
-    <title>Page of my product aswesome Product</title>
+    <title>Page of my awesome Product</title>
   </head>
   <body>
     <!-- ... -->
@@ -42,10 +42,10 @@ To get a similar result you have to gather reviews and add a html snippet to you
       {
         "@context": "http://schema.org/",
         "@type": "Product",
-        "name": "aswesomeProduct",
-        "image": "http://www.adress.of.aswesomeProduct.image.jpeg",
-        "description": "My aswesomeProduct desc which appears too in google search",
-        "brand": "AwseomeCompany",
+        "name": "awesomeProduct",
+        "image": "http://www.adress.of.awesomeProduct.image.jpeg",
+        "description": "My awesomeProduct desc which appears in the google search",
+        "brand": "AwesomeCompany",
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "8.1",
@@ -61,15 +61,15 @@ To get a similar result you have to gather reviews and add a html snippet to you
 
 Here is an example of data you need to place in a product html page in order to see related note on google search result for this product.
 
-You should keep in mind that if you put more than one script per page, the behaviour is unpredictable. Indeed, if your page with many products (such as all your blues shoes) apears in a google search, the rating must contains all your blue shoes ratings, or eventualy nothing if you don't want this behaviour.
+You should keep in mind that if you put more than one script per page, the behaviour might become unpredictable. Indeed, if your page has many products (ex: multiple blue shoes)the google search will appears such as, all ratings will be displayed together. However, you can decide if either or not you want this particular behaviour.
 
-The important data we need to replace here is `aggregateRating`.<br>
-Luckly diduenjoy provides an endpoint to gives you dynamicaly the related rating of your product page collected through your feedbacks!<br>
-Of course you need to replace other fileds like `name`, `image`, `description`, `brand` and eventualy `@type`.<br>
+The most important data that **MUST** be replaced here is `aggregateRating`.<br>
+Luckily, diduenjoy provides an endpoint to give you dynamicaly the related rating of your product page collected through your feedbacks!<br>
+Of course you need to replace other fields like `name`, `image`, `description`, `brand` and eventually `@type`.<br>
 Check it out [this example](#google-star-concrete-example) to apply this to your own pages!
 
 ## Script structure
-* The script you will put information in should be insert into your product's page `body` html tag
+* The script where you **SHALL** add the information needs to be inserted within your product's page `body` html tag
 * This script is of `application/ld+json` type
 * It contains a json block. It's a collection of key/values :
 
@@ -100,35 +100,35 @@ Check it out [this example](#google-star-concrete-example) to apply this to your
 |key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |value|
 ----|-|-|
 `@context`| **Constant String, required**<br><br>Let its value to `http://schema.org/`
-`@type`| **String, required**<br><br> Should be from (here)[http://schema.org/docs/full.html].You will mainly use `Product` and `SomeProducts` (group of products)
+`@type`| **String, required**<br><br> **SHALL** be here [http://schema.org/docs/full.html].You **SHALL** mainly use `Product` and `SomeProducts` (group of products)
 `name`| **String, required**<br><br>The name of your product
-`image` | **String, recommended**<br><br>The url of your product image
+`image` | **String, recommended**<br><br>The url of your product's image
 `description`| **String, recommended**<br><br>The description of your product
 `brand`| **String, recommended**<br><br>Your Brand name
 `aggregateRating`| **JsonObject, required**<br><br> The data which gives your product rating to Google. Provided by [this diduenjoy enpoint](#diduenjoy-aggregate-ratings-endpoint)
 
 <aside class="notice">
-  JSON is a format where keys and values are always between double quotes (even a number should be a string)
+  JSON is a format where keys and values are always encapsulated within double quotes (even a number should be a string)
 </aside>
 
 ## Diduenjoy aggregate rating endpoint
 
-This provided enpoint is used to retrieve the JsonObject to insert into your script in front of the `"aggregateRating"` key.
-It takes one optionaly (but recommanded) parameter named `Filter`. If you gives none, the enpoint will gives you the ratings gathers through ALL your feedbacks (and not on one product exepct if you sell only one product).
+This provided endpoint is used to retrieve the JsonObject and needs  to be inserted into your script in front of the `"aggregateRating"` key.
+It takes one optional (but recommended) parameter named `Filter`. If none is given, the enpoint will give you the ratings gathered through ALL your feedbacks (and not on one specific product except if you only sell this particular product).
 
 ### Filter
 
 `Filter` param may have 2 keys, which means you can retrieve the rating of your product(s) with 2 filters that are `surveys` and `segments`
-<aside class="notice">If you want a rating for one product, your filters must be as restrictive as possible. Conversely, if you want an aggregate note for an index of products (such as all your blues shoes), filter should logicaly contains less filters than the previous example.
+<aside class="notice">If you want the rating for one product, your filters <b>SHALL</b> be as restrictive as possible. Inversely, if you want an aggregate note for an index of products (such as all your blue shoes), filter should logically contains less filters than the previous example.
 </aside>
 
 
 #### Surveys
-The surveys filter is an array of the surveys you use to collect feedbacks on this particular product(s)
+The surveys filter is an array of the surveys you use to collect feedbacks on this particular product(s).
 
 #### Segments
 The segments filter is an object of keys/array.
-* The key should be the name of the segment you want to filter by such as `Color`, `ProductName` or `ProductId`
+* The key should be the name of the segment you want to filter by: for instance `Color`, `ProductName` or `ProductId`
 * The array should contains a list of values to filter by such as `['red', 'green']`, `['Camambert Fermier 1 an']`, or `['123456']`
 
 ### Url
@@ -141,7 +141,7 @@ The url of this enpoint is the following : `https://api.diduenjoy.com/api/v3/agg
 require 'net/http'
 
 DIDUENJOY_API_KEY = '28b22313-bb59-4f78-8bf2-911e7d7aba4b'
-ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-rating'
+ENDPOINT_URL = 'https://api.diduenjoy.com/api/v3/aggregate-ratings'
 params = {
   "filter": {
     "surveys": [
@@ -167,7 +167,7 @@ end
 @aggregate_rating = response.body if response.is_a?(Net::HTTPSuccess)
 ```
 
-Now if we want to retrieve ratings of the feedbacks send through 2 surveys filtered by 2 segments with values with those given ones :
+Now, if you want to retrieve ratings for feedbacks sent through 2 surveys filtered by 2 segments with values such as the ones given:
 <ul>
   <li>surveys :<code>ef053beb-8dbb-4cc1-88dd-4ea4fbfc236e</code> and<code>515d627e-1dd4-41ca-ba12-41b2db5268a5</code></li>
   <li>
@@ -180,7 +180,7 @@ Now if we want to retrieve ratings of the feedbacks send through 2 surveys filte
 </ul>
 <aside class="notice">
   <ul>
-    <li>You need to be authenticated to retrieve data from this endpoint</li>
+    <li>Remember, you need to be authenticated to retrieve data from this endpoint</li>
     <li>Do not forget to use Arrays as <code>surveys</code> and <code>named_segments</code> values</li>
   </ul>
 </aside>
@@ -194,14 +194,13 @@ You can perform this easily : <br>
 - paste all your html product(s) page and click on `test`<br>
 - you should see something like that : ![google_star_test_1](google_star/test_1.png)<br>
 
-It should't shows any error and you should see an aggregate rating corresponding to the average of your filtered feedbacks.
+It will return an aggregate rating corresponding to the average of your filtered feedbacks.
 
 ## Notify Google something changed!
 
-Once in production, you should notice Google that something changed on your website and it should crawl your data to update google search results related to your product(s) pages.
-update your sitemaps and :
+Once in production, you **SHALL** notify Google that something changed on your website and it will crawl your data to update the google search results related to your product(s) pages and update your sitemaps.
 
-To achieve that go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
+To achieve the following, go to <a href="https://www.google.com/webmasters/tools/home" target="_blank">Google webmasters tools</a><br>
 Then go to the `crawl` folder, in `Sitemaps` section ![webtool1](google_star/webtool_1.png)<br>
 Finaly, click on `add/test` sitemaps and click on submit. ![webtool2](google_star/webtool_2.png)<br>
 
@@ -267,22 +266,21 @@ class GlassesController
 // check ruby tab
 ```
 
-In this example, we will see how to put aggregate ratings for my shop.
+This example provides how to add aggregate ratings to a shop.
 
-Let's have some conditions :
+Here is an example :
 
-* my company is `glasse_inc`
-* I sell glasses
-* I have different glasses, they differ on color and on shape
-* All my glasses have a uniq ID and a uniq Name (such as `spidernam glasses`)
-* I send one survey (survey_id = `c78543bd-d59b-43fe-9924-3c59dfad901e`) to all my buyers with 3 segment : `internal_id`, `color`, `shape`
-* I have a `get_diduenjoy_aggregate` function in GlassesController which query diduenjoy api
+* The company `glasse_inc`, sells glasses
+* Its inventory contains different type of glasses, with different colors and shapes
+* Every glasses have a unique Name & ID (such as `spiderman glasses`)
+* The company sends one survey (survey_id = `c78543bd-d59b-43fe-9924-3c59dfad901e`) to all its buyers with 3 segments : `internal_id`, `color`, `shape`
+* The company's website calls the `get_diduenjoy_aggregate` function in the product page
 
-I want to put aggregate function on all my bages so when a user search on google:
+In order to have the ratings displayed, the company **SHALL** add the aggregate function to all its pages so when a user searches on Google, the following occurs:
 
-* `glasse_inc glasses` he will see the avergage note of all my glasses
-* `blue glasses` he will see the avergage note of all my blue glasses
-* `spidernam glasses` he will find the avergage note of this one
+* `glasse_inc glasses` the average rating for all my glasses is displayed
+* `blue glasses` the average rating for all my blue glasses is displayed
+* `spiderman glasses` the average rating for this particular type of glasses is displayed
 
 
 ```ruby--Rails
@@ -332,8 +330,8 @@ I want to put aggregate function on all my bages so when a user search on google
 // check ruby tab
 ```
 
-First of all, define how to use your `filters` param to extract it appropriate filters to query Diduenjoy API.
-Here if we are on an index page filtered (or not) by `shape` and `color`, we use them to query related feedbacks average.
-But if we are on a single product page, we use the product id to get it.
-We get this result into `@aggregate_rating_content` var in instance to use it into our `html.erb` file
-We supose by the way that they are partial views (so `body` and `html` tags are always encapsulate `show` and `index` views)
+First of all, you **SHALL** define how to use your `filters` param to extract the appropriate filters to query Diduenjoy API.
+In this present case, if we are on an index page filtered (or not) by `shape` and `color`, you **MAY** use them to query related feedbacks average.
+Therefore, if you are on a single product page, you **MUST** use the product id to get it.
+You **SHALL** get the result into an `@aggregate_rating_content` var instead of using it into our `html.erb` file.
+Additionally, you **SHOULD** assume that they are partial views (so `body` and `html` tags always encapsulate `show` and `index` views).
