@@ -14,6 +14,7 @@ RestClient::Request.execute method: :post,
   payload: {
     email: 'client@example.com',
     survey_id: 'YOUR-SURVEY-ID-HERE',
+    template_id: 'YOUR-TEMPLATE-ID-HERE',
     segments: {
       language: 'EN',
       scheduled_at: '2022-04-18 15:07:00',
@@ -27,6 +28,7 @@ RestClient::Request.execute method: :post,
 #     "id": "DISPATCH-ID",
 #     "email": "client@example.com",
 #     "survey_id": "YOUR-SURVEY-ID-HERE",
+#     "template_id": "YOUR-TEMPLATE-ID-HERE",
 #     "segments": {
 #       "language": "EN",
 #       "scheduled_at": "2022-04-18 15:07:00",
@@ -40,12 +42,14 @@ RestClient::Request.execute method: :post,
 ```php--php
 $api_key = 'YOUR-API-KEY-HERE';
 $survey_id = 'YOUR-SURVEY-ID-HERE';
+$template_id = 'YOUR-TEMPLATE-ID-HERE',
 $email = 'client@example.com';
 $date = '2022-04-18 15:07:00';
 
 $payload = array(
   'email' => $email,
   'survey_id' => $survey_id,
+  'template_id' => $template_id,
   'segments' => array(
     'language' => 'EN',
     'scheduled_at' => $date,
@@ -74,6 +78,7 @@ $response = curl_exec($ch);
 //     "id": "DISPATCH-ID",
 //     "email": "client@example.com",
 //     "survey_id": "YOUR-SURVEY-ID-HERE",
+//     "template_id": "YOUR-TEMPLATE-ID-HERE",
 //     "segments": {
 //       "language": "EN",
 //       "scheduled_at": "2022-04-18 15:07:00",
@@ -97,6 +102,7 @@ attribute          |     | description
 ------------- | --- | -------------
 __email__<br>_string_  | _required_ | email address to which send the survey
 __survey_id__<br>_string_  | _required_ | id of the survey
+__template_id__<br>_string_  | | id of the template
 __segments__<br>_hash { string: (string OR array[string]) }_ | | custom data associated with the survey
 __dispatch_subject__<br>_string_ | | survey email subject
 __dispatch_text__<br>_string_  | | survey email text content
