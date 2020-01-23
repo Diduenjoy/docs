@@ -308,6 +308,9 @@
                   <li>
                     <a href="#get-code-surveys-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/surveys</code></a>
                   </li>
+                  <li>
+                    <a href="#get-code-stats-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/stats</code></a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1372,6 +1375,84 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>survey_languages</strong></td>
 <td>survey localized texts (at least 1)</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-stats-code'>GET <code>/stats</code></h2>
+<p>Get your statics key values</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/stats'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="c1"># example with filters</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/stats?filter[surveys][0]=Paris%20Boutique&amp;filter[segments][city][0]=paris&amp;filter[start_date]=Fri%20Oct%2011%202019%2002:00:00%20GMT+0200%20(Central%20European%20Summer%20Time)'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#   "total": 74,</span>
+<span class="c1">#   "score": 6.594594594594595,</span>
+<span class="c1">#   "promoter_count": 31,</span>
+<span class="c1">#   "passiv_count": 17,</span>
+<span class="c1">#   "detractor_count": 26,</span>
+<span class="c1">#   "nps": 7</span>
+<span class="c1">#}</span>
+</code></pre><h3 id='optional-parameters-quot-filters-quot'>optional parameters &quot;filters&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>surveys</strong><br><em>array</em></td>
+<td>filter over feedbacks of the indicated surveys</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>array</em></td>
+<td>associative array of segments, where segments names are the keys and the values are the. To filter over feedbacks having the specified segments name with the corresponding values</td>
+</tr>
+<tr>
+<td><strong>start_date</strong><br><em>date</em></td>
+<td>filter on feedbacks answered after the specified date</td>
+</tr>
+<tr>
+<td><strong>end_date</strong><br><em>date</em></td>
+<td>filter on feedbacks answered before the specified date</td>
+</tr>
+</tbody></table>
+<h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>total</strong><br><em>integer</em></td>
+<td>total number of found feedbacks</td>
+</tr>
+<tr>
+<td><strong>score</strong><br><em>float</em></td>
+<td>average score</td>
+</tr>
+<tr>
+<td><strong>promoter_count</strong><br><em>integer</em></td>
+<td>number of promoter profiles</td>
+</tr>
+<tr>
+<td><strong>passiv_count</strong><br><em>integer</em></td>
+<td>number of passiv profiles</td>
+</tr>
+<tr>
+<td><strong>detractor_count</strong><br><em>integer</em></td>
+<td>number of detractor profiles</td>
+</tr>
+<tr>
+<td><strong>nps</strong><br><em>integer</em></td>
+<td>net promoter score, integer varying from -100 to +100 depending on the number of promoters and detractors</td>
 </tr>
 </tbody></table>
 <h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
