@@ -21,7 +21,8 @@ RestClient::Request.execute method: :get,
 #   "promoter_count": 31,
 #   "passiv_count": 17,
 #   "detractor_count": 26,
-#   "nps": 7
+#   "nps": 7,
+#   "sent": 120
 #}
 ```
 
@@ -45,3 +46,4 @@ __promoter_count__<br>_integer_ | number of promoter profiles
 __passiv_count__<br>_integer_ | number of passiv profiles
 __detractor_count__<br>_integer_ | number of detractor profiles
 __nps__<br>_integer_ | net promoter score, integer varying from -100 to +100 depending on the number of promoters and detractors
+__sent__<br>_integer_ | number of sent surveys
