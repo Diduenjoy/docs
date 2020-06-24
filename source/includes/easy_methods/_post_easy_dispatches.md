@@ -100,8 +100,8 @@ $response = curl_exec($ch);
 
 attribute          |     | description
 ------------- | --- | -------------
-__email__<br>_string_  | _either email or phone number_ | email address to which send the survey
-__phone_number__<br>_string_  | _either email or phone number_ | phone number to which the survey will be send. The international format should be used (ex: +33)
+__email__<br>_string_  | _either email or phone number required_ | email address to which send the survey
+__phone_number__<br>_string_  | _either email or phone number required_ | phone number to which the survey will be send. The international format should be used (ex: +33)
 __survey_id__<br>_string_  | _required_ | id of the survey
 __template_id__<br>_string_  | _required_| id of the template
 __segments__<br>_hash { string: string }_ | | custom data associated with the survey
