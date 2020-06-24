@@ -12,7 +12,7 @@ RestClient::Request.execute method: :post,
     content_type: 'application/json'
   },
   payload: {
-    email: 'client@example.com',
+    email: 'client@example.com', # or phone_number: '+336xxxxxxxx'
     survey_id: 'YOUR-SURVEY-ID-HERE',
     template_id: 'YOUR-TEMPLATE-ID-HERE',
     segments: {
@@ -20,13 +20,13 @@ RestClient::Request.execute method: :post,
       scheduled_at: '2022-04-18 15:07:00',
       gender: 'Mister',
       name: 'Rick Sanchez',
-      interests: ['Science', 'Morty'],
+      interests: 'Science',
     }
   }
 
 # => {
 #     "id": "DISPATCH-ID",
-#     "email": "client@example.com",
+#     "email": "client@example.com", # or "phone_number": "+336xxxxxxxx"
 #     "survey_id": "YOUR-SURVEY-ID-HERE",
 #     "template_id": "YOUR-TEMPLATE-ID-HERE",
 #     "segments": {
@@ -34,7 +34,7 @@ RestClient::Request.execute method: :post,
 #       "scheduled_at": "2022-04-18 15:07:00",
 #       "gender": "Mister",
 #       "name": "Rick Sanchez",
-#       "interests": ["Science", "Morty"]
+#       "interests": "Science"
 #     }
 #   }
 ```
@@ -43,11 +43,11 @@ RestClient::Request.execute method: :post,
 $api_key = 'YOUR-API-KEY-HERE';
 $survey_id = 'YOUR-SURVEY-ID-HERE';
 $template_id = 'YOUR-TEMPLATE-ID-HERE',
-$email = 'client@example.com';
+$email = 'client@example.com'; // or $phone_number = '+336xxxxxxxx'
 $date = '2022-04-18 15:07:00';
 
 $payload = array(
-  'email' => $email,
+  'email' => $email, // or 'phone_number' => $phone_number
   'survey_id' => $survey_id,
   'template_id' => $template_id,
   'segments' => array(
@@ -55,7 +55,7 @@ $payload = array(
     'scheduled_at' => $date,
     'gender' => 'Mister',
     'name' => 'Rick Sanchez',
-    'interests' => array('Science', 'Morty')
+    'interests' => 'Science'
   )
 );
 
@@ -76,7 +76,7 @@ $response = curl_exec($ch);
 
 // => {
 //     "id": "DISPATCH-ID",
-//     "email": "client@example.com",
+//     "email": "client@example.com", // or "phone_number":"+336xxxxxxxx"
 //     "survey_id": "YOUR-SURVEY-ID-HERE",
 //     "template_id": "YOUR-TEMPLATE-ID-HERE",
 //     "segments": {
@@ -84,7 +84,7 @@ $response = curl_exec($ch);
 //       "scheduled_at": "2022-04-18 15:07:00",
 //       "gender": "Mister",
 //       "name": "Rick Sanchez",
-//       "interests": ["Science", "Morty"]
+//       "interests": "Science"
 //     }
 //   }
 ```
@@ -100,13 +100,11 @@ $response = curl_exec($ch);
 
 attribute          |     | description
 ------------- | --- | -------------
-__email__<br>_string_  | _required_ | email address to which send the survey
+__email__<br>_string_  | _either email or phone number_ | email address to which send the survey
+__phone_number__<br>_string_  | _either email or phone number_ | phone number to which the survey will be send. The international format should be used (ex: +33)
 __survey_id__<br>_string_  | _required_ | id of the survey
-__template_id__<br>_string_  | | id of the template
-__segments__<br>_hash { string: (string OR array[string]) }_ | | custom data associated with the survey
-__dispatch_subject__<br>_string_ | | survey email subject
-__dispatch_text__<br>_string_  | | survey email text content
-__dispatch_html__<br>_string_  | | survey email html content
+__template_id__<br>_string_  | _required_| id of the template
+__segments__<br>_hash { string: string }_ | | custom data associated with the survey
 
 ### Segments
 
@@ -116,3 +114,6 @@ There is 2 exceptions:
 
 - `language` : if available, force the survey language, should be a ISO 639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 - `scheduled_at` : schedule the dispatch, should be formated as ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601)
+
+### Remarks
+- The dispatch mode is specified by which of the parameters email or phone_number is set. One and only one of them should be specified
