@@ -1473,7 +1473,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
     <span class="ss">content_type: </span><span class="s1">'application/json'</span>
   <span class="p">},</span>
   <span class="ss">payload: </span><span class="p">{</span>
-    <span class="ss">email: </span><span class="s1">'client@example.com'</span><span class="p">,</span>
+    <span class="ss">email: </span><span class="s1">'client@example.com'</span><span class="p">,</span> <span class="c1"># or phone_number: '+336xxxxxxxx'</span>
     <span class="ss">survey_id: </span><span class="s1">'YOUR-SURVEY-ID-HERE'</span><span class="p">,</span>
     <span class="ss">template_id: </span><span class="s1">'YOUR-TEMPLATE-ID-HERE'</span><span class="p">,</span>
     <span class="ss">segments: </span><span class="p">{</span>
@@ -1481,13 +1481,13 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
       <span class="ss">scheduled_at: </span><span class="s1">'2022-04-18 15:07:00'</span><span class="p">,</span>
       <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
       <span class="ss">name: </span><span class="s1">'Rick Sanchez'</span><span class="p">,</span>
-      <span class="ss">interests: </span><span class="p">[</span><span class="s1">'Science'</span><span class="p">,</span> <span class="s1">'Morty'</span><span class="p">],</span>
+      <span class="ss">interests: </span><span class="s1">'Science'</span><span class="p">,</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
 <span class="c1"># =&gt; {</span>
 <span class="c1">#     "id": "DISPATCH-ID",</span>
-<span class="c1">#     "email": "client@example.com",</span>
+<span class="c1">#     "email": "client@example.com", # or "phone_number": "+336xxxxxxxx"</span>
 <span class="c1">#     "survey_id": "YOUR-SURVEY-ID-HERE",</span>
 <span class="c1">#     "template_id": "YOUR-TEMPLATE-ID-HERE",</span>
 <span class="c1">#     "segments": {</span>
@@ -1495,17 +1495,17 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <span class="c1">#       "scheduled_at": "2022-04-18 15:07:00",</span>
 <span class="c1">#       "gender": "Mister",</span>
 <span class="c1">#       "name": "Rick Sanchez",</span>
-<span class="c1">#       "interests": ["Science", "Morty"]</span>
+<span class="c1">#       "interests": "Science"</span>
 <span class="c1">#     }</span>
 <span class="c1">#   }</span>
 </code></pre><pre class="highlight php lang-specific php"><code>$api_key = 'YOUR-API-KEY-HERE';
 $survey_id = 'YOUR-SURVEY-ID-HERE';
 $template_id = 'YOUR-TEMPLATE-ID-HERE',
-$email = 'client@example.com';
+$email = 'client@example.com'; // or $phone_number = '+336xxxxxxxx'
 $date = '2022-04-18 15:07:00';
 
 $payload = array(
-  'email' =&gt; $email,
+  'email' =&gt; $email, // or 'phone_number' =&gt; $phone_number
   'survey_id' =&gt; $survey_id,
   'template_id' =&gt; $template_id,
   'segments' =&gt; array(
@@ -1513,7 +1513,7 @@ $payload = array(
     'scheduled_at' =&gt; $date,
     'gender' =&gt; 'Mister',
     'name' =&gt; 'Rick Sanchez',
-    'interests' =&gt; array('Science', 'Morty')
+    'interests' =&gt; 'Science'
   )
 );
 
@@ -1534,7 +1534,7 @@ $response = curl_exec($ch);
 
 // =&gt; {
 //     "id": "DISPATCH-ID",
-//     "email": "client@example.com",
+//     "email": "client@example.com", // or "phone_number":"+336xxxxxxxx"
 //     "survey_id": "YOUR-SURVEY-ID-HERE",
 //     "template_id": "YOUR-TEMPLATE-ID-HERE",
 //     "segments": {
@@ -1542,7 +1542,7 @@ $response = curl_exec($ch);
 //       "scheduled_at": "2022-04-18 15:07:00",
 //       "gender": "Mister",
 //       "name": "Rick Sanchez",
-//       "interests": ["Science", "Morty"]
+//       "interests": "Science"
 //     }
 //   }
 </code></pre>
@@ -1561,8 +1561,13 @@ $response = curl_exec($ch);
 </thead><tbody>
 <tr>
 <td><strong>email</strong><br><em>string</em></td>
-<td><em>required</em></td>
+<td><em>either email or phone number</em></td>
 <td>email address to which send the survey</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td><em>either email or phone number</em></td>
+<td>phone number to which the survey will be send. The international format should be used (ex: +33)</td>
 </tr>
 <tr>
 <td><strong>survey_id</strong><br><em>string</em></td>
@@ -1571,28 +1576,13 @@ $response = curl_exec($ch);
 </tr>
 <tr>
 <td><strong>template_id</strong><br><em>string</em></td>
-<td></td>
+<td><em>required</em></td>
 <td>id of the template</td>
 </tr>
 <tr>
-<td><strong>segments</strong><br><em>hash { string: (string OR array[string]) }</em></td>
+<td><strong>segments</strong><br><em>hash { string: string }</em></td>
 <td></td>
 <td>custom data associated with the survey</td>
-</tr>
-<tr>
-<td><strong>dispatch_subject</strong><br><em>string</em></td>
-<td></td>
-<td>survey email subject</td>
-</tr>
-<tr>
-<td><strong>dispatch_text</strong><br><em>string</em></td>
-<td></td>
-<td>survey email text content</td>
-</tr>
-<tr>
-<td><strong>dispatch_html</strong><br><em>string</em></td>
-<td></td>
-<td>survey email html content</td>
 </tr>
 </tbody></table>
 <h3 id='segments'>Segments</h3>
@@ -1603,6 +1593,10 @@ $response = curl_exec($ch);
 <ul>
 <li><code>language</code> : if available, force the survey language, should be a ISO 639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)</li>
 <li><code>scheduled_at</code> : schedule the dispatch, should be formated as ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601)</li>
+</ul>
+<h3 id='remarks'>Remarks</h3>
+<ul>
+<li>The dispatch mode is specified by which of the parameters email or phone_number is set. One and only one of them should be specified</li>
 </ul>
 
       </div>
