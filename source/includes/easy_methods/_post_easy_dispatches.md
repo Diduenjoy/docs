@@ -21,7 +21,7 @@ RestClient::Request.execute method: :post,
       name: 'Rick Sanchez',
       interests: ['Science', 'Morty'],
     }
-  }
+  }.to_json
 
 # => {
 #     "id": "DISPATCH-ID",
