@@ -23,6 +23,7 @@ __comment__<br>_string_ | responder comment
 __completed__<br>_boolean_ | equal "true" if the responder completed all your survey pages else "false"
 __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string\|array[string] }_ | custom data associated with the survey
+__tags__<br>_hash { string: string\|array[string] }_ | custom tags associated with the answer_set
 
 ### relationships
 
