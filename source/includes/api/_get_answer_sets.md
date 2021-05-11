@@ -22,6 +22,16 @@ __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer set
 __tags__<br>_hash { string: string&#124;array[string] }_ | custom tags associated with the answer_set
 
+### optional parameters "filters"
+
+parameter          | description
+------------- |-------------
+__completed__<br>_boolean_ | filter over answer_sets of the indicated completed status
+__survey_id__<br>_array_  | filter over answer_sets of the indicated surveys
+__would_recommend__<br>_array_  | filter over answer_sets of the indicated ratings
+__start_date__<br>_date_ | filter over answer_sets answered after the specified date
+__end_date__<br>_date_ | filter over answer_sets answered before the specified date
+
 ### relationships
 
 relationship          | description
