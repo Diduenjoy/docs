@@ -21,7 +21,8 @@ RestClient::Request.execute method: :post,
       gender: 'Mister',
       name: 'Rick Sanchez',
       interests: 'Science',
-    }
+    },
+    dispatch_probability: 0.5
   }.to_json
 
 # => {
@@ -35,7 +36,8 @@ RestClient::Request.execute method: :post,
 #       "gender": "Mister",
 #       "name": "Rick Sanchez",
 #       "interests": "Science"
-#     }
+#     },
+#      "dispatch_probability": 0.5
 #   }
 ```
 
@@ -56,7 +58,8 @@ $payload = array(
     'gender' => 'Mister',
     'name' => 'Rick Sanchez',
     'interests' => 'Science'
-  )
+  ),
+  'dispatch_probability' => 0.5
 );
 
 $ch = curl_init('https://api.diduenjoy.com/api/v1/easy_dispatches');
@@ -85,7 +88,8 @@ $response = curl_exec($ch);
 //       "gender": "Mister",
 //       "name": "Rick Sanchez",
 //       "interests": "Science"
-//     }
+//     },
+//    "dispatch_probability": 0.5
 //   }
 ```
 
@@ -105,6 +109,7 @@ __phone_number__<br>_string_  | _either email or phone number required_ | phone 
 __survey_id__<br>_string_  | _required_ | id of the survey
 __template_id__<br>_string_  | _required_| id of the template
 __segments__<br>_hash { string: string }_ | | custom data associated with the survey
+__dispatch_probability__<br>_string_ | | probability for the survey to be sent
 
 ### Segments
 
