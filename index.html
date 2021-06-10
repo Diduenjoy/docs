@@ -695,14 +695,8 @@ Therefore, if you are on a single product page, you <strong>MUST</strong> use th
 You <strong>SHALL</strong> get the result into an <code>@aggregate_rating_content</code> var instead of using it into our <code>html.erb</code> file.
 Additionally, you <strong>SHOULD</strong> assume that they are partial views (so <code>body</code> and <code>html</code> tags always encapsulate <code>show</code> and <code>index</code> views).</p>
 <h1 id='api-v1-reference'>API V1 Reference</h1><h3 id='optional-parameters-for-pagination-filters'>Optional parameters for pagination (filters)</h3>
-<p>To handle pagination, you can pass a JSON body to your request with this format :</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p>To handle pagination, you can add two parameters to your request.</p>
+
 <table><thead>
 <tr>
 <th>parameter</th>
@@ -710,11 +704,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td>size</td>
+<td>page[size]</td>
 <td>number of returned items per page <br><em>default: 25</em></td>
 </tr>
 <tr>
-<td>number</td>
+<td>page[number]</td>
 <td>page number <br><em>default: 1</em></td>
 </tr>
 </tbody></table>
@@ -1589,7 +1583,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
       <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
       <span class="ss">name: </span><span class="s1">'Rick Sanchez'</span><span class="p">,</span>
       <span class="ss">interests: </span><span class="s1">'Science'</span><span class="p">,</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="ss">dispatch_probability: </span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span>
   <span class="p">}.</span><span class="nf">to_json</span>
 
 <span class="c1"># =&gt; {</span>
@@ -1603,7 +1598,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <span class="c1">#       "gender": "Mister",</span>
 <span class="c1">#       "name": "Rick Sanchez",</span>
 <span class="c1">#       "interests": "Science"</span>
-<span class="c1">#     }</span>
+<span class="c1">#     },</span>
+<span class="c1">#      "dispatch_probability": 0.5</span>
 <span class="c1">#   }</span>
 </code></pre><pre class="highlight php lang-specific php"><code>$api_key = 'YOUR-API-KEY-HERE';
 $survey_id = 'YOUR-SURVEY-ID-HERE';
@@ -1621,7 +1617,8 @@ $payload = array(
     'gender' =&gt; 'Mister',
     'name' =&gt; 'Rick Sanchez',
     'interests' =&gt; 'Science'
-  )
+  ),
+  'dispatch_probability' =&gt; 0.5
 );
 
 $ch = curl_init('https://api.diduenjoy.com/api/v1/easy_dispatches');
@@ -1650,7 +1647,8 @@ $response = curl_exec($ch);
 //       "gender": "Mister",
 //       "name": "Rick Sanchez",
 //       "interests": "Science"
-//     }
+//     },
+//    "dispatch_probability": 0.5
 //   }
 </code></pre>
 <aside class="notice lang-specific"><b>segments</b>
@@ -1690,6 +1688,11 @@ $response = curl_exec($ch);
 <td><strong>segments</strong><br><em>hash { string: string }</em></td>
 <td></td>
 <td>custom data associated with the survey</td>
+</tr>
+<tr>
+<td><strong>dispatch_probability</strong><br><em>string</em></td>
+<td></td>
+<td>probability for the survey to be sent</td>
 </tr>
 </tbody></table>
 <h3 id='segments'>Segments</h3>
