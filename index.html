@@ -359,7 +359,7 @@
 <span class="nb">require</span> <span class="s1">'net/https'</span>
 <span class="nb">require</span> <span class="s1">'uri'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.diduenjoy.com/api/v3/companies'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://api.diduenjoy.com/api/v1/companies'</span><span class="p">)</span>
 
 <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">start</span><span class="p">(</span><span class="n">uri</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">uri</span><span class="p">.</span><span class="nf">port</span><span class="p">,</span>
   <span class="ss">:use_ssl</span> <span class="o">=&gt;</span> <span class="n">uri</span><span class="p">.</span><span class="nf">scheme</span> <span class="o">==</span> <span class="s1">'https'</span><span class="p">,</span>
@@ -372,7 +372,7 @@
   <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span> <span class="n">request</span> <span class="c1"># Net::HTTPResponse object</span>
 
 <span class="k">end</span>
-</code></pre><pre class="highlight shell lang-specific cURL"><code>curl <span class="s1">'https://api.diduenjoy.com/api/v3/companies'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell lang-specific cURL"><code>curl <span class="s1">'https://api.diduenjoy.com/api/v1/companies'</span> <span class="se">\</span>
  -u <span class="s1">'API_KEY:'</span>
 </code></pre>
 <aside class="notice lang-specific">You <b>SHALL</b> replace <code>API_KEY</code> with your personal API key.</aside>
