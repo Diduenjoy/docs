@@ -23,7 +23,7 @@ require 'net/http'
 require 'net/https'
 require 'uri'
 
-uri = URI('https://api.diduenjoy.com/api/v3/companies')
+uri = URI('https://api.diduenjoy.com/api/v1/companies')
 
 Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https',
@@ -39,7 +39,7 @@ end
 ```
 
 ```shell--cURL
-curl 'https://api.diduenjoy.com/api/v3/companies' \
+curl 'https://api.diduenjoy.com/api/v1/companies' \
  -u 'API_KEY:'
 ```
 
