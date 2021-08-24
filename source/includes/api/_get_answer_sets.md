@@ -40,3 +40,4 @@ relationship          | description
 __client__  | answer_set responder
 __survey_language__  | answer_set survey_language
 __choices__  | responder choices
+__messages__ | feedback messages (from client and company)
