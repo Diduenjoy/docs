@@ -1,4 +1,4 @@
-## POST `/answer_sets/:answer_set_id`
+## PUT `/answer_sets/:answer_set_id`
 
 Update an answer_set
 
