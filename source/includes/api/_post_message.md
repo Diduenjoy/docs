@@ -1,8 +1,8 @@
-## POST `/answer_sets`
+## POST `/messages`
 
-Create an answer_set
+Create a message
 
-<blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
+<blockquote class="lang-specific"><p>POST /api/v1/messages</p></blockquote>
 ```json--
 {
   "data": {
