@@ -19,11 +19,3 @@ Update an answer_set
 attribute          | description
 ------------- | -------------
 __resolved__<br>required _string_ | answer_set status
-
-
-### relationships
-
-relationship          | description
------------------------------- | -------------
-__client__<br>required | answer_set responder
-__survey_language__<br>required  | answer_set survey_language
