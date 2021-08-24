@@ -756,6 +756,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td><strong>tags</strong><br><em>hash { string: string&#124;array[string] }</em></td>
 <td>custom tags associated with the answer_set</td>
 </tr>
+<tr>
+<td><strong>resolved</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the feedback has been set to resolved</td>
+</tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
 <table><thead>
@@ -775,6 +779,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>choices</strong></td>
 <td>responder choices</td>
+</tr>
+<tr>
+<td><strong>messages</strong></td>
+<td>feedback messages (from client and company)</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-answer_sets-code'>GET <code>/answer_sets</code></h2>
@@ -818,6 +826,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>tags</strong><br><em>hash { string: string&#124;array[string] }</em></td>
 <td>custom tags associated with the answer_set</td>
+</tr>
+<tr>
+<td><strong>resolved</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the feedback has been set to resolved</td>
 </tr>
 </tbody></table>
 <h3 id='optional-parameters-quot-filters-quot'>optional parameters &quot;filters&quot;</h3>
@@ -866,6 +878,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>choices</strong></td>
 <td>responder choices</td>
+</tr>
+<tr>
+<td><strong>messages</strong></td>
+<td>feedback messages (from client and company)</td>
 </tr>
 </tbody></table>
 <h2 id='post-code-answer_sets-code'>POST <code>/answer_sets</code></h2>
