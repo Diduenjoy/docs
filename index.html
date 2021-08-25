@@ -276,6 +276,9 @@
                     <a href="#post-code-answer_sets-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/answer_sets</code></a>
                   </li>
                   <li>
+                    <a href="#put-code-answer_sets-answer_set_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PUT <code>/answer_sets/:answer_set_id</code></a>
+                  </li>
+                  <li>
                     <a href="#get-code-choices-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/choices/:id</code></a>
                   </li>
                   <li>
@@ -298,6 +301,12 @@
                   </li>
                   <li>
                     <a href="#get-code-languages-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/languages</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-messages-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/messages/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-messages-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/messages</code></a>
                   </li>
                   <li>
                     <a href="#get-code-questions-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/questions/:id</code></a>
@@ -950,6 +959,30 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>answer_set survey_language</td>
 </tr>
 </tbody></table>
+<h2 id='put-code-answer_sets-answer_set_id-code'>PUT <code>/answer_sets/:answer_set_id</code></h2>
+<p>Update an answer_set</p>
+
+<blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:answer_set_id</p></blockquote>
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>resolved</strong><br>required <em>string</em></td>
+<td>answer_set status</td>
+</tr>
+</tbody></table>
 <h2 id='get-code-choices-id-code'>GET <code>/choices/:id</code></h2>
 <p>Get a single choice</p>
 <pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
@@ -1249,6 +1282,113 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>tag</strong><br><em>array</em></td>
 <td>filter over languages of the indicated tags</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-messages-id-code'>GET <code>/messages/:id</code></h2>
+<p>Get a single message</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">message_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-MESSAGE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/messages/</span><span class="si">#{</span><span class="n">message_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>message creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>message last modification date</td>
+</tr>
+<tr>
+<td><strong>text</strong><br><em>string</em></td>
+<td>message text</td>
+</tr>
+<tr>
+<td><strong>from_client</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the message has been sent</td>
+</tr>
+<tr>
+<td><strong>unread</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the message has been read</td>
+</tr>
+<tr>
+<td><strong>is_note</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the message is a note</td>
+</tr>
+<tr>
+<td><strong>author</strong><br><em>string</em></td>
+<td>author name and email address</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>feedback</strong></td>
+<td>message feedback</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-messages-code'>POST <code>/messages</code></h2>
+<p>Create a message</p>
+
+<blockquote class="lang-specific"><p>POST /api/v1/messages</p></blockquote>
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"messages"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Great store!"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_note"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sender_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@example.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FEEDBACK-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"feedbacks"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>text</strong><br><em>string</em></td>
+<td>message text</td>
+</tr>
+<tr>
+<td><strong>is_note</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the message is a note</td>
+</tr>
+<tr>
+<td><strong>sender_email</strong><br><em>string</em></td>
+<td>message author email</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>feedback</strong></td>
+<td>message feedback</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-questions-id-code'>GET <code>/questions/:id</code></h2>
