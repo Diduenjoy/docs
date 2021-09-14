@@ -18,4 +18,4 @@ Update an answer_set
 
 attribute          | description
 ------------- | -------------
-__resolved__<br>required _string_ | answer_set status
+__resolved__<br>required _boolean_ | answer_set status

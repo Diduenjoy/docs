@@ -13,10 +13,11 @@ Create a message
       "sender_email": "email@example.com"
     },
     "relationships": {
-      "feedback": {
-        "data": { "id": "FEEDBACK-UUID", "type": "feedbacks" }
+      "answer_set": {
+        "data": { "id": "ANSWER-SET-UUID", "type": "answer_sets" }
       }
     }
+  }
 }
 ```
 
@@ -32,4 +33,4 @@ __sender_email__<br>_string_ | message author email
 
 relationship          | description
 ------------------------------ | -------------
-__feedback__  | message feedback
+__answer_set__  | message answer set
