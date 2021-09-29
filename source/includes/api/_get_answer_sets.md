@@ -22,8 +22,9 @@ __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer set
 __tags__<br>_hash { string: string&#124;array[string] }_ | custom tags associated with the answer_set
 __resolved__<br>_boolean_ | equal "true" if the feedback has been set to resolved
+__dispatch_sent_at__<br>_datetime_ | answer_set dispatch date
 
-### optional parameters "filters"
+### optional parameters "filter"
 
 parameter          | description
 ------------- |-------------
@@ -32,6 +33,8 @@ __survey_id__<br>_array_  | filter over answer_sets of the indicated surveys
 __would_recommend__<br>_array_  | filter over answer_sets of the indicated ratings
 __start_date__<br>_date_ | filter over answer_sets answered after the specified date
 __end_date__<br>_date_ | filter over answer_sets answered before the specified date
+__start_sending_date__<br>_date_ | filter over answer_sets sent after the specified sending date
+__end_sending_date__<br>_date_ | filter over answer_sets sent before the specified sending date
 
 ### relationships
 
