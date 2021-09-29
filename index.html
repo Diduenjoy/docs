@@ -840,8 +840,12 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td><strong>resolved</strong><br><em>boolean</em></td>
 <td>equal &quot;true&quot; if the feedback has been set to resolved</td>
 </tr>
+<tr>
+<td><strong>dispatch_sent_at</strong><br><em>datetime</em></td>
+<td>answer_set dispatch date</td>
+</tr>
 </tbody></table>
-<h3 id='optional-parameters-quot-filters-quot'>optional parameters &quot;filters&quot;</h3>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
 <table><thead>
 <tr>
 <th>parameter</th>
@@ -867,6 +871,14 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>end_date</strong><br><em>date</em></td>
 <td>filter over answer_sets answered before the specified date</td>
+</tr>
+<tr>
+<td><strong>start_sending_date</strong><br><em>date</em></td>
+<td>filter over answer_sets sent after the specified sending date</td>
+</tr>
+<tr>
+<td><strong>end_sending_date</strong><br><em>date</em></td>
+<td>filter over answer_sets sent before the specified sending date</td>
 </tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
@@ -979,7 +991,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>resolved</strong><br>required <em>string</em></td>
+<td><strong>resolved</strong><br>required <em>boolean</em></td>
 <td>answer_set status</td>
 </tr>
 </tbody></table>
@@ -1354,10 +1366,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
       </span><span class="s2">"sender_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@example.com"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"relationships"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FEEDBACK-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"feedbacks"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="s2">"answer_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWER-SET-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="w"> </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='attributes'>attributes</h3>
 <table><thead>
@@ -1387,8 +1400,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>feedback</strong></td>
-<td>message feedback</td>
+<td><strong>answer_set</strong></td>
+<td>message answer set</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-questions-id-code'>GET <code>/questions/:id</code></h2>
