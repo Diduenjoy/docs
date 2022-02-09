@@ -1,8 +1,8 @@
-## PUT `/answer_sets/:answer_set_id`
+## PUT `/answer_sets/:id`
 
 Update an answer_set
 
-<blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:answer_set_id</p></blockquote>
+<blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:id</p></blockquote>
 ```json--
 {
   "data": {
