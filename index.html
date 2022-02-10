@@ -276,7 +276,7 @@
                     <a href="#post-code-answer_sets-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/answer_sets</code></a>
                   </li>
                   <li>
-                    <a href="#put-code-answer_sets-answer_set_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PUT <code>/answer_sets/:answer_set_id</code></a>
+                    <a href="#put-code-answer_sets-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PUT <code>/answer_sets/:id</code></a>
                   </li>
                   <li>
                     <a href="#get-code-choices-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/choices/:id</code></a>
@@ -759,7 +759,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 <tr>
 <td><strong>segments</strong><br><em>hash { string: string&#124;array[string] }</em></td>
-<td>custom data associated with the survey</td>
+<td>custom data associated with the answer_set</td>
 </tr>
 <tr>
 <td><strong>tags</strong><br><em>hash { string: string&#124;array[string] }</em></td>
@@ -768,6 +768,14 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
 <td>equal &quot;true&quot; if the feedback has been set to resolved</td>
+</tr>
+<tr>
+<td><strong>dispatch_sent_at</strong><br><em>datetime</em></td>
+<td>sending date of the feedback</td>
+</tr>
+<tr>
+<td><strong>completed_at</strong><br><em>datetime</em></td>
+<td>answer completion date</td>
 </tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
@@ -830,7 +838,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 <tr>
 <td><strong>segments</strong><br><em>hash { string: string&#124;array[string] }</em></td>
-<td>custom data associated with the answer set</td>
+<td>custom data associated with the answer_set</td>
 </tr>
 <tr>
 <td><strong>tags</strong><br><em>hash { string: string&#124;array[string] }</em></td>
@@ -842,7 +850,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 <tr>
 <td><strong>dispatch_sent_at</strong><br><em>datetime</em></td>
-<td>answer_set dispatch date</td>
+<td>sending date of the feedback</td>
+</tr>
+<tr>
+<td><strong>completed_at</strong><br><em>datetime</em></td>
+<td>answer completion date</td>
 </tr>
 </tbody></table>
 <h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
@@ -971,10 +983,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>answer_set survey_language</td>
 </tr>
 </tbody></table>
-<h2 id='put-code-answer_sets-answer_set_id-code'>PUT <code>/answer_sets/:answer_set_id</code></h2>
+<h2 id='put-code-answer_sets-id-code'>PUT <code>/answer_sets/:id</code></h2>
 <p>Update an answer_set</p>
 
-<blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:answer_set_id</p></blockquote>
+<blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:id</p></blockquote>
 <pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
