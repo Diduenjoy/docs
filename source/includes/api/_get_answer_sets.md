@@ -1,6 +1,6 @@
 ## GET `/answer_sets`
 
-List all your answer_sets
+List all your answer_sets (feedback)
 
 ```ruby--Rails
 require 'rest-client'
