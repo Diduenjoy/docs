@@ -36,6 +36,8 @@ __start_date__<br>_date_ | filter over answer_sets answered after the specified 
 __end_date__<br>_date_ | filter over answer_sets answered before the specified date
 __start_sending_date__<br>_date_ | filter over answer_sets sent after the specified sending date
 __end_sending_date__<br>_date_ | filter over answer_sets sent before the specified sending date
+__start_updated_date__<br>_date_ | filter over answer_sets updated after the specified date
+__end_updated_date__<br>_date_ | filter over answer_sets updated before the specified date
 
 ### relationships
 
