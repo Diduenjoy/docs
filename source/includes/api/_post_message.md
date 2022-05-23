@@ -33,4 +33,4 @@ __sender_email__<br>_string_ | message author email
 
 relationship          | description
 ------------------------------ | -------------
-__answer_set__  | message answer set
+__answer_sets__  | message answer_set

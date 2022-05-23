@@ -22,5 +22,5 @@ __note__<br>_integer_ | choice note
 
 relationship          | description
 ------------------------------ | -------------
-__answer_set__  | choice answer_set
+__answer_sets__  | choice answer_set
 __question__  | choice question

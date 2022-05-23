@@ -8,6 +8,13 @@ require 'rest-client'
 RestClient::Request.execute method: :get,
   url: 'https://api.diduenjoy.com/api/v1/answer_sets',
   user: 'PUT-YOUR-API-KEY-HERE'
+
+---------------Filter[would_recommend]--------------------------
+require 'rest-client'
+
+RestClient::Request.execute method: :get,
+  url: "https://api.diduenjoy.com/api/v1/answer_sets?filter[would_recomend][]=2,3,4",
+  user: 'PUT-YOUR-API-KEY-HERE'
 ```
 
 ### attributes
@@ -31,6 +38,7 @@ parameter          | description
 ------------- |-------------
 __completed__<br>_boolean_ | filter over answer_sets of the indicated completed status
 __survey_id__<br>_array_  | filter over answer_sets of the indicated surveys
+__client_id__<br>_array_ | filter over answer_sets of the indicated clients
 __would_recommend__<br>_array_  | filter over answer_sets of the indicated ratings
 __start_date__<br>_date_ | filter over answer_sets answered after the specified date
 __end_date__<br>_date_ | filter over answer_sets answered before the specified date

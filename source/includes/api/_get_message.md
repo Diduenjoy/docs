@@ -29,4 +29,4 @@ __author__<br>_string_ | author name and email address
 
 relationship          | description
 ------------------------------ | -------------
-__feedback__  | message feedback
+__answer_sets__  | message answer_set
