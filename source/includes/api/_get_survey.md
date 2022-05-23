@@ -64,7 +64,8 @@ attribute          | description
 __created_at__<br>_datetime_  | survey creation date
 __updated_at__<br>_datetime_  | survey last modification date
 __name__<br>_string_  | survey name
-__hash__<br>_string_  | survey public hash, used with companies custom mailing systems
+__status__<br>_boolean_ | survey status ('Live','deleted','archived')
+__qr_hash__<br>_string_  | survey public hash, used with companies custom mailing systems
 
 ### relationships
 

@@ -14,8 +14,6 @@ RestClient::Request.execute method: :get,
 
 attribute          | description
 ------------- | -------------
-__created_at__<br>_datetime_  | client creation date
-__updated_at__<br>_datetime_  | client last modification date
 __email__<br>_string_ | client name
 
 ### optional parameters "filters"
