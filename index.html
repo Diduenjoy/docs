@@ -713,11 +713,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td>page[size]</td>
+<td>page[size] <br> <em>integer</em></td>
 <td>number of returned items per page <br><em>default: 25</em></td>
 </tr>
 <tr>
-<td>page[number]</td>
+<td>page[number] <br> <em>integer</em></td>
 <td>page number <br><em>default: 1</em></td>
 </tr>
 </tbody></table>
@@ -809,6 +809,13 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
   <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/answer_sets'</span><span class="p">,</span>
   <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="o">---------------</span><span class="no">Filter</span><span class="p">[</span><span class="n">would_recommend</span><span class="p">]</span><span class="o">--------------------------</span>
+<span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/answer_sets?filter[would_recomend][]=2,3,4"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
 </code></pre><h3 id='attributes'>attributes</h3>
 <table><thead>
 <tr>
@@ -873,6 +880,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>filter over answer_sets of the indicated surveys</td>
 </tr>
 <tr>
+<td><strong>client_id</strong><br><em>array</em></td>
+<td>filter over answer_sets of the indicated clients</td>
+</tr>
+<tr>
 <td><strong>would_recommend</strong><br><em>array</em></td>
 <td>filter over answer_sets of the indicated ratings</td>
 </tr>
@@ -891,6 +902,14 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>end_sending_date</strong><br><em>date</em></td>
 <td>filter over answer_sets sent before the specified sending date</td>
+</tr>
+<tr>
+<td><strong>start_updated_date</strong><br><em>date</em></td>
+<td>filter over answer_sets updated after the specified date</td>
+</tr>
+<tr>
+<td><strong>end_updated_date</strong><br><em>date</em></td>
+<td>filter over answer_sets updated before the specified date</td>
 </tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
@@ -1036,7 +1055,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>answer_set</strong></td>
+<td><strong>answer_sets</strong></td>
 <td>choice answer_set</td>
 </tr>
 <tr>
@@ -1060,14 +1079,6 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <th>description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><strong>created_at</strong><br><em>datetime</em></td>
-<td>client creation date</td>
-</tr>
-<tr>
-<td><strong>updated_at</strong><br><em>datetime</em></td>
-<td>client last modification date</td>
-</tr>
 <tr>
 <td><strong>email</strong><br><em>string</em></td>
 <td>client email</td>
@@ -1099,14 +1110,6 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <th>description</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><strong>created_at</strong><br><em>datetime</em></td>
-<td>client creation date</td>
-</tr>
-<tr>
-<td><strong>updated_at</strong><br><em>datetime</em></td>
-<td>client last modification date</td>
-</tr>
 <tr>
 <td><strong>email</strong><br><em>string</em></td>
 <td>client name</td>
@@ -1261,7 +1264,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>language name</td>
 </tr>
 <tr>
-<td><strong>comment</strong><br><em>string</em></td>
+<td><strong>tag</strong><br><em>string</em></td>
 <td>language <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 code</a></td>
 </tr>
 <tr>
@@ -1288,7 +1291,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>language name</td>
 </tr>
 <tr>
-<td><strong>comment</strong><br><em>string</em></td>
+<td><strong>tag</strong><br><em>string</em></td>
 <td>language <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 code</a></td>
 </tr>
 <tr>
@@ -1361,8 +1364,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>feedback</strong></td>
-<td>message feedback</td>
+<td><strong>answer_sets</strong></td>
+<td>message answer_set</td>
 </tr>
 </tbody></table>
 <h2 id='post-code-messages-code'>POST <code>/messages</code></h2>
@@ -1412,8 +1415,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>answer_set</strong></td>
-<td>message answer set</td>
+<td><strong>answer_sets</strong></td>
+<td>message answer_set</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-questions-id-code'>GET <code>/questions/:id</code></h2>
@@ -1576,7 +1579,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>survey name</td>
 </tr>
 <tr>
-<td><strong>hash</strong><br><em>string</em></td>
+<td><strong>status</strong><br><em>boolean</em></td>
+<td>survey status (&#39;Live&#39;,&#39;deleted&#39;,&#39;archived&#39;)</td>
+</tr>
+<tr>
+<td><strong>qr_hash</strong><br><em>string</em></td>
 <td>survey public hash, used with companies custom mailing systems</td>
 </tr>
 </tbody></table>
@@ -1623,7 +1630,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>survey name</td>
 </tr>
 <tr>
-<td><strong>hash</strong><br><em>string</em></td>
+<td><strong>status</strong><br><em>boolean</em></td>
+<td>survey status (&#39;Live&#39;,&#39;deleted&#39;,&#39;archived&#39;)</td>
+</tr>
+<tr>
+<td><strong>qr_hash</strong><br><em>string</em></td>
 <td>survey public hash, used with companies custom mailing systems</td>
 </tr>
 </tbody></table>
@@ -1682,31 +1693,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <span class="c1">#   "nps": 7,</span>
 <span class="c1">#   "sent": 120</span>
 <span class="c1">#}</span>
-</code></pre><h3 id='optional-parameters-quot-filters-quot'>optional parameters &quot;filters&quot;</h3>
-<table><thead>
-<tr>
-<th>parameter</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>surveys</strong><br><em>array</em></td>
-<td>filter over feedbacks of the indicated surveys</td>
-</tr>
-<tr>
-<td><strong>segments</strong><br><em>array</em></td>
-<td>associative array of segments, where segments names are the keys and the values are the. To filter over feedbacks having the specified segments name with the corresponding values</td>
-</tr>
-<tr>
-<td><strong>start_date</strong><br><em>date</em></td>
-<td>filter on feedbacks answered after the specified date</td>
-</tr>
-<tr>
-<td><strong>end_date</strong><br><em>date</em></td>
-<td>filter on feedbacks answered before the specified date</td>
-</tr>
-</tbody></table>
-<h3 id='attributes'>attributes</h3>
+</code></pre><h3 id='attributes'>attributes</h3>
 <table><thead>
 <tr>
 <th>attribute</th>
@@ -1740,6 +1727,30 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>sent</strong><br><em>integer</em></td>
 <td>number of sent surveys</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filters-quot'>optional parameters &quot;filters&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>surveys</strong><br><em>array</em></td>
+<td>filter over feedback of the indicated surveys</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>array</em></td>
+<td>associative array of segments, where segments names are the keys and the values are the. To filter over feedbacks having the specified segments name with the corresponding values</td>
+</tr>
+<tr>
+<td><strong>start_date</strong><br><em>date</em></td>
+<td>filter on feedback answered after the specified date</td>
+</tr>
+<tr>
+<td><strong>end_date</strong><br><em>date</em></td>
+<td>filter on feedback answered before the specified date</td>
 </tr>
 </tbody></table>
 <h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
