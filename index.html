@@ -766,6 +766,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>custom tags associated with the answer_set</td>
 </tr>
 <tr>
+<td><strong>root_causes</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>custom root causes associated with the answer_set</td>
+</tr>
+<tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
 <td>equal &quot;true&quot; if the feedback has been set to resolved</td>
 </tr>
@@ -776,6 +780,30 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>completed_at</strong><br><em>datetime</em></td>
 <td>answer completion date</td>
+</tr>
+<tr>
+<td><strong>last_opening_date</strong><br><em>datetime</em></td>
+<td>last opening date of the answer_set</td>
+</tr>
+<tr>
+<td><strong>first_resolution_date</strong><br><em>datetime</em></td>
+<td>date of the first resolution</td>
+</tr>
+<tr>
+<td><strong>last_resolution_date</strong><br><em>datetime</em></td>
+<td>date of the last resolution</td>
+</tr>
+<tr>
+<td><strong>resolution_time</strong><br><em>integer</em></td>
+<td>the total combined time answer_set was in the new, open, and on-hold statuses</td>
+</tr>
+<tr>
+<td><strong>full_resolution_time</strong><br><em>integer</em></td>
+<td>duration between answer_set creation and its most recent resolution</td>
+</tr>
+<tr>
+<td><strong>resolver_account</strong><br><em>email</em></td>
+<td>resolver email</td>
 </tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
@@ -852,6 +880,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>custom tags associated with the answer_set</td>
 </tr>
 <tr>
+<td><strong>root_causes</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>custom root causes associated with the answer_set</td>
+</tr>
+<tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
 <td>equal &quot;true&quot; if the feedback has been set to resolved</td>
 </tr>
@@ -862,6 +894,30 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>completed_at</strong><br><em>datetime</em></td>
 <td>answer completion date</td>
+</tr>
+<tr>
+<td><strong>last_opening_date</strong><br><em>datetime</em></td>
+<td>last opening date of the answer_set</td>
+</tr>
+<tr>
+<td><strong>first_resolution_date</strong><br><em>datetime</em></td>
+<td>date of the first resolution</td>
+</tr>
+<tr>
+<td><strong>last_resolution_date</strong><br><em>datetime</em></td>
+<td>date of the last resolution</td>
+</tr>
+<tr>
+<td><strong>resolution_duration</strong><br><em>integer</em></td>
+<td>the total combined time answer_set was in the new, open, and on-hold statuses</td>
+</tr>
+<tr>
+<td><strong>full_resolution_duration</strong><br><em>integer</em></td>
+<td>duration between answer_set creation and its most recent resolution</td>
+</tr>
+<tr>
+<td><strong>resolver_account</strong><br><em>email</em></td>
+<td>resolver email</td>
 </tr>
 </tbody></table>
 <h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
