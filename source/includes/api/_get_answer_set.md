@@ -24,9 +24,16 @@ __completed__<br>_boolean_ | equal "true" if the responder completed all your su
 __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer_set
 __tags__<br>_hash { string: string&#124;array[string] }_ | custom tags associated with the answer_set
+__root_causes__<br>_hash { string: string&#124;array[string] }_ | custom root causes associated with the answer_set
 __resolved__<br>_boolean_ | equal "true" if the feedback has been set to resolved
 __dispatch_sent_at__<br>_datetime_  | sending date of the feedback
 __completed_at__<br>_datetime_  | answer completion date
+__last_opening_date__<br>_datetime_ | last opening date of the answer_set
+__first_resolution_date__<br>_datetime_ | date of the first resolution
+__last_resolution_date__<br>_datetime_ | date of the last resolution
+__resolution_time__<br>_integer_  | the total combined time answer_set was in the new, open, and on-hold statuses
+__full_resolution_time__<br>_integer_  | duration between answer_set creation and its most recent resolution
+__resolver_account__<br>_email_ | resolver email
 
 ### relationships
 
