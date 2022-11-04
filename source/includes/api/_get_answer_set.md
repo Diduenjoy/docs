@@ -39,6 +39,7 @@ __resolver_account__<br>_email_ | resolver email
 
 relationship          | description
 ------------------------------ | -------------
+__survey__  | answer_set survey
 __client__  | answer_set responder
 __survey_language__  | answer_set survey_language
 __choices__  | responder choices

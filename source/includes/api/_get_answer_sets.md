@@ -58,6 +58,7 @@ __end_updated_date__<br>_date_ | filter over answer_sets updated before the spec
 
 relationship          | description
 ------------------------------ | -------------
+__survey__  | answer_set survey
 __client__  | answer_set responder
 __survey_language__  | answer_set survey_language
 __choices__  | responder choices
