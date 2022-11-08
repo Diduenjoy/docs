@@ -25,6 +25,7 @@ __created_at__<br>_datetime_  | answer_set creation date
 __updated_at__<br>_datetime_  | answer_set last modification date
 __comment__<br>_string_ | responder comment
 __completed__<br>_boolean_ | equal "true" if the responder completed all your survey pages else "false"
+__status__<br>_string_ | status of the answer set. Possible values: <b>live</b> or <b>deleted</b>
 __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer_set
 __tags__<br>_hash { string: string&#124;array[string] }_ | custom tags associated with the answer_set
@@ -44,6 +45,7 @@ __resolver_account__<br>_email_ | resolver email
 parameter          | description
 ------------- |-------------
 __completed__<br>_boolean_ | filter over answer_sets of the indicated completed status
+__status__<br>_string_ | filter over answer_sets status
 __survey_id__<br>_array_  | filter over answer_sets of the indicated surveys
 __client_id__<br>_array_ | filter over answer_sets of the indicated clients
 __would_recommend__<br>_array_  | filter over answer_sets of the indicated ratings

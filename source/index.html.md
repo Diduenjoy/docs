@@ -20,6 +20,7 @@ includes:
   - api/get_answer_sets
   - api/post_answer_set
   - api/put_answer_set
+  - api/patch_answer_set
   - api/get_choice
   - api/get_client
   - api/get_clients
@@ -31,6 +32,8 @@ includes:
   - api/get_message
   - api/post_message
   - api/get_question
+  - api/get_root_cause
+  - api/get_root_causes
   - api/get_survey_language
   - api/get_survey
   - api/get_surveys
