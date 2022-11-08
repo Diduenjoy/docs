@@ -104,12 +104,13 @@ $response = curl_exec($ch);
 
 attribute          |     | description
 ------------- | --- | -------------
-__email__<br>_string_  | _either email or phone number required_ | email address to which send the survey
-__phone_number__<br>_string_  | _either email or phone number required_ | phone number to which the survey will be send. The international format should be used (ex: +33)
+__email__<br>_string_  | _either email or phone number or no_dispatch required_ | email address to which send the survey
+__phone_number__<br>_string_  | _either email or phone number or no_dispatch required_ | phone number to which the survey will be send. The international format should be used (ex: +33)
 __survey_id__<br>_string_  | _required_ | id of the survey
-__template_id__<br>_string_  | _required_| id of the template
+__template_id__<br>_string_  | _either template_id or no_dispatch required_| id of the template
 __segments__<br>_hash { string: string }_ | | custom data associated with the survey
 __dispatch_probability__<br>_string_ | | probability for the survey to be sent
+__no_dispatch__<br>_boolean_ | | set it to disable sending of the survey and only create an new feedback that you could dispatch by your own means
 
 ### Segments
 
