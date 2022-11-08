@@ -9,7 +9,8 @@ Update attributes of an answer_set
     "type": "answer_sets",
     "attributes": {
         "resolved": true,
-        "resolver": "john.doe@example.com"
+        "resolver": "john.doe@example.com",
+        "root_causes": ["ROOT-CAUSE-1-UUID", "ROOT-CAUSE-2-UUID"]
     }
   }
 }
@@ -21,3 +22,4 @@ attribute          | description
 ------------- | -------------
 __resolved__<br> _boolean_ _optional_ | new answer_set status
 __resolver__<br> _string_ _optional_ | answer_set resolver email. Given in the payload, the answer_set will be automatically resolved even if __resolved__ is set to `false`.
+__root_causes__<br> _array[string]_ _optional_ | list of root_causes to link to the answer_set. <b>It will overwrite the previous list</b>.
