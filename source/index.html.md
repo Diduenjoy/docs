@@ -20,6 +20,7 @@ includes:
   - api/get_answer_sets
   - api/post_answer_set
   - api/put_answer_set
+  - api/patch_answer_set
   - api/get_choice
   - api/get_client
   - api/get_clients
