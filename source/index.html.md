@@ -32,6 +32,8 @@ includes:
   - api/get_message
   - api/post_message
   - api/get_question
+  - api/get_root_cause
+  - api/get_root_causes
   - api/get_survey_language
   - api/get_survey
   - api/get_surveys
