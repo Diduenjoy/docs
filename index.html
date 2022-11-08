@@ -279,6 +279,9 @@
                     <a href="#put-code-answer_sets-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PUT <code>/answer_sets/:id</code></a>
                   </li>
                   <li>
+                    <a href="#patch-code-answer_sets-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PATCH <code>/answer_sets/:id</code></a>
+                  </li>
+                  <li>
                     <a href="#get-code-choices-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/choices/:id</code></a>
                   </li>
                   <li>
@@ -310,6 +313,12 @@
                   </li>
                   <li>
                     <a href="#get-code-questions-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/questions/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-root_causes-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/root_causes/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-root_causes-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/root_causes</code></a>
                   </li>
                   <li>
                     <a href="#get-code-survey_languages-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/survey_languages/:id</code></a>
@@ -754,6 +763,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>equal &quot;true&quot; if the responder completed all your survey pages else &quot;false&quot;</td>
 </tr>
 <tr>
+<td><strong>status</strong><br><em>string</em></td>
+<td>status of the answer set. Possible values: <b>live</b> or <b>deleted</b></td>
+</tr>
+<tr>
 <td><strong>would_recommend</strong><br><em>integer</em></td>
 <td>responder recommendation note</td>
 </tr>
@@ -872,6 +885,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>equal &quot;true&quot; if the responder completed all your survey pages else &quot;false&quot;</td>
 </tr>
 <tr>
+<td><strong>status</strong><br><em>string</em></td>
+<td>status of the answer set. Possible values: <b>live</b> or <b>deleted</b></td>
+</tr>
+<tr>
 <td><strong>would_recommend</strong><br><em>integer</em></td>
 <td>responder recommendation note</td>
 </tr>
@@ -934,6 +951,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>completed</strong><br><em>boolean</em></td>
 <td>filter over answer_sets of the indicated completed status</td>
+</tr>
+<tr>
+<td><strong>status</strong><br><em>string</em></td>
+<td>filter over answer_sets status</td>
 </tr>
 <tr>
 <td><strong>survey_id</strong><br><em>array</em></td>
@@ -1088,6 +1109,40 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>resolved</strong><br>required <em>boolean</em></td>
 <td>answer_set status</td>
+</tr>
+</tbody></table>
+<h2 id='patch-code-answer_sets-id-code'>PATCH <code>/answer_sets/:id</code></h2>
+<p>Update attributes of an answer_set</p>
+
+<blockquote class="lang-specific"><p>PATCH /api/v1/answer_sets/:id</p></blockquote>
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"resolver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"root_causes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ROOT-CAUSE-1-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ROOT-CAUSE-2-UUID"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>resolved</strong><br> <em>boolean</em> <em>optional</em></td>
+<td>new answer_set status</td>
+</tr>
+<tr>
+<td><strong>resolver</strong><br> <em>string</em> <em>optional</em></td>
+<td>answer_set resolver email. Given in the payload, the answer_set will be automatically resolved even if <strong>resolved</strong> is set to <code>false</code>.</td>
+</tr>
+<tr>
+<td><strong>root_causes</strong><br> <em>array[string]</em> <em>optional</em></td>
+<td>list of root_causes to link to the answer_set. <b>It will overwrite the previous list</b>.</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-choices-id-code'>GET <code>/choices/:id</code></h2>
@@ -1520,6 +1575,65 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>question survey_language</td>
 </tr>
 </tbody></table>
+<h2 id='get-code-root_causes-id-code'>GET <code>/root_causes/:id</code></h2>
+<p>Get a single root cause</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">root_cause_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-ROOT_CAUSE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/root_causes/&lt;ROOT-CAUSE-ID&gt;"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the root cause</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-root_causes-code'>GET <code>/root_causes</code></h2>
+<p>Get all the root causes of the company</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/root_causes'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="o">---------------</span><span class="no">Filter</span><span class="o">--------------------------</span>
+<span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/root_causes?filter[name]=Delivery"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the root cause</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>return all root causes whose name contains <strong>name</strong>.</td>
+</tr>
+</tbody></table>
 <h2 id='get-code-survey_languages-id-code'>GET <code>/survey_languages/:id</code></h2>
 <p>Get a single survey_language</p>
 <pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
@@ -1922,12 +2036,12 @@ $response = curl_exec($ch);
 </thead><tbody>
 <tr>
 <td><strong>email</strong><br><em>string</em></td>
-<td><em>either email or phone number required</em></td>
+<td><em>either email or phone number or no_dispatch required</em></td>
 <td>email address to which send the survey</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong><br><em>string</em></td>
-<td><em>either email or phone number required</em></td>
+<td><em>either email or phone number or no_dispatch required</em></td>
 <td>phone number to which the survey will be send. The international format should be used (ex: +33)</td>
 </tr>
 <tr>
@@ -1937,7 +2051,7 @@ $response = curl_exec($ch);
 </tr>
 <tr>
 <td><strong>template_id</strong><br><em>string</em></td>
-<td><em>required</em></td>
+<td><em>either template_id or no_dispatch required</em></td>
 <td>id of the template</td>
 </tr>
 <tr>
@@ -1949,6 +2063,11 @@ $response = curl_exec($ch);
 <td><strong>dispatch_probability</strong><br><em>string</em></td>
 <td></td>
 <td>probability for the survey to be sent</td>
+</tr>
+<tr>
+<td><strong>no_dispatch</strong><br><em>boolean</em></td>
+<td></td>
+<td>set it to disable sending of the survey and only create an new feedback that you could dispatch by your own means</td>
 </tr>
 </tbody></table>
 <h3 id='segments'>Segments</h3>
