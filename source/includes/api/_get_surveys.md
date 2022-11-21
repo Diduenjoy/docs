@@ -19,6 +19,7 @@ __updated_at__<br>_datetime_  | survey last modification date
 __name__<br>_string_  | survey name
 __status__<br>_boolean_ | survey status ('Live','deleted','archived')
 __qr_hash__<br>_string_  | survey public hash, used with companies custom mailing systems
+__available_locales__<br>_array_ | survey's available languages (ISO-Code & language name)
 
 ### optional parameters "filters"
 
