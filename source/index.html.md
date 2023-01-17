@@ -40,6 +40,7 @@ includes:
   - api/get_stats
   - easy_methods/index
   - easy_methods/post_easy_dispatches
+  - easy_methods/post_easy_dispatches_without_validations
 
 search: true
 ---
