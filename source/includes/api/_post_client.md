@@ -4,7 +4,7 @@
 
 <blockquote class="lang-specific"><p>POST /api/v1/clients</p></blockquote>
 
-```json--
+```json
 {
   "data": {
       "type": "clients",

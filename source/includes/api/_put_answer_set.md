@@ -3,7 +3,8 @@
 Update an answer_set
 
 <blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:id</p></blockquote>
-```json--
+
+```json
 {
   "data": {
     "type": "answer_sets",

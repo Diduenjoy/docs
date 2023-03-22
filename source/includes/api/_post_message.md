@@ -3,7 +3,8 @@
 Create a message
 
 <blockquote class="lang-specific"><p>POST /api/v1/messages</p></blockquote>
-```json--
+
+```json
 {
   "data": {
     "type": "messages",
