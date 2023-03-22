@@ -38,6 +38,9 @@ includes:
   - api/get_survey
   - api/get_surveys
   - api/get_stats
+  - api/get_data_requests
+  - api/patch_data_requests
+  - api/delete_data_requests
   - easy_methods/index
   - easy_methods/post_easy_dispatches
   - easy_methods/post_easy_dispatches_without_validations
