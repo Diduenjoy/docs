@@ -38,6 +38,13 @@ includes:
   - api/get_survey
   - api/get_surveys
   - api/get_stats
+  - api/get_users
+  - api/get_user
+  - api/post_user
+  - api/patch_user
+  - api/delete_user
+  - api/get_user_roles
+  - api/get_user_role
   - api/get_data_requests
   - api/patch_data_requests
   - api/delete_data_requests
