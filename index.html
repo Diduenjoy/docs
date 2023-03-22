@@ -332,6 +332,36 @@
                   <li>
                     <a href="#get-code-stats-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/stats</code></a>
                   </li>
+                  <li>
+                    <a href="#get-code-users-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/users</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-users-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/users/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-users-code" class="toc-h2 toc-link" data-title="API V1 Reference">POST <code>/users</code></a>
+                  </li>
+                  <li>
+                    <a href="#patch-code-users-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PATCH <code>/users/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#delete-code-users-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">DELETE <code>/users/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-user_roles-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/user_roles</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-user_roles-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/user_roles/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-data_requests-data_subject-feedback_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/data_requests/:data_subject/:feedback_id</code></a>
+                  </li>
+                  <li>
+                    <a href="#patch-code-data_requests-data_subject-feedback_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">PATCH <code>/data_requests/:data_subject/:feedback_id</code></a>
+                  </li>
+                  <li>
+                    <a href="#delete-code-data_requests-data_subject-feedback_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">DELETE <code>/data_requests/:data_subject/:feedback_id</code></a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -339,6 +369,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#post-code-easy_dispatches-code" class="toc-h2 toc-link" data-title="Easy API V1 Reference">POST <code>/easy_dispatches</code></a>
+                  </li>
+                  <li>
+                    <a href="#post-code-easy_dispatches_without_validations-code" class="toc-h2 toc-link" data-title="Easy API V1 Reference">POST <code>/easy_dispatches_without_validations</code></a>
                   </li>
               </ul>
           </li>
@@ -1025,7 +1058,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create an answer_set</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
-<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1091,7 +1124,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Update an answer_set</p>
 
 <blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:id</p></blockquote>
-<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1262,7 +1295,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create a responder profile</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/clients</p></blockquote>
-<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clients"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1491,7 +1524,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create a message</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/messages</p></blockquote>
-<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"messages"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1939,7 +1972,422 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>filter on feedback answered before the specified date</td>
 </tr>
 </tbody></table>
-<h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
+<h2 id='get-code-users-code'>GET <code>/users</code></h2>
+<p>List all your users</p>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/users"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>user email</td>
+</tr>
+<tr>
+<td><strong>firstname</strong><br><em>string</em></td>
+<td>user firstname</td>
+</tr>
+<tr>
+<td><strong>lastname</strong><br><em>string</em></td>
+<td>user lastname</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>user phone number</td>
+</tr>
+<tr>
+<td><strong>user_role_type</strong><br><em>enum</em></td>
+<td>user role (admin, manager, custom)</td>
+</tr>
+<tr>
+<td><strong>saml_enabled</strong><br><em>boolean</em></td>
+<td>user use a single sign</td>
+</tr>
+<tr>
+<td><strong>custom_user_role_id</strong><br><em>string</em></td>
+<td>user custom role id (If user_role_type is custom)</td>
+</tr>
+<tr>
+<td><strong>language_id</strong><br><em>string</em></td>
+<td>user language id (default: Dashboard company language)</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash _{ segmentid: string&#124;array[string] }</em></td>
+<td>user restricted segments values</td>
+</tr>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>user creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>user last modification date</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>segments[segment-name]</strong><br><em>array</em></td>
+<td>filter users over segment value(s)</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-users-id-code'>GET <code>/users/:id</code></h2>
+<p>Get a single user</p>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">user_id</span> <span class="o">=</span> <span class="s1">'PUT-USER-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/users/</span><span class="si">#{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>user email</td>
+</tr>
+<tr>
+<td><strong>firstname</strong><br><em>string</em></td>
+<td>user firstname</td>
+</tr>
+<tr>
+<td><strong>lastname</strong><br><em>string</em></td>
+<td>user lastname</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>user phone number</td>
+</tr>
+<tr>
+<td><strong>user_role_type</strong><br><em>enum</em></td>
+<td>user role (admin, manager, custom)</td>
+</tr>
+<tr>
+<td><strong>saml_enabled</strong><br><em>boolean</em></td>
+<td>user use a single sign</td>
+</tr>
+<tr>
+<td><strong>custom_user_role_id</strong><br><em>string</em></td>
+<td>user custom role id (If user_role_type is custom)</td>
+</tr>
+<tr>
+<td><strong>language_id</strong><br><em>string</em></td>
+<td>user language id (default: Dashboard company language)</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash _{ segmentid: string&#124;array[string] }</em></td>
+<td>user restricted segments values</td>
+</tr>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>user creation date</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong><br><em>datetime</em></td>
+<td>user last modification date</td>
+</tr>
+</tbody></table>
+<h2 id='post-code-users-code'>POST <code>/users</code></h2>
+<p>Create a user</p>
+
+<blockquote class="lang-specific"><p>POST /api/v1/users</p></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhon.due@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"due"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"saml_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_role_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom_user_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8836a1ef-1419-497f-960a-ef3024b0f8d4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>user email</td>
+</tr>
+<tr>
+<td><strong>firstname</strong><br><em>string</em></td>
+<td>user firstname</td>
+</tr>
+<tr>
+<td><strong>lastname</strong><br><em>string</em></td>
+<td>user lastname</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>user phone number</td>
+</tr>
+<tr>
+<td><strong>user_role_type</strong><br><em>enum</em></td>
+<td>user role (admin, manager, custom)</td>
+</tr>
+<tr>
+<td><strong>saml_enabled</strong><br><em>boolean</em></td>
+<td>user use a single sign</td>
+</tr>
+<tr>
+<td><strong>custom_user_role_id</strong><br><em>string</em></td>
+<td>user custom role id (If user_role_type is custom)</td>
+</tr>
+<tr>
+<td><strong>language_id</strong><br><em>string</em></td>
+<td>user language id (default: Dashboard company language)</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash _{ segmentid: string&#124;array[string] }</em></td>
+<td>user restricted segments values</td>
+</tr>
+</tbody></table>
+<h2 id='patch-code-users-id-code'>PATCH <code>/users/:id</code></h2>
+<p>Update a user</p>
+
+<blockquote class="lang-specific"><p>PATCH /api/v1/users/{USER_ID}</p></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhon.due@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhon"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"due"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"saml_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_role_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom_user_role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8836a1ef-1419-497f-960a-ef3024b0f8d4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>user email</td>
+</tr>
+<tr>
+<td><strong>firstname</strong><br><em>string</em></td>
+<td>user firstname</td>
+</tr>
+<tr>
+<td><strong>lastname</strong><br><em>string</em></td>
+<td>user lastname</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>user phone number</td>
+</tr>
+<tr>
+<td><strong>user_role_type</strong><br><em>enum</em></td>
+<td>user role (admin, manager, custom)</td>
+</tr>
+<tr>
+<td><strong>saml_enabled</strong><br><em>boolean</em></td>
+<td>user use a single sign</td>
+</tr>
+<tr>
+<td><strong>custom_user_role_id</strong><br><em>string</em></td>
+<td>user custom role id (If user_role_type is custom)</td>
+</tr>
+<tr>
+<td><strong>language_id</strong><br><em>string</em></td>
+<td>user language id (default: Dashboard company language)</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash _{ segmentid: string&#124;array[string] }</em></td>
+<td>user restricted segments values</td>
+</tr>
+</tbody></table>
+<h2 id='delete-code-users-id-code'>DELETE <code>/users/:id</code></h2>
+<p>Delete a users</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">user_id</span> <span class="o">=</span> <span class="s1">'PUT-USER-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :delete</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/users/</span><span class="si">#{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h2 id='get-code-user_roles-code'>GET <code>/user_roles</code></h2>
+<p>List all your user roles</p>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/user_roles"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>user role name</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-user_roles-id-code'>GET <code>/user_roles/:id</code></h2>
+<p>Get a single user role</p>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">user_role_id</span> <span class="o">=</span> <span class="s1">'PUT-USER-ROLE-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/user_roles/</span><span class="si">#{</span><span class="n">user_role_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>user role name</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-data_requests-data_subject-feedback_id-code'>GET <code>/data_requests/:data_subject/:feedback_id</code></h2>
+<p>Returns the segments of the provided feedback, that describe the provided data subject</p>
+<h3 id='possible-data_subject-values'>Possible data_subject values</h3>
+<ul>
+<li>contractor</li>
+<li>customer</li>
+<li>employee</li>
+<li>other</li>
+<li>prospect</li>
+<li>suppliers</li>
+<li>to_be_defined</li>
+<li>trainee</li>
+<li>visitor</li>
+</ul>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">data_subject</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-DATA-SUBJECT'</span>
+<span class="n">feedback_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-FEEDBACK-ID'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/data_requests/</span><span class="si">#{</span><span class="n">data_subject</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">feedback_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>segments</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>data from segments of the provided data_subject</td>
+</tr>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>optional - present if provided data_subject corresponds to the default data_subject</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>optional - present if provided data_subject corresponds to the default data_subject</td>
+</tr>
+</tbody></table>
+<h2 id='patch-code-data_requests-data_subject-feedback_id-code'>PATCH <code>/data_requests/:data_subject/:feedback_id</code></h2>
+<p>Updates segments for the provided feedback and the provided data subject</p>
+<h3 id='possible-data_subject-values'>Possible data_subject values</h3>
+<ul>
+<li>contractor</li>
+<li>customer</li>
+<li>employee</li>
+<li>other</li>
+<li>prospect</li>
+<li>suppliers</li>
+<li>to_be_defined</li>
+<li>trainee</li>
+<li>visitor</li>
+</ul>
+
+<blockquote class="lang-specific"><p>PATCH /api/v1/data_requests/:data_subject/:feedback_id</p></blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_requests"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"segments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"contact_first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"contact_last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxx"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33606060606"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>segments</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>new data for segments of the provided data_subject</td>
+</tr>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td>optional</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td>optional</td>
+</tr>
+</tbody></table>
+<h2 id='delete-code-data_requests-data_subject-feedback_id-code'>DELETE <code>/data_requests/:data_subject/:feedback_id</code></h2>
+<p>Anonymize segments for the provided feedback and the provided data subject</p>
+<h3 id='possible-data_subject-values'>Possible data_subject values</h3>
+<ul>
+<li>contractor</li>
+<li>customer</li>
+<li>employee</li>
+<li>other</li>
+<li>prospect</li>
+<li>suppliers</li>
+<li>to_be_defined</li>
+<li>trainee</li>
+<li>visitor</li>
+</ul>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">data_subject</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-DATA-SUBJECT'</span>
+<span class="n">feedback_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-FEEDBACK-ID'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :delete</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/data_requests/</span><span class="si">#{</span><span class="n">data_subject</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="n">feedback_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h1 id='easy-api-v1-reference'>Easy API V1 Reference</h1>
 <p>Our easy API provide very simple methods to use Diduenjoy API</p>
 <h2 id='post-code-easy_dispatches-code'>POST <code>/easy_dispatches</code></h2>
 <p>Send a survey to a specified email address</p>
@@ -2000,6 +2448,156 @@ $payload = array(
 );
 
 $ch = curl_init('https://api.diduenjoy.com/api/v1/easy_dispatches');
+
+curl_setopt_array($ch, array(
+    CURLOPT_POST =&gt; TRUE,
+    CURLOPT_HTTPHEADER =&gt; array(
+        'Content-Type: application/json'
+    ),
+    CURLOPT_USERPWD =&gt; "$api_key:",
+    CURLOPT_HTTPAUTH =&gt; CURLAUTH_BASIC,
+    CURLOPT_POSTFIELDS =&gt; json_encode($payload)
+));
+
+// Send the request
+$response = curl_exec($ch);
+
+// =&gt; {
+//     "id": "DISPATCH-ID",
+//     "email": "client@example.com", // or "phone_number":"+336xxxxxxxx"
+//     "survey_id": "YOUR-SURVEY-ID-HERE",
+//     "template_id": "YOUR-TEMPLATE-ID-HERE",
+//     "segments": {
+//       "language": "EN",
+//       "scheduled_at": "2022-04-18 15:07:00",
+//       "gender": "Mister",
+//       "name": "Rick Sanchez",
+//       "interests": "Science"
+//     },
+//    "dispatch_probability": 0.5
+//   }
+</code></pre>
+<aside class="notice lang-specific"><b>segments</b>
+  <ul>
+    <li><code>language</code> and <code>scheduled_at</code> are special segments.</li>
+    <li><code>gender</code>, <code>name</code> and <code>interests</code> are user defined.</li>
+</aside>
+<h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th></th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>email</strong><br><em>string</em></td>
+<td><em>either email or phone number or no_dispatch required</em></td>
+<td>email address to which send the survey</td>
+</tr>
+<tr>
+<td><strong>phone_number</strong><br><em>string</em></td>
+<td><em>either email or phone number or no_dispatch required</em></td>
+<td>phone number to which the survey will be send. The international format should be used (ex: +33)</td>
+</tr>
+<tr>
+<td><strong>survey_id</strong><br><em>string</em></td>
+<td><em>required</em></td>
+<td>id of the survey</td>
+</tr>
+<tr>
+<td><strong>template_id</strong><br><em>string</em></td>
+<td><em>either template_id or no_dispatch required</em></td>
+<td>id of the template</td>
+</tr>
+<tr>
+<td><strong>segments</strong><br><em>hash { string: string }</em></td>
+<td></td>
+<td>custom data associated with the survey</td>
+</tr>
+<tr>
+<td><strong>dispatch_probability</strong><br><em>string</em></td>
+<td></td>
+<td>probability for the survey to be sent</td>
+</tr>
+<tr>
+<td><strong>no_dispatch</strong><br><em>boolean</em></td>
+<td></td>
+<td>set it to disable sending of the survey and only create an new feedback that you could dispatch by your own means</td>
+</tr>
+</tbody></table>
+<h3 id='segments'>Segments</h3>
+<p>All segments are dynamically created, you can name them as you want.</p>
+
+<p>There is 2 exceptions:</p>
+
+<ul>
+<li><code>language</code> : if available, force the survey language, should be a ISO 639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)</li>
+<li><code>scheduled_at</code> : schedule the dispatch, should be formated as ISO 8601 (https://en.wikipedia.org/wiki/ISO_8601)</li>
+</ul>
+<h3 id='remarks'>Remarks</h3>
+<ul>
+<li>The dispatch mode is specified by which of the parameters email or phone_number is set. One and only one of them should be specified</li>
+</ul>
+<h2 id='post-code-easy_dispatches_without_validations-code'>POST <code>/easy_dispatches_without_validations</code></h2>
+<p>Send a survey to a specified email address. In case provided parameters are not correct, no error is returned.</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :post</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/easy_dispatches_without_validations'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span><span class="p">,</span>
+  <span class="ss">headers: </span><span class="p">{</span>
+    <span class="ss">content_type: </span><span class="s1">'application/json'</span>
+  <span class="p">},</span>
+  <span class="ss">payload: </span><span class="p">{</span>
+    <span class="ss">email: </span><span class="s1">'client@example.com'</span><span class="p">,</span> <span class="c1"># or phone_number: '+336xxxxxxxx'</span>
+    <span class="ss">survey_id: </span><span class="s1">'YOUR-SURVEY-ID-HERE'</span><span class="p">,</span>
+    <span class="ss">template_id: </span><span class="s1">'YOUR-TEMPLATE-ID-HERE'</span><span class="p">,</span>
+    <span class="ss">segments: </span><span class="p">{</span>
+      <span class="ss">language: </span><span class="s1">'EN'</span><span class="p">,</span>
+      <span class="ss">scheduled_at: </span><span class="s1">'2022-04-18 15:07:00'</span><span class="p">,</span>
+      <span class="ss">gender: </span><span class="s1">'Mister'</span><span class="p">,</span>
+      <span class="ss">name: </span><span class="s1">'Rick Sanchez'</span><span class="p">,</span>
+      <span class="ss">interests: </span><span class="s1">'Science'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="ss">dispatch_probability: </span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span>
+  <span class="p">}.</span><span class="nf">to_json</span>
+
+<span class="c1"># =&gt; {</span>
+<span class="c1">#     "id": "DISPATCH-ID",</span>
+<span class="c1">#     "email": "client@example.com", # or "phone_number": "+336xxxxxxxx"</span>
+<span class="c1">#     "survey_id": "YOUR-SURVEY-ID-HERE",</span>
+<span class="c1">#     "template_id": "YOUR-TEMPLATE-ID-HERE",</span>
+<span class="c1">#     "segments": {</span>
+<span class="c1">#       "language": "EN",</span>
+<span class="c1">#       "scheduled_at": "2022-04-18 15:07:00",</span>
+<span class="c1">#       "gender": "Mister",</span>
+<span class="c1">#       "name": "Rick Sanchez",</span>
+<span class="c1">#       "interests": "Science"</span>
+<span class="c1">#     },</span>
+<span class="c1">#      "dispatch_probability": 0.5</span>
+<span class="c1">#   }</span>
+</code></pre><pre class="highlight php lang-specific php"><code>$api_key = 'YOUR-API-KEY-HERE';
+$survey_id = 'YOUR-SURVEY-ID-HERE';
+$template_id = 'YOUR-TEMPLATE-ID-HERE',
+$email = 'client@example.com'; // or $phone_number = '+336xxxxxxxx'
+$date = '2022-04-18 15:07:00';
+
+$payload = array(
+  'email' =&gt; $email, // or 'phone_number' =&gt; $phone_number
+  'survey_id' =&gt; $survey_id,
+  'template_id' =&gt; $template_id,
+  'segments' =&gt; array(
+    'language' =&gt; 'EN',
+    'scheduled_at' =&gt; $date,
+    'gender' =&gt; 'Mister',
+    'name' =&gt; 'Rick Sanchez',
+    'interests' =&gt; 'Science'
+  ),
+  'dispatch_probability' =&gt; 0.5
+);
+
+$ch = curl_init('https://api.diduenjoy.com/api/v1/easy_dispatches_without_validations');
 
 curl_setopt_array($ch, array(
     CURLOPT_POST =&gt; TRUE,
