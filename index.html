@@ -1058,7 +1058,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create an answer_set</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1124,7 +1124,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Update an answer_set</p>
 
 <blockquote class="lang-specific"><p>PUT /api/v1/answer_sets/:id</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer_sets"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1295,7 +1295,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create a responder profile</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/clients</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clients"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1524,7 +1524,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create a message</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/messages</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"messages"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1974,7 +1974,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tbody></table>
 <h2 id='get-code-users-code'>GET <code>/users</code></h2>
 <p>List all your users</p>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 <span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
   <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/users"</span><span class="p">,</span>
@@ -2045,7 +2045,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tbody></table>
 <h2 id='get-code-users-id-code'>GET <code>/users/:id</code></h2>
 <p>Get a single user</p>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 <span class="n">user_id</span> <span class="o">=</span> <span class="s1">'PUT-USER-ID-HERE'</span>
 
@@ -2108,7 +2108,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Create a user</p>
 
 <blockquote class="lang-specific"><p>POST /api/v1/users</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2169,7 +2169,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <p>Update a user</p>
 
 <blockquote class="lang-specific"><p>PATCH /api/v1/users/{USER_ID}</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"users"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2237,7 +2237,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
   <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
 </code></pre><h2 id='get-code-user_roles-code'>GET <code>/user_roles</code></h2>
 <p>List all your user roles</p>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 
 <span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
   <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/user_roles"</span><span class="p">,</span>
@@ -2333,7 +2333,7 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </ul>
 
 <blockquote class="lang-specific"><p>PATCH /api/v1/data_requests/:data_subject/:feedback_id</p></blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+<pre class="highlight json lang-specific "><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data_requests"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
