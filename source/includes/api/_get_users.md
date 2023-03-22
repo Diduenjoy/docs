@@ -3,7 +3,7 @@
 List all your users
 
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :get,

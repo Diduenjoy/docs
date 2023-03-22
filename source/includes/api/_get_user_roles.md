@@ -2,7 +2,7 @@
 
 List all your user roles
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 RestClient::Request.execute method: :get,

@@ -4,7 +4,7 @@ Create an answer_set
 
 <blockquote class="lang-specific"><p>POST /api/v1/answer_sets</p></blockquote>
 
-```json
+```json--
 {
   "data": {
     "type": "answer_sets",

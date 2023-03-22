@@ -3,7 +3,7 @@
 Get a single user
 
 
-```ruby
+```ruby--Rails
 require 'rest-client'
 
 user_id = 'PUT-USER-ID-HERE'

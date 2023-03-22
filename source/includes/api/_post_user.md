@@ -4,7 +4,7 @@ Create a user
 
 <blockquote class="lang-specific"><p>POST /api/v1/users</p></blockquote>
 
-```json
+```json--
 {
   "data": {
     "type": "users",

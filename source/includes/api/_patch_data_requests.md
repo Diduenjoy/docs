@@ -16,7 +16,7 @@ Updates segments for the provided feedback and the provided data subject
 
 <blockquote class="lang-specific"><p>PATCH /api/v1/data_requests/:data_subject/:feedback_id</p></blockquote>
 
-```json
+```json--
 {
   "data": {
     "type": "data_requests",

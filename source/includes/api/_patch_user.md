@@ -4,7 +4,7 @@ Update a user
 
 <blockquote class="lang-specific"><p>PATCH /api/v1/users/{USER_ID}</p></blockquote>
 
-```json
+```json--
 {
   "data": {
     "type": "users",
