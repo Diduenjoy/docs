@@ -321,6 +321,12 @@
                     <a href="#get-code-root_causes-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/root_causes</code></a>
                   </li>
                   <li>
+                    <a href="#get-code-action_taken-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/action_taken/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-action_taken-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/action_taken</code></a>
+                  </li>
+                  <li>
                     <a href="#get-code-survey_languages-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/survey_languages/:id</code></a>
                   </li>
                   <li>
@@ -816,6 +822,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>custom root causes associated with the answer_set</td>
 </tr>
 <tr>
+<td><strong>action_taken</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>custom action taken associated with the answer_set</td>
+</tr>
+<tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
 <td>equal &quot;true&quot; if the feedback has been set to resolved</td>
 </tr>
@@ -936,6 +946,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>root_causes</strong><br><em>hash { string: string&#124;array[string] }</em></td>
 <td>custom root causes associated with the answer_set</td>
+</tr>
+<tr>
+<td><strong>action_taken</strong><br><em>hash { string: string&#124;array[string] }</em></td>
+<td>custom action taken associated with the answer_set</td>
 </tr>
 <tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
@@ -1158,7 +1172,8 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
     </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"resolved"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"resolver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"root_causes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ROOT-CAUSE-1-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ROOT-CAUSE-2-UUID"</span><span class="p">]</span><span class="w">
+        </span><span class="s2">"root_causes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ROOT-CAUSE-1-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ROOT-CAUSE-2-UUID"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"action_taken"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ACTION-TAKEN-1-UUID"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ACTION-TAKEN-2-UUID"</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1180,6 +1195,10 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>root_causes</strong><br> <em>array[string]</em> <em>optional</em></td>
 <td>list of root_causes to link to the answer_set. <b>It will overwrite the previous list</b>.</td>
+</tr>
+<tr>
+<td><strong>action_taken</strong><br> <em>array[string]</em> <em>optional</em></td>
+<td>list of action_taken to link to the answer_set. <b>It will overwrite the previous list</b>.</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-choices-id-code'>GET <code>/choices/:id</code></h2>
@@ -1669,6 +1688,65 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>name</strong><br><em>string</em></td>
 <td>return all root causes whose name contains <strong>name</strong>.</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-action_taken-id-code'>GET <code>/action_taken/:id</code></h2>
+<p>Get a single action taken</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">action_taken_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-ACTION_TAKEN-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/action_taken/&lt;ACTION-TAKEN-ID&gt;"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the action taken</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-action_taken-code'>GET <code>/action_taken</code></h2>
+<p>Get all the action takens of the company</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/action_taken'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="o">---------------</span><span class="no">Filter</span><span class="o">--------------------------</span>
+<span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/action_taken?filter[name]=Delivery"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the action taken</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>return all action taken whose name contains <strong>name</strong>.</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-survey_languages-id-code'>GET <code>/survey_languages/:id</code></h2>
