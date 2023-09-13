@@ -26,6 +26,7 @@ __would_recommend__<br>_integer_ | responder recommendation note
 __segments__<br>_hash { string: string&#124;array[string] }_ | custom data associated with the answer_set
 __tags__<br>_hash { string: string&#124;array[string] }_ | custom tags associated with the answer_set
 __root_causes__<br>_hash { string: string&#124;array[string] }_ | custom root causes associated with the answer_set
+__action_taken__<br>_hash { string: string&#124;array[string] }_ | custom action taken associated with the answer_set
 __resolved__<br>_boolean_ | equal "true" if the feedback has been set to resolved
 __dispatch_sent_at__<br>_datetime_  | sending date of the feedback
 __completed_at__<br>_datetime_  | answer completion date
