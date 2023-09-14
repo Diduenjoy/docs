@@ -56,8 +56,8 @@ __start_sending_date__<br>_date_ | filter over answer_sets sent after the specif
 __end_sending_date__<br>_date_ | filter over answer_sets sent before the specified sending date
 __start_updated_date__<br>_date_ | filter over answer_sets updated after the specified date
 __end_updated_date__<br>_date_ | filter over answer_sets updated before the specified date
-__segments__<br>_date_ | filter over answer_sets with specific segments values, to use if you expect the query to return a large number of results
-__unique_segments__<br>_date_ | filter over answer_sets with specific segments values, to use if you expect the query to return a small number of results
+__segments__<br>_hash { string: string&#124;array[string] }_ | filter over answer_sets with specific segments values, to use if you expect the query to return a large number of results
+__unique_segments__<br>_hash { string: string&#124;array[string] }_ | filter over answer_sets with specific segments values, to use if you expect the query to return a small number of results
 
 ### relationships
 
