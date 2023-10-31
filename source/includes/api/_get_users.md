@@ -32,3 +32,4 @@ __updated_at__<br>_datetime_                                      | user last mo
 parameter          | description
 ------------- |-------------
 __segments[segment-name]__<br>_array_ | filter users over segment value(s)
+__email__<br>_string_ | filter users over the indicated emails (separated by commas)
