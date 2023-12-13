@@ -36,6 +36,7 @@ __last_resolution_date__<br>_datetime_ | date of the last resolution
 __resolution_time__<br>_integer_  | the total combined time answer_set was in the new, open, and on-hold statuses
 __full_resolution_time__<br>_integer_  | duration between answer_set creation and its most recent resolution
 __resolver_account__<br>_email_ | resolver email
+__answers__<br>_array[hash]_ | answers ex: [<br>&nbsp;{<br>&nbsp;&nbsp;"label": "Short Comment",<br>&nbsp;&nbsp;"kind": "short_text_input",<br>&nbsp;&nbsp;"translations": {"ar": "Short Comment - ar","en": "Short Comment - en"},<br>&nbsp;&nbsp;"value": "short text"<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;"label": "NPS",<br>&nbsp;&nbsp;"kind": "rating",<br>&nbsp;&nbsp;"translations":{"ar": "NPS - ar","en": "NPS - en"},<br>&nbsp;&nbsp;"value": 8,<br>&nbsp;&nbsp;"rating_scale":{"min": "1","max": "10"}<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;"label": "Multi Select",<br>&nbsp;&nbsp;"kind": "multiple_select",<br>&nbsp;&nbsp;"translations":{"ar":"Multi Select - ar","en": "Multi Select - en"},<br>&nbsp;&nbsp;"value": ["A","B","C"]<br>&nbsp;}<br>]
 
 ### relationships
 
