@@ -60,6 +60,7 @@ __start_updated_date__<br>_date_ | filter over answer_sets updated after the spe
 __end_updated_date__<br>_date_ | filter over answer_sets updated before the specified date
 __segments__<br>_hash { string: string&#124;array[string] }_ | filter over answer_sets with specific segments values, to use if you expect the query to return a large number of results
 __unique_segments__<br>_hash { string: string&#124;array[string] }_ | filter over answer_sets with specific segments values, to use if you expect the query to return a small number of results
+__comment__<br>_string_ | filter by presence or absence of a comment. Valid values: `'with', 'without'`.
 
 ### relationships
 
