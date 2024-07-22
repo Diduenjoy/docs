@@ -28,4 +28,4 @@ __auto__<br>_boolean_ | equal "true" if the feedback_tag has been automatically 
 
 relationship          | description
 ------------------------------ | -------------
-__feedback_tag_sets__  | feedback_tag feedback_tag_set
+__answer_sets__  | feedback_tag answer_set
