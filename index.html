@@ -827,11 +827,11 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 </tr>
 <tr>
 <td><strong>resolved</strong><br><em>boolean</em></td>
-<td>equal &quot;true&quot; if the feedback has been set to resolved</td>
+<td>equal &quot;true&quot; if the answer_set has been set to resolved</td>
 </tr>
 <tr>
 <td><strong>dispatch_sent_at</strong><br><em>datetime</em></td>
-<td>sending date of the feedback</td>
+<td>sending date of the answer_set</td>
 </tr>
 <tr>
 <td><strong>completed_at</strong><br><em>datetime</em></td>
@@ -865,6 +865,22 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td><strong>answers</strong><br><em>array[hash]</em></td>
 <td>answers ex: [<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;Short Comment&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;short_text_input&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;: {&quot;ar&quot;: &quot;Short Comment - ar&quot;,&quot;en&quot;: &quot;Short Comment - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: &quot;short text&quot;<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;NPS&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;rating&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;:{&quot;ar&quot;: &quot;NPS - ar&quot;,&quot;en&quot;: &quot;NPS - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: 8,<br>&nbsp;&nbsp;&quot;rating_scale&quot;:{&quot;min&quot;: &quot;1&quot;,&quot;max&quot;: &quot;10&quot;}<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;Multi Select&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;multiple_select&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;:{&quot;ar&quot;:&quot;Multi Select - ar&quot;,&quot;en&quot;: &quot;Multi Select - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: [&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]<br>&nbsp;}<br>]</td>
 </tr>
+<tr>
+<td><strong>company_language</strong><br><em>string</em></td>
+<td>language of the company</td>
+</tr>
+<tr>
+<td><strong>comment_translation</strong><br><em>string</em></td>
+<td>comment translated into company language</td>
+</tr>
+<tr>
+<td><strong>profile</strong><br><em>string</em></td>
+<td>respondent profile (&#39;detractor&#39;,&#39;passive&#39;,&#39;promoter&#39;,&#39;unknown&#39;)</td>
+</tr>
+<tr>
+<td><strong>permalink</strong><br><em>string</em></td>
+<td>link to the answer_set in the dashboard messaging section.</td>
+</tr>
 </tbody></table>
 <h3 id='relationships'>relationships</h3>
 <table><thead>
@@ -888,6 +904,14 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>choices</strong></td>
 <td>responder choices</td>
+</tr>
+<tr>
+<td><strong>answers</strong></td>
+<td>responder answers</td>
+</tr>
+<tr>
+<td><strong>feedback_tags</strong></td>
+<td>answer_set tags</td>
 </tr>
 <tr>
 <td><strong>messages</strong></td>
@@ -995,6 +1019,22 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td><strong>answers</strong><br><em>array[hash]</em></td>
 <td>answers ex: [<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;Short Comment&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;short_text_input&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;: {&quot;ar&quot;: &quot;Short Comment - ar&quot;,&quot;en&quot;: &quot;Short Comment - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: &quot;short text&quot;<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;NPS&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;rating&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;:{&quot;ar&quot;: &quot;NPS - ar&quot;,&quot;en&quot;: &quot;NPS - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: 8,<br>&nbsp;&nbsp;&quot;rating_scale&quot;:{&quot;min&quot;: &quot;1&quot;,&quot;max&quot;: &quot;10&quot;}<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;&quot;label&quot;: &quot;Multi Select&quot;,<br>&nbsp;&nbsp;&quot;kind&quot;: &quot;multiple_select&quot;,<br>&nbsp;&nbsp;&quot;translations&quot;:{&quot;ar&quot;:&quot;Multi Select - ar&quot;,&quot;en&quot;: &quot;Multi Select - en&quot;},<br>&nbsp;&nbsp;&quot;value&quot;: [&quot;A&quot;,&quot;B&quot;,&quot;C&quot;]<br>&nbsp;}<br>]</td>
 </tr>
+<tr>
+<td><strong>company_language</strong><br><em>string</em></td>
+<td>language of the company</td>
+</tr>
+<tr>
+<td><strong>comment_translation</strong><br><em>string</em></td>
+<td>comment translated into company language</td>
+</tr>
+<tr>
+<td><strong>profile</strong><br><em>string</em></td>
+<td>respondent profile (&#39;detractor&#39;,&#39;passive&#39;,&#39;promoter&#39;,&#39;unknown&#39;)</td>
+</tr>
+<tr>
+<td><strong>permalink</strong><br><em>string</em></td>
+<td>link to the answer_set in the dashboard messaging section.</td>
+</tr>
 </tbody></table>
 <h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
 <table><thead>
@@ -1082,6 +1122,14 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>choices</strong></td>
 <td>responder choices</td>
+</tr>
+<tr>
+<td><strong>answers</strong></td>
+<td>responder answers</td>
+</tr>
+<tr>
+<td><strong>feedback_tags</strong></td>
+<td>answer_set tags</td>
 </tr>
 <tr>
 <td><strong>messages</strong></td>
