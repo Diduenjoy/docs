@@ -315,6 +315,18 @@
                     <a href="#get-code-questions-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/questions/:id</code></a>
                   </li>
                   <li>
+                    <a href="#get-code-answers-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/answers/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-feedback_tags-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/feedback_tags/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-tags-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/tags/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-tags-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/tags</code></a>
+                  </li>
+                  <li>
                     <a href="#get-code-root_causes-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/root_causes/:id</code></a>
                   </li>
                   <li>
@@ -358,6 +370,12 @@
                   </li>
                   <li>
                     <a href="#get-code-user_roles-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/user_roles/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-data_logs-id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/data_logs/:id</code></a>
+                  </li>
+                  <li>
+                    <a href="#get-code-data_logs-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/data_logs</code></a>
                   </li>
                   <li>
                     <a href="#get-code-data_requests-data_subject-feedback_id-code" class="toc-h2 toc-link" data-title="API V1 Reference">GET <code>/data_requests/:data_subject/:feedback_id</code></a>
@@ -1695,6 +1713,179 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <td>question survey_language</td>
 </tr>
 </tbody></table>
+<h2 id='get-code-answers-id-code'>GET <code>/answers/:id</code></h2>
+<p>Get a single answer</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">answer_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-ANSWER-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/answers/</span><span class="si">#{</span><span class="n">answer_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>value</strong><br><em>string</em></td>
+<td>value of the answer</td>
+</tr>
+<tr>
+<td><strong>displayed_value</strong><br><em>string</em></td>
+<td>value of the answer displayed in the survey</td>
+</tr>
+<tr>
+<td><strong>label</strong><br><em>string</em></td>
+<td>label of the related question</td>
+</tr>
+<tr>
+<td><strong>step_relative_position</strong><br><em>integer</em></td>
+<td>relative position of the step in the survey</td>
+</tr>
+<tr>
+<td><strong>element_relative_position</strong><br><em>integer</em></td>
+<td>relative position of the step in the survey</td>
+</tr>
+<tr>
+<td><strong>kind</strong><br><em>string</em></td>
+<td>kind of the related question</td>
+</tr>
+<tr>
+<td><strong>new_question_id</strong><br><em>string</em></td>
+<td>id of the related question</td>
+</tr>
+<tr>
+<td><strong>localised_label</strong><br><em>string</em></td>
+<td>label of the related question translated into company language</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>answer_sets</strong></td>
+<td>answer answer_set</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-feedback_tags-id-code'>GET <code>/feedback_tags/:id</code></h2>
+<p>Get a single feedback_tag</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">feedback_tag_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-FEEDBACK_TAG-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/feedback_tags/</span><span class="si">#{</span><span class="n">feedback_tag_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>tag_name</strong><br><em>string</em></td>
+<td>name of the related tag</td>
+</tr>
+<tr>
+<td><strong>tag_id</strong><br><em>string</em></td>
+<td>id of the related tag</td>
+</tr>
+<tr>
+<td><strong>tag_kind</strong><br><em>string</em></td>
+<td>kind of the related tag (tag, root_cause, action_taken)</td>
+</tr>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>feedback_tag creation date</td>
+</tr>
+<tr>
+<td><strong>feeling</strong><br><em>string</em></td>
+<td>feedback_tag feeling (positive, neutral, negative)</td>
+</tr>
+<tr>
+<td><strong>auto</strong><br><em>boolean</em></td>
+<td>equal &quot;true&quot; if the feedback_tag has been automatically assigned</td>
+</tr>
+</tbody></table>
+<h3 id='relationships'>relationships</h3>
+<table><thead>
+<tr>
+<th>relationship</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>answer_sets</strong></td>
+<td>feedback_tag answer_set</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-tags-id-code'>GET <code>/tags/:id</code></h2>
+<p>Get a single tag</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">tag_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-TAG-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/tags/</span><span class="si">#{</span><span class="n">tag_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the tag</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-tags-code'>GET <code>/tags</code></h2>
+<p>Get all the tags of the company</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/tags'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="o">---------------</span><span class="no">Filter</span><span class="o">--------------------------</span>
+<span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/tags?filter[name]=Delivery"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>name of the tag</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>name</strong><br><em>string</em></td>
+<td>return all tags whose name contains <strong>name</strong>.</td>
+</tr>
+</tbody></table>
 <h2 id='get-code-root_causes-id-code'>GET <code>/root_causes/:id</code></h2>
 <p>Get a single root cause</p>
 <pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
@@ -2427,6 +2618,93 @@ Additionally, you <strong>SHOULD</strong> assume that they are partial views (so
 <tr>
 <td><strong>name</strong><br><em>string</em></td>
 <td>user role name</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-data_logs-id-code'>GET <code>/data_logs/:id</code></h2>
+<p>Get a single data_log</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="n">data_log_id</span> <span class="o">=</span> <span class="s1">'PUT-YOUR-DATA_LOG-ID-HERE'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/data_logs/</span><span class="si">#{</span><span class="n">data_log_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>data_id</strong><br><em>string</em></td>
+<td>id of the related data</td>
+</tr>
+<tr>
+<td><strong>data_modified</strong><br><em>string</em></td>
+<td>type of the modified data</td>
+</tr>
+<tr>
+<td><strong>operation_type</strong><br><em>string</em></td>
+<td>operation type (&#39;delete&#39;,&#39;soft_delete&#39;,&#39;restore&#39;,&#39;update_rating&#39;,&#39;solved&#39;,&#39;add_message&#39;,&#39;change_tag&#39;,&#39;rename&#39;)</td>
+</tr>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>data_log creation date</td>
+</tr>
+</tbody></table>
+<h2 id='get-code-data_logs-code'>GET <code>/data_logs</code></h2>
+<p>Get all the data_logs of the company</p>
+<pre class="highlight ruby lang-specific Rails"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s1">'https://api.diduenjoy.com/api/v1/data_logs'</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+
+<span class="o">---------------</span><span class="no">Filter</span><span class="o">--------------------------</span>
+<span class="nb">require</span> <span class="s1">'rest-client'</span>
+
+<span class="no">RestClient</span><span class="o">::</span><span class="no">Request</span><span class="p">.</span><span class="nf">execute</span> <span class="ss">method: :get</span><span class="p">,</span>
+  <span class="ss">url: </span><span class="s2">"https://api.diduenjoy.com/api/v1/data_logs?[start_date]=2023-06-05&amp;filter[end_date]=2023-07-05"</span><span class="p">,</span>
+  <span class="ss">user: </span><span class="s1">'PUT-YOUR-API-KEY-HERE'</span>
+</code></pre><h3 id='attributes'>attributes</h3>
+<table><thead>
+<tr>
+<th>attribute</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>data_id</strong><br><em>string</em></td>
+<td>id of the related data</td>
+</tr>
+<tr>
+<td><strong>data_modified</strong><br><em>string</em></td>
+<td>type of the modified data</td>
+</tr>
+<tr>
+<td><strong>operation_type</strong><br><em>string</em></td>
+<td>operation type (&#39;delete&#39;,&#39;soft_delete&#39;,&#39;restore&#39;,&#39;update_rating&#39;,&#39;solved&#39;,&#39;add_message&#39;,&#39;change_tag&#39;,&#39;rename&#39;)</td>
+</tr>
+<tr>
+<td><strong>created_at</strong><br><em>datetime</em></td>
+<td>data_log creation date</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters-quot-filter-quot'>optional parameters &quot;filter&quot;</h3>
+<table><thead>
+<tr>
+<th>parameter</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>start_date</strong><br><em>date</em></td>
+<td>filter over data_logs created after the specified date</td>
+</tr>
+<tr>
+<td><strong>end_date</strong><br><em>date</em></td>
+<td>filter over data_logs created before the specified date</td>
 </tr>
 </tbody></table>
 <h2 id='get-code-data_requests-data_subject-feedback_id-code'>GET <code>/data_requests/:data_subject/:feedback_id</code></h2>
