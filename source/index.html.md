@@ -32,6 +32,10 @@ includes:
   - api/get_message
   - api/post_message
   - api/get_question
+  - api/get_answer
+  - api/get_feedback_tag
+  - api/get_tag
+  - api/get_tags
   - api/get_root_cause
   - api/get_root_causes
   - api/get_action_taken
@@ -47,6 +51,8 @@ includes:
   - api/delete_user
   - api/get_user_roles
   - api/get_user_role
+  - api/get_data_log
+  - api/get_data_logs
   - api/get_data_requests
   - api/patch_data_requests
   - api/delete_data_requests
