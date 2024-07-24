@@ -41,7 +41,10 @@ __resolution_duration__<br>_integer_  | the total combined time answer_set was i
 __full_resolution_duration__<br>_integer_  | duration between answer_set creation and its most recent resolution
 __resolver_account__<br>_email_ | resolver email
 __answers__<br>_array[hash]_ | answers ex: [<br>&nbsp;{<br>&nbsp;&nbsp;"label": "Short Comment",<br>&nbsp;&nbsp;"kind": "short_text_input",<br>&nbsp;&nbsp;"translations": {"ar": "Short Comment - ar","en": "Short Comment - en"},<br>&nbsp;&nbsp;"value": "short text"<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;"label": "NPS",<br>&nbsp;&nbsp;"kind": "rating",<br>&nbsp;&nbsp;"translations":{"ar": "NPS - ar","en": "NPS - en"},<br>&nbsp;&nbsp;"value": 8,<br>&nbsp;&nbsp;"rating_scale":{"min": "1","max": "10"}<br>&nbsp;},<br>&nbsp;{<br>&nbsp;&nbsp;"label": "Multi Select",<br>&nbsp;&nbsp;"kind": "multiple_select",<br>&nbsp;&nbsp;"translations":{"ar":"Multi Select - ar","en": "Multi Select - en"},<br>&nbsp;&nbsp;"value": ["A","B","C"]<br>&nbsp;}<br>]
-
+__company_language__<br>_string_ | language of the company
+__comment_translation__<br>_string_ | comment translated into company language
+__profile__<br>_string_ | respondent profile ('detractor','passive','promoter','unknown')
+__permalink__<br>_string_ | link to the answer_set in the dashboard messaging section.
 
 ### optional parameters "filter"
 
@@ -70,4 +73,6 @@ __survey__  | answer_set survey
 __client__  | answer_set responder
 __survey_language__  | answer_set survey_language
 __choices__  | responder choices
+__answers__  | responder answers
+__feedback_tags__  | answer_set tags
 __messages__ | feedback messages (from client and company)
