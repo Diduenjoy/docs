@@ -46,3 +46,4 @@ __surveys__<br>_array_  | filter over feedback of the indicated surveys
 __segments__<br>_array_ | associative array of segments, where segments names are the keys and the values are the. To filter over feedbacks having the specified segments name with the corresponding values
 __start_date__<br>_date_ | filter on feedback answered after the specified date
 __end_date__<br>_date_ | filter on feedback answered before the specified date
+__with_follow_ups__<br>_boolean_ | include feedbacks with follow-up feedbacks
